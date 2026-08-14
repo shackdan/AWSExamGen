@@ -1,5 +1,15 @@
+//
+//  QuizViewModel.swift
+//  AWSExamPrep
+//
+//  Copyright (c) 2026 Dan Newton
+//  Licensed under CC BY-NC 4.0
+//  https://creativecommons.org/licenses/by-nc/4.0/
+//
+//  You may share and adapt this code for non-commercial purposes only.
+//  Attribution is required.
+//
 import Foundation
-import SwiftData
 import Observation
 
 @Observable
@@ -18,11 +28,10 @@ final class QuizViewModel {
     var percentage: Double { questions.isEmpty ? 0 : Double(score) / Double(questions.count) * 100 }
 
     // MARK: - Load questions
-    func load(certType: String?, topic: String?, limit: Int, context: ModelContext) throws {
-        var all = try QuestionBankService.shared.fetch(
-            certType: certType == "" ? nil : certType,
-            topic:    topic    == "" ? nil : topic,
-            context:  context
+    func load(certType: String?, topic: String?, limit: Int) {
+        var all = QuestionBankService.shared.questions(
+            certType: certType,
+            topic:    topic
         )
         all.shuffle()
         questions = Array(all.prefix(limit))
@@ -31,11 +40,10 @@ final class QuizViewModel {
 
     // MARK: - Answer
 
-    // For single-select: select and immediately submit.
-    func selectAndSubmit(_ letter: String) {
+    // For single-select: highlight the choice without submitting yet.
+    func selectOption(_ letter: String) {
         guard !hasAnswered else { return }
         selectedAnswers = [letter]
-        finalize()
     }
 
     // For multi-select: toggle the given letter on/off.
@@ -48,7 +56,7 @@ final class QuizViewModel {
         }
     }
 
-    // Finalize current answer (used by Submit button for multi-select).
+    // Finalize current answer (used by Submit button for all questions).
     func submitAnswer() {
         guard !hasAnswered, !selectedAnswers.isEmpty else { return }
         finalize()

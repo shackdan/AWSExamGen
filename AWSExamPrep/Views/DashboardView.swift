@@ -1,9 +1,20 @@
+//
+//  DashboardView.swift
+//  AWSExamPrep
+//
+//  Copyright (c) 2026 Dan Newton
+//  Licensed under CC BY-NC 4.0
+//  https://creativecommons.org/licenses/by-nc/4.0/
+//
+//  You may share and adapt this code for non-commercial purposes only.
+//  Attribution is required.
+//
 import SwiftUI
-import SwiftData
 
 struct DashboardView: View {
-    @Query private var allQuestions: [Question]
     @State private var showSettings = false
+
+    private var allQuestions: [Question] { QuestionBankService.shared.allQuestions }
 
     var certCounts: [(cert: String, count: Int)] {
         Dictionary(grouping: allQuestions, by: \.certType)

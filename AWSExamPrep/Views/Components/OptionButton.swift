@@ -1,3 +1,14 @@
+//
+//  OptionButton.swift
+//  AWSExamPrep
+//
+//  Copyright (c) 2026 Dan Newton
+//  Licensed under CC BY-NC 4.0
+//  https://creativecommons.org/licenses/by-nc/4.0/
+//
+//  You may share and adapt this code for non-commercial purposes only.
+//  Attribution is required.
+//
 import SwiftUI
 
 enum OptionState {
@@ -5,11 +16,12 @@ enum OptionState {
 }
 
 struct OptionButton: View {
-    let option:   String
-    let letter:   String
-    let state:    OptionState
-    let disabled: Bool
-    let action:   () -> Void
+    let option:        String
+    let letter:        String
+    let state:         OptionState
+    var isMultiSelect: Bool = false
+    let disabled:      Bool
+    let action:        () -> Void
 
     var body: some View {
         Button(action: action) {
@@ -37,15 +49,15 @@ struct OptionButton: View {
                 case .unanswered:
                     EmptyView()
                 case .selected:
-                    Image(systemName: "checkmark.circle")
+                    Image(systemName: isMultiSelect ? "checkmark.square.fill" : "checkmark.circle.fill")
                         .foregroundStyle(.orange)
                         .font(.title3)
                 case .correct:
-                    Image(systemName: "checkmark.circle.fill")
+                    Image(systemName: isMultiSelect ? "checkmark.square.fill" : "checkmark.circle.fill")
                         .foregroundStyle(.green)
                         .font(.title3)
                 case .incorrect:
-                    Image(systemName: "xmark.circle.fill")
+                    Image(systemName: isMultiSelect ? "xmark.square.fill" : "xmark.circle.fill")
                         .foregroundStyle(.red)
                         .font(.title3)
                 }

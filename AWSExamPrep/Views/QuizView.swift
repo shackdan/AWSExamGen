@@ -1,8 +1,17 @@
+//
+//  QuizView.swift
+//  AWSExamPrep
+//
+//  Copyright (c) 2026 Dan Newton
+//  Licensed under CC BY-NC 4.0
+//  https://creativecommons.org/licenses/by-nc/4.0/
+//
+//  You may share and adapt this code for non-commercial purposes only.
+//  Attribution is required.
+//
 import SwiftUI
-import SwiftData
 
 struct QuizView: View {
-    @Environment(\.modelContext) private var context
     @State private var vm = QuizViewModel()
     @State private var certFilter  = ""
     @State private var topicFilter = ""
@@ -10,10 +19,9 @@ struct QuizView: View {
     @State private var quizStarted = false
     @State private var loadError: String? = nil
 
-    @Query private var allQuestions: [Question]
-
-    var uniqueCerts:  [String] { Array(Set(allQuestions.map(\.certType))).sorted() }
-    var uniqueTopics: [String] { Array(Set(allQuestions.map(\.topic))).sorted() }
+    private var bank: QuestionBankService { QuestionBankService.shared }
+    var uniqueCerts:  [String] { bank.availableCerts }
+    var uniqueTopics: [String] { bank.availableTopics }
 
     var body: some View {
         NavigationStack {
@@ -62,15 +70,15 @@ struct QuizView: View {
                 }
                 .listRowBackground(Color.orange)
                 .foregroundStyle(.white)
-                .disabled(allQuestions.isEmpty)
+                .disabled(bank.allQuestions.isEmpty)
             }
 
-            if allQuestions.isEmpty {
+            if bank.allQuestions.isEmpty {
                 Section {
                     ContentUnavailableView(
                         "No Questions Yet",
                         systemImage: "questionmark.folder",
-                        description: Text("Add .md question files to the question_bank folder in Xcode and rebuild.")
+                        description: Text("Add .json files to the question_bank folder in Xcode and rebuild.")
                     )
                 }
             }
@@ -120,9 +128,13 @@ struct QuizView: View {
                             .font(.title3.weight(.semibold))
                             .fixedSize(horizontal: false, vertical: true)
 
-                        // Multi-select hint
+                        // Question type hint
                         if q.isMultiSelect {
-                            Label("Select all correct answers, then tap Submit", systemImage: "checkmark.square")
+                            Label("Select all that apply, then tap Submit", systemImage: "checkmark.square")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        } else {
+                            Label("Choose one answer, then tap Submit", systemImage: "circle")
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
@@ -135,19 +147,20 @@ struct QuizView: View {
                                     option: option,
                                     letter: letter,
                                     state: optionState(letter: letter, question: q),
+                                    isMultiSelect: q.isMultiSelect,
                                     disabled: vm.hasAnswered
                                 ) {
                                     if q.isMultiSelect {
                                         vm.toggleOption(letter)
                                     } else {
-                                        vm.selectAndSubmit(letter)
+                                        vm.selectOption(letter)
                                     }
                                 }
                             }
                         }
 
-                        // Submit button (multi-select only, before answering)
-                        if q.isMultiSelect && !vm.hasAnswered {
+                        // Submit button (all question types, before answering)
+                        if !vm.hasAnswered {
                             Button {
                                 withAnimation { vm.submitAnswer() }
                             } label: {
@@ -283,21 +296,16 @@ struct QuizView: View {
 
     // MARK: - Helpers
     func startQuiz() {
-        do {
-            try vm.load(
-                certType: certFilter,
-                topic: topicFilter,
-                limit: limit,
-                context: context
-            )
-            if vm.questions.isEmpty {
-                loadError = "No questions match your filters."
-            } else {
-                loadError = nil
-                quizStarted = true
-            }
-        } catch {
-            loadError = error.localizedDescription
+        vm.load(
+            certType: certFilter.isEmpty ? nil : certFilter,
+            topic:    topicFilter.isEmpty ? nil : topicFilter,
+            limit:    limit
+        )
+        if vm.questions.isEmpty {
+            loadError = "No questions match your filters."
+        } else {
+            loadError = nil
+            quizStarted = true
         }
     }
 

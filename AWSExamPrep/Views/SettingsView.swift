@@ -1,18 +1,24 @@
+//
+//  SettingsView.swift
+//  AWSExamPrep
+//
+//  Copyright (c) 2026 Dan Newton
+//  Licensed under CC BY-NC 4.0
+//  https://creativecommons.org/licenses/by-nc/4.0/
+//
+//  You may share and adapt this code for non-commercial purposes only.
+//  Attribution is required.
+//
 import SwiftUI
-import SwiftData
 
 struct SettingsView: View {
-    @Environment(\.dismiss)      private var dismiss
-    @Environment(\.modelContext) private var context
+    @Environment(\.dismiss) private var dismiss
 
-    @State private var showClearAlert = false
-
-    @Query private var allQuestions: [Question]
+    private var allQuestions: [Question] { QuestionBankService.shared.allQuestions }
 
     var body: some View {
         NavigationStack {
             Form {
-                // Question bank management
                 Section {
                     HStack {
                         Label("Questions in bank", systemImage: "doc.text.fill")
@@ -20,24 +26,17 @@ struct SettingsView: View {
                         Text("\(allQuestions.count)")
                             .foregroundStyle(.secondary)
                     }
-                    Button(role: .destructive) {
-                        showClearAlert = true
-                    } label: {
-                        Label("Clear Question Bank", systemImage: "trash")
-                    }
-                    .disabled(allQuestions.isEmpty)
                 } header: { Text("Question Bank") }
                   footer: {
-                    Text("Add .md question files to the question_bank folder in Xcode, then rebuild to import new questions. Clearing the bank resets imported file tracking.")
+                    Text("Add .json files to the question_bank folder in Xcode and rebuild to load new questions.")
                 }
 
-                // About
                 Section {
                     LabeledContent("Version", value: appVersion)
-                    LabeledContent("Format", value: "Markdown (.md)")
+                    LabeledContent("Format", value: "JSON (.json)")
                 } header: { Text("About") }
                   footer: {
-                    Text("AWS Exam Prep · Practice questions loaded from local markdown files.")
+                    Text("AWS Exam Prep · Practice questions loaded from bundled JSON files.")
                 }
             }
             .navigationTitle("Settings")
@@ -47,12 +46,6 @@ struct SettingsView: View {
                     Button("Done") { dismiss() }
                 }
             }
-            .alert("Clear all questions?", isPresented: $showClearAlert) {
-                Button("Delete All", role: .destructive) { clearBank() }
-                Button("Cancel", role: .cancel) {}
-            } message: {
-                Text("This permanently removes every question from your bank and resets import tracking. Rebuild the app to reimport from .md files.")
-            }
         }
     }
 
@@ -60,13 +53,5 @@ struct SettingsView: View {
         let v = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0"
         let b = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "1"
         return "\(v) (\(b))"
-    }
-
-    private func clearBank() {
-        for q in allQuestions {
-            try? QuestionBankService.shared.delete(q, from: context)
-        }
-        // Reset imported file tracking so files are re-imported on next launch
-        UserDefaults.standard.removeObject(forKey: "imported_question_bank_files")
     }
 }

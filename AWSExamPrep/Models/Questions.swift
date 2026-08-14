@@ -1,3 +1,15 @@
+//
+//  Questions.swift
+//  AWSExamPrep
+//
+//  Copyright (c) 2026 Dan Newton
+//  Licensed under CC BY-NC 4.0
+//  https://creativecommons.org/licenses/by-nc/4.0/
+//
+//  You may share and adapt this code for non-commercial purposes only.
+//  Attribution is required.
+//
+
 import Foundation
 
 struct Question: Identifiable {
@@ -61,7 +73,8 @@ struct QuizResult {
 let certTypes = [
     "SAA-C03", "DVA-C02", "SOA-C02",
     "SAP-C02", "DOP-C02", "CLF-C02",
-    "ANS-C01", "MLS-C01", "AIF-C01"
+    "ANS-C01", "MLS-C01", "MLA-C01",
+    "AIF-C01", "DEA-C01", "SCS-C02", "PAS-C01"
 ]
 
 let topics = [

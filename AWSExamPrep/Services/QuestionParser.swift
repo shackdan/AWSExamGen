@@ -1,3 +1,14 @@
+//
+//  QuestionParser.swift
+//  AWSExamPrep
+//
+//  Copyright (c) 2026 Dan Newton
+//  Licensed under CC BY-NC 4.0
+//  https://creativecommons.org/licenses/by-nc/4.0/
+//
+//  You may share and adapt this code for non-commercial purposes only.
+//  Attribution is required.
+//
 import Foundation
 
 enum MarkdownQuestionParser {
@@ -7,6 +18,87 @@ enum MarkdownQuestionParser {
     static func parse(fileURL: URL) -> [Question] {
         guard let content = try? String(contentsOf: fileURL, encoding: .utf8) else { return [] }
         return parse(markdown: content, filename: fileURL.deletingPathExtension().lastPathComponent)
+    }
+
+    // MARK: - JSON parsing
+
+    static func parseJSON(fileURL: URL) -> [Question] {
+        guard let data = try? Data(contentsOf: fileURL),
+              !data.isEmpty,
+              data.first != 0 else { return [] }
+
+        let filename = fileURL.deletingPathExtension().lastPathComponent
+        let fileCertType = inferCertType(from: filename)
+
+        // Try new format (object with metadata + questions array) first
+        if let file = try? JSONDecoder().decode(NewFormatFile.self, from: data) {
+            let certType = file.metadata?.cert_code ?? fileCertType
+            let questions = file.questions.compactMap { r -> Question? in
+                let answer = r.correct_answers
+                    .map { $0.trimmingCharacters(in: .whitespaces) }
+                    .filter { ["A", "B", "C", "D"].contains($0) }
+                    .joined(separator: " and ")
+                guard !r.question_text.isEmpty, r.options.count >= 2, !answer.isEmpty else { return nil }
+                return Question(
+                    questionText: r.question_text,
+                    options: r.options,
+                    correctAnswer: answer,
+                    explanation: r.explanation,
+                    certType: r.cert_code ?? certType,
+                    topic: r.domain ?? "General",
+                    referenceURL: r.source_url
+                )
+            }
+            return deduplicate(questions)
+        }
+
+        // Fall back to old flat-array format
+        guard let rawQuestions = try? JSONDecoder().decode([OldFormatQuestion].self, from: data) else { return [] }
+        let questions = rawQuestions.compactMap { r -> Question? in
+            let answer = normalizeAnswer(r.correct_answer)
+            guard !r.question.isEmpty, r.options.count >= 2, !answer.isEmpty else { return nil }
+            return Question(
+                questionText: r.question,
+                options: r.options,
+                correctAnswer: answer,
+                explanation: r.explanation,
+                certType: r.cert_type ?? fileCertType,
+                topic: r.topic ?? "General",
+                referenceURL: r.reference_url
+            )
+        }
+        return deduplicate(questions)
+    }
+
+    // New format: { metadata: {...}, questions: [...] }
+    private struct NewFormatFile: Decodable {
+        let metadata: NewFormatMetadata?
+        let questions: [NewFormatQuestion]
+
+        struct NewFormatMetadata: Decodable {
+            let cert_code: String?
+        }
+
+        struct NewFormatQuestion: Decodable {
+            let question_text: String
+            let options: [String]
+            let correct_answers: [String]
+            let explanation: String
+            let cert_code: String?
+            let domain: String?
+            let source_url: String?
+        }
+    }
+
+    // Old format: top-level array
+    private struct OldFormatQuestion: Decodable {
+        let question: String
+        let options: [String]
+        let correct_answer: String
+        let explanation: String
+        let cert_type: String?
+        let topic: String?
+        let reference_url: String?
     }
 
     static func parse(markdown: String, filename: String = "") -> [Question] {
@@ -66,9 +158,14 @@ enum MarkdownQuestionParser {
             "soa-c02": "SOA-C02", "soa_c02": "SOA-C02",
             "dop-c02": "DOP-C02", "dop_c02": "DOP-C02",
             "ans-c01": "ANS-C01", "ans_c01": "ANS-C01",
-            "mls-c01": "MLS-C01", "mls_c01": "MLS-C01"
+            "aif-c01": "AIF-C01", "aif_c01": "AIF-C01",
+            "mls-c01": "MLS-C01", "mls_c01": "MLS-C01",
+            "mla-c01": "MLA-C01", "mla_c01": "MLA-C01",
+            "dea-c01": "DEA-C01", "dea_c01": "DEA-C01",
+            "scs-c02": "SCS-C02", "scs_c02": "SCS-C02",
+            "pas-c01": "PAS-C01", "pas_c01": "PAS-C01"
         ]
-        return map.first(where: { lc.contains($0.key) })?.value ?? "SAP-C02"
+        return map.first(where: { lc.contains($0.key) })?.value ?? "SAA-C03"
     }
 
     // MARK: - Block parsing
