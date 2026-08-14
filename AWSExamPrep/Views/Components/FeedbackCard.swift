@@ -24,9 +24,8 @@ struct FeedbackCard: View {
 
             Divider()
 
-            Text(explanation)
+            Text(linkedExplanation)
                 .font(.subheadline)
-                .foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
 
             if let urlString = referenceURL, let url = URL(string: urlString) {
@@ -49,5 +48,28 @@ struct FeedbackCard: View {
                     lineWidth: 1.5
                 )
         )
+    }
+
+    // Builds an AttributedString with URLs auto-detected and made tappable.
+    private var linkedExplanation: AttributedString {
+        var attributed = AttributedString(explanation)
+        attributed.foregroundColor = .secondary
+
+        let detector = try? NSDataDetector(
+            types: NSTextCheckingResult.CheckingType.link.rawValue
+        )
+        let matches = detector?.matches(
+            in: explanation,
+            range: NSRange(explanation.startIndex..., in: explanation)
+        ) ?? []
+
+        for match in matches {
+            guard let url = match.url,
+                  let range = Range(match.range, in: explanation),
+                  let attrRange = Range(range, in: attributed) else { continue }
+            attributed[attrRange].link = url
+            attributed[attrRange].foregroundColor = .blue
+        }
+        return attributed
     }
 }

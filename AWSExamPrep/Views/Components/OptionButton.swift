@@ -1,7 +1,7 @@
 import SwiftUI
 
 enum OptionState {
-    case unanswered, correct, incorrect
+    case unanswered, selected, correct, incorrect
 }
 
 struct OptionButton: View {
@@ -33,11 +33,20 @@ struct OptionButton: View {
                 Spacer()
 
                 // State icon
-                if state != .unanswered {
-                    Image(systemName: state == .correct
-                          ? "checkmark.circle.fill"
-                          : "xmark.circle.fill")
-                        .foregroundStyle(state == .correct ? .green : .red)
+                switch state {
+                case .unanswered:
+                    EmptyView()
+                case .selected:
+                    Image(systemName: "checkmark.circle")
+                        .foregroundStyle(.orange)
+                        .font(.title3)
+                case .correct:
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundStyle(.green)
+                        .font(.title3)
+                case .incorrect:
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(.red)
                         .font(.title3)
                 }
             }
@@ -58,6 +67,7 @@ struct OptionButton: View {
     private var rowBackground: Color {
         switch state {
         case .unanswered: return Color(.secondarySystemBackground)
+        case .selected:   return .orange.opacity(0.08)
         case .correct:    return .green.opacity(0.1)
         case .incorrect:  return .red.opacity(0.1)
         }
@@ -66,6 +76,7 @@ struct OptionButton: View {
     private var borderColor: Color {
         switch state {
         case .unanswered: return .clear
+        case .selected:   return .orange
         case .correct:    return .green
         case .incorrect:  return .red
         }
@@ -74,6 +85,7 @@ struct OptionButton: View {
     private var badgeBackground: Color {
         switch state {
         case .unanswered: return .orange.opacity(0.15)
+        case .selected:   return .orange
         case .correct:    return .green
         case .incorrect:  return .red
         }
@@ -82,15 +94,15 @@ struct OptionButton: View {
     private var badgeForeground: Color {
         switch state {
         case .unanswered: return .orange
-        case .correct, .incorrect: return .white
+        case .selected, .correct, .incorrect: return .white
         }
     }
 
     private var textColor: Color {
         switch state {
-        case .unanswered: return .primary
-        case .correct:    return .green
-        case .incorrect:  return .red
+        case .unanswered, .selected: return .primary
+        case .correct:               return .green
+        case .incorrect:             return .red
         }
     }
 }

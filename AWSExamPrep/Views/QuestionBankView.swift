@@ -1,18 +1,13 @@
 import SwiftUI
-import SwiftData
 
 struct QuestionBankView: View {
-    @Environment(\.modelContext) private var context
-    @Query(sort: \Question.createdAt, order: .reverse) private var allQuestions: [Question]
-
     @State private var certFilter  = ""
     @State private var topicFilter = ""
     @State private var searchText  = ""
-    @State private var showDeleteConfirm = false
-    @State private var questionToDelete: Question? = nil
 
-    var uniqueCerts:  [String] { Array(Set(allQuestions.map(\.certType))).sorted() }
-    var uniqueTopics: [String] { Array(Set(allQuestions.map(\.topic))).sorted() }
+    private var allQuestions: [Question] { QuestionBankService.shared.allQuestions }
+    var uniqueCerts:  [String] { QuestionBankService.shared.availableCerts }
+    var uniqueTopics: [String] { QuestionBankService.shared.availableTopics }
 
     var filtered: [Question] {
         allQuestions.filter { q in
@@ -31,7 +26,7 @@ struct QuestionBankView: View {
                     ContentUnavailableView(
                         "No Questions Yet",
                         systemImage: "archivebox",
-                        description: Text("Generate questions and save them to your bank.")
+                        description: Text("Add .json files to the question_bank folder in Xcode and rebuild.")
                     )
                 } else {
                     List {
@@ -82,14 +77,6 @@ struct QuestionBankView: View {
                         // Questions
                         ForEach(filtered) { q in
                             BankQuestionRow(question: q)
-                                .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                                    Button(role: .destructive) {
-                                        questionToDelete = q
-                                        showDeleteConfirm = true
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
-                                    }
-                                }
                         }
                     }
                     .searchable(text: $searchText, prompt: "Search questions…")
@@ -98,18 +85,6 @@ struct QuestionBankView: View {
             }
             .navigationTitle("Question Bank")
             .navigationBarTitleDisplayMode(.large)
-            .confirmationDialog(
-                "Delete this question?",
-                isPresented: $showDeleteConfirm,
-                titleVisibility: .visible
-            ) {
-                Button("Delete", role: .destructive) {
-                    if let q = questionToDelete {
-                        try? QuestionBankService.shared.delete(q, from: context)
-                    }
-                }
-                Button("Cancel", role: .cancel) {}
-            }
         }
     }
 }
@@ -139,6 +114,14 @@ struct BankQuestionRow: View {
                                 .background(Color.purple.opacity(0.12))
                                 .foregroundStyle(.purple)
                                 .clipShape(Capsule())
+                            if question.isMultiSelect {
+                                Text("Multi")
+                                    .font(.caption2.bold())
+                                    .padding(.horizontal, 6).padding(.vertical, 2)
+                                    .background(Color.orange.opacity(0.12))
+                                    .foregroundStyle(.orange)
+                                    .clipShape(Capsule())
+                            }
                         }
                         Text(question.questionText)
                             .font(.subheadline)
@@ -156,7 +139,7 @@ struct BankQuestionRow: View {
             if expanded {
                 VStack(alignment: .leading, spacing: 6) {
                     ForEach(question.options, id: \.self) { opt in
-                        let isCorrect = opt.hasPrefix(question.correctAnswer)
+                        let isCorrect = question.isCorrectOption(String(opt.prefix(1)))
                         HStack(spacing: 8) {
                             Image(systemName: isCorrect
                                   ? "checkmark.circle.fill"

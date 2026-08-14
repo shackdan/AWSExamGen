@@ -22,7 +22,7 @@ struct DashboardView: View {
                             .font(.system(size: 56))
                         Text("AWS Exam Prep")
                             .font(.largeTitle.bold())
-                        Text("AI-powered questions · On-device Neural Engine")
+                        Text("Practice questions from your question bank")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
@@ -52,10 +52,6 @@ struct DashboardView: View {
                     }
                     .padding(.horizontal)
 
-                    // Model status card
-                    ModelStatusCard()
-                        .padding(.horizontal)
-
                     // Cert breakdown
                     if !certCounts.isEmpty {
                         VStack(alignment: .leading, spacing: 14) {
@@ -77,32 +73,20 @@ struct DashboardView: View {
                         .padding(.horizontal)
                     }
 
-                    // Quick action cards
+                    // Quick action
                     VStack(alignment: .leading, spacing: 14) {
                         Text("Get Started")
                             .font(.headline)
 
-                        HStack(spacing: 12) {
-                            NavigationLink {
-                                GenerateView()
-                            } label: {
-                                QuickActionCard(
-                                    icon: "sparkles",
-                                    title: "Generate",
-                                    subtitle: "Create new questions with AI",
-                                    color: .orange
-                                )
-                            }
-                            NavigationLink {
-                                QuizView()
-                            } label: {
-                                QuickActionCard(
-                                    icon: "list.bullet.clipboard.fill",
-                                    title: "Quiz",
-                                    subtitle: "Test your knowledge",
-                                    color: .blue
-                                )
-                            }
+                        NavigationLink {
+                            QuizView()
+                        } label: {
+                            QuickActionCard(
+                                icon: "list.bullet.clipboard.fill",
+                                title: "Quiz",
+                                subtitle: "Test your knowledge",
+                                color: .blue
+                            )
                         }
                     }
                     .padding(.horizontal)
@@ -214,43 +198,5 @@ struct QuickActionCard: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(.regularMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 16))
-    }
-}
-
-struct ModelStatusCard: View {
-    private let llm = LLMService.shared
-
-    var body: some View {
-        HStack(spacing: 14) {
-            Image(systemName: llm.loadedModelName != nil
-                  ? "brain.head.profile"
-                  : "cloud.fill")
-                .font(.title2)
-                .foregroundStyle(llm.loadedModelName != nil ? .purple : .blue)
-                .padding(10)
-                .background(
-                    (llm.loadedModelName != nil ? Color.purple : Color.blue).opacity(0.12)
-                )
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-
-            VStack(alignment: .leading, spacing: 3) {
-                Text(llm.loadedModelName ?? "OpenAI GPT-4o-mini")
-                    .font(.subheadline.bold())
-                Text(llm.loadedModelName != nil
-                     ? "On-device · Neural Engine · Private"
-                     : "Cloud API · Requires internet & API key")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-
-            Spacer()
-
-            Circle()
-                .fill(llm.loadedModelName != nil ? Color.green : Color.blue)
-                .frame(width: 10, height: 10)
-        }
-        .padding()
-        .background(.regularMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 14))
     }
 }

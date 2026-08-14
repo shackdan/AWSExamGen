@@ -70,7 +70,7 @@ struct QuizView: View {
                     ContentUnavailableView(
                         "No Questions Yet",
                         systemImage: "questionmark.folder",
-                        description: Text("Go to Generate to create questions first.")
+                        description: Text("Add .md question files to the question_bank folder in Xcode and rebuild.")
                     )
                 }
             }
@@ -81,7 +81,7 @@ struct QuizView: View {
     // MARK: - Active Quiz
     var quizActiveView: some View {
         VStack(spacing: 0) {
-            // Progress
+            // Progress bar
             VStack(spacing: 6) {
                 HStack {
                     Text("Question \(vm.currentIndex + 1) of \(vm.questions.count)")
@@ -99,7 +99,7 @@ struct QuizView: View {
             if let q = vm.current {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 20) {
-                        // Badges
+                        // Cert / topic badges
                         HStack {
                             Text(q.certType)
                                 .font(.caption.bold())
@@ -114,10 +114,19 @@ struct QuizView: View {
                                 .foregroundStyle(.purple)
                                 .clipShape(Capsule())
                         }
+
                         // Question text
                         Text(q.questionText)
                             .font(.title3.weight(.semibold))
                             .fixedSize(horizontal: false, vertical: true)
+
+                        // Multi-select hint
+                        if q.isMultiSelect {
+                            Label("Select all correct answers, then tap Submit", systemImage: "checkmark.square")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+
                         // Options
                         VStack(spacing: 12) {
                             ForEach(q.options, id: \.self) { option in
@@ -128,11 +137,34 @@ struct QuizView: View {
                                     state: optionState(letter: letter, question: q),
                                     disabled: vm.hasAnswered
                                 ) {
-                                    vm.submitAnswer(letter)
+                                    if q.isMultiSelect {
+                                        vm.toggleOption(letter)
+                                    } else {
+                                        vm.selectAndSubmit(letter)
+                                    }
                                 }
                             }
                         }
-                        // Feedback
+
+                        // Submit button (multi-select only, before answering)
+                        if q.isMultiSelect && !vm.hasAnswered {
+                            Button {
+                                withAnimation { vm.submitAnswer() }
+                            } label: {
+                                HStack {
+                                    Spacer()
+                                    Text("Submit Answer").bold()
+                                    Spacer()
+                                }
+                                .padding()
+                                .background(vm.selectedAnswers.isEmpty ? Color(.systemGray4) : Color.orange)
+                                .foregroundStyle(.white)
+                                .clipShape(RoundedRectangle(cornerRadius: 14))
+                            }
+                            .disabled(vm.selectedAnswers.isEmpty)
+                        }
+
+                        // Feedback + Next
                         if vm.hasAnswered {
                             FeedbackCard(
                                 isCorrect: vm.results.last?.isCorrect ?? false,
@@ -203,6 +235,7 @@ struct QuizView: View {
                 .frame(maxWidth: .infinity)
                 .background(.regularMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
+
                 // Action buttons
                 VStack(spacing: 12) {
                     Button {
@@ -231,6 +264,7 @@ struct QuizView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 14))
                     }
                 }
+
                 // Review answers
                 VStack(alignment: .leading, spacing: 12) {
                     Text("Review Answers")
@@ -268,9 +302,11 @@ struct QuizView: View {
     }
 
     func optionState(letter: String, question: Question) -> OptionState {
-        guard vm.hasAnswered else { return .unanswered }
-        if letter == question.correctAnswer { return .correct }
-        if letter == vm.selectedAnswer      { return .incorrect }
-        return .unanswered
+        if vm.hasAnswered {
+            if question.isCorrectOption(letter) { return .correct }
+            if vm.selectedAnswers.contains(letter) { return .incorrect }
+            return .unanswered
+        }
+        return vm.selectedAnswers.contains(letter) ? .selected : .unanswered
     }
 }

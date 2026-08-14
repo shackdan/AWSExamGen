@@ -8,7 +8,7 @@ final class QuizViewModel {
     var questions: [Question] = []
     var results:   [QuizResult] = []
     var currentIndex = 0
-    var selectedAnswer: String? = nil
+    var selectedAnswers: Set<String> = []
     var hasAnswered = false
     var isFinished = false
 
@@ -30,11 +30,34 @@ final class QuizViewModel {
     }
 
     // MARK: - Answer
-    func submitAnswer(_ letter: String) {
-        guard !hasAnswered, let q = current else { return }
-        selectedAnswer = letter
+
+    // For single-select: select and immediately submit.
+    func selectAndSubmit(_ letter: String) {
+        guard !hasAnswered else { return }
+        selectedAnswers = [letter]
+        finalize()
+    }
+
+    // For multi-select: toggle the given letter on/off.
+    func toggleOption(_ letter: String) {
+        guard !hasAnswered else { return }
+        if selectedAnswers.contains(letter) {
+            selectedAnswers.remove(letter)
+        } else {
+            selectedAnswers.insert(letter)
+        }
+    }
+
+    // Finalize current answer (used by Submit button for multi-select).
+    func submitAnswer() {
+        guard !hasAnswered, !selectedAnswers.isEmpty else { return }
+        finalize()
+    }
+
+    private func finalize() {
+        guard let q = current else { return }
         hasAnswered = true
-        results.append(QuizResult(question: q, userAnswer: letter))
+        results.append(QuizResult(question: q, userAnswers: Array(selectedAnswers).sorted()))
     }
 
     func next() {
@@ -42,23 +65,23 @@ final class QuizViewModel {
             isFinished = true
         } else {
             currentIndex += 1
-            selectedAnswer = nil
+            selectedAnswers = []
             hasAnswered = false
         }
     }
 
     func reset() {
-        currentIndex  = 0
-        results       = []
-        selectedAnswer = nil
-        hasAnswered   = false
-        isFinished    = false
+        currentIndex   = 0
+        results        = []
+        selectedAnswers = []
+        hasAnswered    = false
+        isFinished     = false
     }
 
     // MARK: - Result grade
     var grade: (icon: String, title: String, color: String) {
         switch percentage {
-        case 90...:  return ("🏆", "Outstanding!",         "correct")
+        case 90...:   return ("🏆", "Outstanding!",        "correct")
         case 80..<90: return ("🎉", "Excellent Work!",     "correct")
         case 70..<80: return ("✅", "Good Job — Passed!",  "correct")
         default:      return ("📚", "Keep Studying!",      "incorrect")

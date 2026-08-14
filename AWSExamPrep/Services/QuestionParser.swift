@@ -1,46 +1,197 @@
 import Foundation
 
-enum QuestionParser {
+enum MarkdownQuestionParser {
 
-    // Parses raw JSON string from either local or cloud model output
-    static func parse(_ raw: String, certType: String, topic: String) throws -> [Question] {
+    // MARK: - Public API
 
-        // Strip markdown code fences if model wraps output in ```json ... ```
-        let cleaned = raw
-            .replacingOccurrences(of: "```json", with: "")
-            .replacingOccurrences(of: "```",     with: "")
-            .trimmingCharacters(in: .whitespacesAndNewlines)
+    static func parse(fileURL: URL) -> [Question] {
+        guard let content = try? String(contentsOf: fileURL, encoding: .utf8) else { return [] }
+        return parse(markdown: content, filename: fileURL.deletingPathExtension().lastPathComponent)
+    }
 
-        guard let data = cleaned.data(using: .utf8) else {
-            throw LLMError.parseError("Could not encode response as UTF-8")
+    static func parse(markdown: String, filename: String = "") -> [Question] {
+        let certType = extractCertType(from: markdown) ?? inferCertType(from: filename)
+        let lines = markdown.components(separatedBy: "\n")
+
+        // Collect indices where question blocks start
+        var starts: [Int] = []
+        for (i, line) in lines.enumerated() {
+            if isQuestionHeader(line.trimmingCharacters(in: .whitespaces)) {
+                starts.append(i)
+            }
         }
 
-        struct RawResponse: Codable {
-            struct RawQuestion: Codable {
-                let question: String
-                let options: [String]
-                let correct_answer: String
-                let explanation: String
-                let reference_url: String?
+        guard !starts.isEmpty else { return [] }
+
+        var questions: [Question] = []
+        for (idx, start) in starts.enumerated() {
+            let end = idx + 1 < starts.count ? starts[idx + 1] : lines.count
+            let block = Array(lines[start..<end])
+            if let q = parseBlock(block, certType: certType) {
+                questions.append(q)
             }
-            let questions: [RawQuestion]
         }
 
-        do {
-            let resp = try JSONDecoder().decode(RawResponse.self, from: data)
-            return resp.questions.map { rq in
-                Question(
-                    questionText:  rq.question,
-                    options:       rq.options,
-                    correctAnswer: rq.correct_answer,
-                    explanation:   rq.explanation,
-                    certType:      certType,
-                    topic:         topic,
-                    referenceURL:  rq.reference_url
-                )
+        return deduplicate(questions)
+    }
+
+    // MARK: - Question header detection
+
+    private static func isQuestionHeader(_ line: String) -> Bool {
+        let patterns = [
+            #"^\*\*Question \d+"#,   // **Question N:**
+            #"^#{1,4} Question \d+"# // ### Question N:
+        ]
+        return patterns.contains { line.range(of: $0, options: .regularExpression) != nil }
+    }
+
+    // MARK: - Cert type extraction
+
+    private static func extractCertType(from markdown: String) -> String? {
+        for line in markdown.components(separatedBy: "\n") where line.contains("Certification:") {
+            if let range = line.range(of: #"\([A-Z]+-[A-Z0-9]+\)"#, options: .regularExpression) {
+                return String(line[range].dropFirst().dropLast())
             }
-        } catch {
-            throw LLMError.parseError(error.localizedDescription)
+        }
+        return nil
+    }
+
+    private static func inferCertType(from filename: String) -> String {
+        let lc = filename.lowercased()
+        let map: [String: String] = [
+            "sap-c02": "SAP-C02", "sap_c02": "SAP-C02",
+            "saa-c03": "SAA-C03", "saa_c03": "SAA-C03",
+            "dva-c02": "DVA-C02", "dva_c02": "DVA-C02",
+            "clf-c02": "CLF-C02", "clf_c02": "CLF-C02",
+            "soa-c02": "SOA-C02", "soa_c02": "SOA-C02",
+            "dop-c02": "DOP-C02", "dop_c02": "DOP-C02",
+            "ans-c01": "ANS-C01", "ans_c01": "ANS-C01",
+            "mls-c01": "MLS-C01", "mls_c01": "MLS-C01"
+        ]
+        return map.first(where: { lc.contains($0.key) })?.value ?? "SAP-C02"
+    }
+
+    // MARK: - Block parsing
+
+    private static func parseBlock(_ lines: [String], certType: String) -> Question? {
+        var domain = "General"
+        var questionParts: [String] = []
+        var options: [String] = []
+        var correctAnswer = ""
+        var explanationParts: [String] = []
+        // 0=pre-question  1=question  2=options  3=explanation  4=done
+        var phase = 0
+
+        for line in lines {
+            let t = line.trimmingCharacters(in: .whitespaces)
+            guard !t.isEmpty, phase < 4 else { continue }
+
+            // End of useful content markers
+            if isStopMarker(t, phase: phase) { phase = 4; break }
+
+            // Skip structural lines
+            if isQuestionHeader(t) || t.hasPrefix("#") || t == "---" { continue }
+
+            // Domain line  (**Domain:** ... or **Domain: ...**)
+            if t.hasPrefix("**Domain") {
+                let raw = t
+                    .replacingOccurrences(of: "**Domain:**", with: "")
+                    .replacingOccurrences(of: "**Domain:", with: "")
+                    .replacingOccurrences(of: "**", with: "")
+                    .trimmingCharacters(in: .whitespaces)
+                if !raw.isEmpty { domain = raw }
+                if phase == 0 { phase = 1 }
+                continue
+            }
+
+            // Option lines: A) B) C) D)
+            if t.hasPrefix("A)") || t.hasPrefix("B)") || t.hasPrefix("C)") || t.hasPrefix("D)") {
+                if phase < 2 { phase = 2 }
+                let clean = t.replacingOccurrences(of: "**", with: "").trimmingCharacters(in: .whitespaces)
+                if !clean.isEmpty { options.append(clean) }
+                continue
+            }
+
+            // Correct answer line
+            if t.hasPrefix("**Correct Answer") {
+                if let r = t.range(of: ":") {
+                    let raw = String(t[t.index(after: r.lowerBound)...])
+                        .replacingOccurrences(of: "**", with: "")
+                        .trimmingCharacters(in: .whitespaces)
+                    correctAnswer = normalizeAnswer(raw)
+                }
+                continue
+            }
+
+            // Explanation marker
+            if t.hasPrefix("**Explanation") {
+                phase = 3
+                // Collect any text on the same line after the colon
+                let rest = t.components(separatedBy: ":**").dropFirst().joined(separator: ":**")
+                    .replacingOccurrences(of: "**", with: "").trimmingCharacters(in: .whitespaces)
+                if !rest.isEmpty { explanationParts.append(rest) }
+                continue
+            }
+
+            switch phase {
+            case 0, 1:
+                if phase == 0 { phase = 1 }
+                questionParts.append(t)
+            case 3:
+                var clean = t.replacingOccurrences(of: "**", with: "").trimmingCharacters(in: .whitespaces)
+                if clean.hasPrefix("- ") { clean = String(clean.dropFirst(2)) }
+                if !clean.isEmpty { explanationParts.append(clean) }
+            default:
+                break
+            }
+        }
+
+        let questionText = questionParts.joined(separator: " ").trimmingCharacters(in: .whitespaces)
+        guard !questionText.isEmpty, options.count >= 2, !correctAnswer.isEmpty else { return nil }
+
+        return Question(
+            questionText: questionText,
+            options: options,
+            correctAnswer: correctAnswer,
+            explanation: explanationParts.joined(separator: " ").trimmingCharacters(in: .whitespaces),
+            certType: certType,
+            topic: domain
+        )
+    }
+
+    private static func isStopMarker(_ t: String, phase: Int) -> Bool {
+        // Only stop explanation collection; don't stop question collection
+        guard phase >= 2 else { return false }
+        return t.hasPrefix("**Why")
+            || (t.hasPrefix("Why ") && (t.contains("incorrect") || t.contains("wrong")))
+            || t.hasPrefix("**Incorrect")
+            || t.hasPrefix("Incorrect A")
+            || t.hasPrefix("These questions")
+            || t.hasPrefix("### Multi")
+    }
+
+    // MARK: - Answer normalisation
+
+    // Converts "A and C", "A, B, and C", "B and D" → canonical "A and C" form
+    private static func normalizeAnswer(_ raw: String) -> String {
+        let letters = raw
+            .components(separatedBy: ",")
+            .flatMap { $0.components(separatedBy: " and ") }
+            .map { $0.trimmingCharacters(in: .whitespaces) }
+            .filter { s in s.count == 1 && ["A", "B", "C", "D"].contains(s) }
+        return letters.joined(separator: " and ")
+    }
+
+    // MARK: - Deduplication
+
+    private static func deduplicate(_ questions: [Question]) -> [Question] {
+        var seen = Set<String>()
+        return questions.filter { q in
+            let key = String(q.questionText.lowercased().prefix(80))
+                .trimmingCharacters(in: .whitespaces)
+            guard !seen.contains(key) else { return false }
+            seen.insert(key)
+            return true
         }
     }
 }

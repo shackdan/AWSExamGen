@@ -70,7 +70,7 @@ struct ReviewCard: View {
                     // Your answer vs correct
                     if !result.isCorrect {
                         HStack {
-                            Label("Your answer: \(result.userAnswer)",
+                            Label("Your answer: \(result.userAnswerDisplay)",
                                   systemImage: "xmark.circle")
                                 .font(.caption.bold())
                                 .foregroundStyle(.red)
@@ -107,8 +107,8 @@ struct ReviewCard: View {
     }
 
     private func optionColor(_ letter: String) -> Color {
-        if letter == result.question.correctAnswer { return .green }
-        if letter == result.userAnswer             { return .red   }
+        if result.question.isCorrectOption(letter) { return .green }
+        if result.userAnswers.contains(letter)     { return .red   }
         return .secondary
     }
 }

@@ -1,61 +1,62 @@
 import Foundation
-import SwiftData
 
 @Observable
 final class QuestionBankService {
 
     static let shared = QuestionBankService()
-    private init() {}
 
-    // MARK: - SwiftData container
-    @ObservationIgnored
-    lazy var container: ModelContainer = {
-        let schema = Schema([Question.self])
-        let config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-        return try! ModelContainer(for: schema, configurations: [config])
-    }()
+    let allQuestions: [Question]
 
-    // MARK: - Seed from bundled JSON on first launch
-    func seedIfNeeded(context: ModelContext) {
-        let existing = (try? context.fetch(FetchDescriptor<Question>())) ?? []
-        guard existing.isEmpty else { return }
+    private init() {
+        allQuestions = Self.loadFromBundle()
+    }
 
-        guard
-            let url  = Bundle.main.url(forResource: "question_bank", withExtension: "json"),
-            let data = try? Data(contentsOf: url)
-        else { return }
+    // MARK: - Filtered access
 
-        struct BankFile: Codable { let questions: [Question] }
-        if let bank = try? JSONDecoder().decode(BankFile.self, from: data) {
-            bank.questions.forEach { context.insert($0) }
-            try? context.save()
-            print("QuestionBankService: Seeded \(bank.questions.count) questions ✅")
+    var availableCerts: [String] {
+        Array(Set(allQuestions.map(\.certType))).sorted()
+    }
+
+    var availableTopics: [String] {
+        Array(Set(allQuestions.map(\.topic))).sorted()
+    }
+
+    func questions(certType: String? = nil, topic: String? = nil) -> [Question] {
+        allQuestions.filter { q in
+            (certType == nil || q.certType == certType!) &&
+            (topic    == nil || q.topic    == topic!)
         }
     }
 
-    // MARK: - CRUD helpers
-    func save(_ questions: [Question], to context: ModelContext) throws {
-        questions.forEach { context.insert($0) }
-        try context.save()
-    }
+    // MARK: - Bundle loading
 
-    func delete(_ question: Question, from context: ModelContext) throws {
-        context.delete(question)
-        try context.save()
-    }
+    private static func loadFromBundle() -> [Question] {
+        var urls: [URL] = []
+        for ext in ["json", "md"] {
+            urls += Bundle.main.urls(forResourcesWithExtension: ext, subdirectory: nil) ?? []
+            urls += Bundle.main.urls(forResourcesWithExtension: ext, subdirectory: "question_bank") ?? []
+        }
 
-    func fetch(
-        certType: String? = nil,
-        topic: String? = nil,
-        context: ModelContext
-    ) throws -> [Question] {
-        var descriptor = FetchDescriptor<Question>(
-            sortBy: [SortDescriptor(\.createdAt, order: .reverse)]
-        )
-        var predicates: [Predicate<Question>] = []
-        if let cert = certType  { predicates.append(#Predicate { $0.certType == cert }) }
-        if let t    = topic     { predicates.append(#Predicate { $0.topic    == t    }) }
-        if !predicates.isEmpty  { descriptor.predicate = predicates.first }
-        return try context.fetch(descriptor)
+        var seenFilenames = Set<String>()
+        let uniqueURLs = urls.filter { seenFilenames.insert($0.lastPathComponent).inserted }
+
+        var all: [Question] = []
+        for url in uniqueURLs {
+            let parsed = url.pathExtension == "json"
+                ? MarkdownQuestionParser.parseJSON(fileURL: url)
+                : MarkdownQuestionParser.parse(fileURL: url)
+            if !parsed.isEmpty {
+                print("QuestionBankService: loaded \(parsed.count) from \(url.lastPathComponent)")
+                all.append(contentsOf: parsed)
+            }
+        }
+
+        // Deduplicate across files by question text prefix
+        var seenTexts = Set<String>()
+        let unique = all.filter { q in
+            seenTexts.insert(String(q.questionText.lowercased().prefix(80))).inserted
+        }
+        print("QuestionBankService: \(unique.count) unique questions loaded ✅")
+        return unique
     }
 }
