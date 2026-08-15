@@ -31,7 +31,7 @@ Contributing
 - Drop additional JSON files into `question_bank/` and open the app to use them. If you add new features, please follow the existing SwiftUI patterns.
 
 License
-- See the LICENSE file at [AWSExamPrep/LICENSE](AWSExamPrep/LICENSE).
+- See the [LICENSE](LICENSE) file.
 
 Questions or issues
 - Open an issue or contact the repository owner.
