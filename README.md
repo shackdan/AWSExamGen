@@ -1,4 +1,4 @@
-# AWS Exam Prep
+# AWS Exam Gen
 
 A simple iOS/macOS SwiftUI app for studying AWS certification questions.
 
@@ -16,7 +16,7 @@ A simple iOS/macOS SwiftUI app for studying AWS certification questions.
 
 ### Open the project
 
-- Open the Xcode project/workspace: [AWSExamPrep.xcodeproj](AWSExamPrep.xcodeproj) or the workspace if you use Swift packages.
+- Open the Xcode project/workspace: [AWSExamGen.xcodeproj](AWSExamGen.xcodeproj) or the workspace if you use Swift packages.
 
 ### Run
 
@@ -24,7 +24,8 @@ A simple iOS/macOS SwiftUI app for studying AWS certification questions.
 
 ## Question banks
 
-- Add or update question files in the `question_bank/` folder. The app loads JSON files placed there at runtime.
+- In the app, go to Settings → Import JSON File to add a question bank from the Files app at runtime. Imported files are copied into app storage and merged with the bundled question bank.
+- Alternatively, add or update question files in the `question_bank/` folder and rebuild to bundle them with the app.
 - Example files are already present:
   - `question_bank/SAA-C03_119q_20260811T203925.json`
 
@@ -36,9 +37,9 @@ The questions included in this project were generated using [aws-exam-gen](https
 
 Important files:
 
-- [AWSExamPrep/Models/Questions.swift](AWSExamPrep/Models/Questions.swift): question models
-- [AWSExamPrep/Services/QuestionBankService.swift](AWSExamPrep/Services/QuestionBankService.swift): loads and parses question JSON files
-- [AWSExamPrep/Views/QuizView.swift](AWSExamPrep/Views/QuizView.swift): quiz UI
+- [AWSExamGen/Models/Questions.swift](AWSExamGen/Models/Questions.swift): question models
+- [AWSExamGen/Services/QuestionBankService.swift](AWSExamGen/Services/QuestionBankService.swift): loads and parses question JSON files
+- [AWSExamGen/Views/QuizView.swift](AWSExamGen/Views/QuizView.swift): quiz UI
 
 ## Contributing
 

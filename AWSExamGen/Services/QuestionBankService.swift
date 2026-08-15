@@ -1,6 +1,6 @@
 //
 //  QuestionBankService.swift
-//  AWSExamPrep
+//  AWSExamGen
 //
 //  Copyright (c) 2026 Dan Newton
 //  Licensed under CC BY-NC 4.0
@@ -18,14 +18,95 @@ final class QuestionBankService {
 
     private(set) var allQuestions: [Question] = []
     private(set) var isLoading = true
+    private(set) var importedFilenames: [String] = []
 
     private init() {
+        reload()
+    }
+
+    // MARK: - Importing
+
+    enum ImportError: LocalizedError {
+        case accessDenied
+        case noQuestionsFound
+
+        var errorDescription: String? {
+            switch self {
+            case .accessDenied: return "Couldn't access the selected file."
+            case .noQuestionsFound: return "No valid questions were found in that file."
+            }
+        }
+    }
+
+    // Copies a user-picked JSON file into app storage, validates it parses into
+    // at least one question, then reloads the bank. Rejects/removes it otherwise
+    // so a bad file can't silently sit in the imported folder.
+    @discardableResult
+    func importFile(from sourceURL: URL) throws -> Int {
+        guard sourceURL.startAccessingSecurityScopedResource() else {
+            throw ImportError.accessDenied
+        }
+        defer { sourceURL.stopAccessingSecurityScopedResource() }
+
+        let data = try Data(contentsOf: sourceURL)
+        let destURL = Self.importedDirectory.appendingPathComponent(sourceURL.lastPathComponent)
+        try data.write(to: destURL, options: .atomic)
+
+        let parsed = MarkdownQuestionParser.parseJSON(fileURL: destURL)
+        guard !parsed.isEmpty else {
+            try? FileManager.default.removeItem(at: destURL)
+            throw ImportError.noQuestionsFound
+        }
+
+        reload()
+        return parsed.count
+    }
+
+    func removeImportedFile(_ filename: String) {
+        try? FileManager.default.removeItem(at: Self.importedDirectory.appendingPathComponent(filename))
+        reload()
+    }
+
+    private func reload() {
+        isLoading = true
         Task.detached(priority: .userInitiated) {
-            let loaded = Self.loadFromBundle()
+            let bundled = Self.loadFromBundle()
+            let imported = Self.loadFromImportedDirectory()
+            let merged = Self.deduplicate(bundled + imported)
+            let filenames = Self.listImportedFilenames()
             await MainActor.run { [weak self] in
-                self?.allQuestions = loaded
+                self?.allQuestions = merged
+                self?.importedFilenames = filenames
                 self?.isLoading = false
             }
+        }
+    }
+
+    // MARK: - Imported file storage
+
+    private static var importedDirectory: URL {
+        let dir = FileManager.default
+            .urls(for: .documentDirectory, in: .userDomainMask)[0]
+            .appendingPathComponent("ImportedQuestionBanks", isDirectory: true)
+        try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+        return dir
+    }
+
+    private static func listImportedFilenames() -> [String] {
+        (try? FileManager.default.contentsOfDirectory(atPath: importedDirectory.path))?.sorted() ?? []
+    }
+
+    private static func loadFromImportedDirectory() -> [Question] {
+        let urls = (try? FileManager.default.contentsOfDirectory(at: importedDirectory, includingPropertiesForKeys: nil)) ?? []
+        return urls
+            .filter { $0.pathExtension == "json" }
+            .flatMap { MarkdownQuestionParser.parseJSON(fileURL: $0) }
+    }
+
+    private static func deduplicate(_ questions: [Question]) -> [Question] {
+        var seenTexts = Set<String>()
+        return questions.filter { q in
+            seenTexts.insert(Self.dedupeKey(certType: q.certType, questionText: q.questionText)).inserted
         }
     }
 

@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  AWSExamPrep
+//  AWSExamGen
 //
 //  Copyright (c) 2026 Dan Newton
 //  Licensed under CC BY-NC 4.0
@@ -12,7 +12,7 @@
 import SwiftUI
 
 @main
-struct AWSExamPrepApp: App {
+struct AWSExamGenApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

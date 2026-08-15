@@ -1,6 +1,6 @@
 //
 //  SettingsView.swift
-//  AWSExamPrep
+//  AWSExamGen
 //
 //  Copyright (c) 2026 Dan Newton
 //  Licensed under CC BY-NC 4.0
@@ -10,11 +10,15 @@
 //  Attribution is required.
 //
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
+    @State private var isImporterPresented = false
+    @State private var importAlert: ImportAlert?
 
     private var allQuestions: [Question] { QuestionBankService.shared.allQuestions }
+    private var importedFilenames: [String] { QuestionBankService.shared.importedFilenames }
 
     var body: some View {
         NavigationStack {
@@ -26,9 +30,24 @@ struct SettingsView: View {
                         Text("\(allQuestions.count)")
                             .foregroundStyle(.secondary)
                     }
+
+                    Button {
+                        isImporterPresented = true
+                    } label: {
+                        Label("Import JSON File…", systemImage: "square.and.arrow.down")
+                    }
+
+                    if !importedFilenames.isEmpty {
+                        ForEach(importedFilenames, id: \.self) { filename in
+                            Text(filename)
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+                        }
+                        .onDelete(perform: deleteImportedFiles)
+                    }
                 } header: { Text("Question Bank") }
                   footer: {
-                    Text("Add .json files to the question_bank folder in Xcode and rebuild to load new questions.")
+                    Text("Import .json question bank files, or add them to the question_bank folder in Xcode and rebuild.")
                 }
 
                 Section {
@@ -36,7 +55,7 @@ struct SettingsView: View {
                     LabeledContent("Format", value: "JSON (.json)")
                 } header: { Text("About") }
                   footer: {
-                    Text("AWS Exam Prep · Practice questions loaded from bundled JSON files.")
+                    Text("AWS Exam Gen · Practice questions loaded from bundled and imported JSON files.")
                 }
             }
             .navigationTitle("Settings")
@@ -46,6 +65,45 @@ struct SettingsView: View {
                     Button("Done") { dismiss() }
                 }
             }
+            .fileImporter(
+                isPresented: $isImporterPresented,
+                allowedContentTypes: [.json],
+                allowsMultipleSelection: true
+            ) { result in
+                handleImport(result)
+            }
+            .alert(item: $importAlert) { alert in
+                Alert(title: Text(alert.title), message: Text(alert.message), dismissButton: .default(Text("OK")))
+            }
+        }
+    }
+
+    private func handleImport(_ result: Result<[URL], Error>) {
+        switch result {
+        case .failure(let error):
+            importAlert = ImportAlert(title: "Import Failed", message: error.localizedDescription)
+
+        case .success(let urls):
+            var addedCount = 0
+            var failures: [String] = []
+            for url in urls {
+                do {
+                    addedCount += try QuestionBankService.shared.importFile(from: url)
+                } catch {
+                    failures.append("\(url.lastPathComponent): \(error.localizedDescription)")
+                }
+            }
+            if !failures.isEmpty {
+                importAlert = ImportAlert(title: "Some Files Failed", message: failures.joined(separator: "\n"))
+            } else {
+                importAlert = ImportAlert(title: "Import Complete", message: "Added \(addedCount) question(s).")
+            }
+        }
+    }
+
+    private func deleteImportedFiles(at offsets: IndexSet) {
+        for index in offsets {
+            QuestionBankService.shared.removeImportedFile(importedFilenames[index])
         }
     }
 
@@ -54,4 +112,10 @@ struct SettingsView: View {
         let b = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "1"
         return "\(v) (\(b))"
     }
+}
+
+private struct ImportAlert: Identifiable {
+    let id = UUID()
+    let title: String
+    let message: String
 }

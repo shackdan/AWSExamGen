@@ -1,6 +1,6 @@
 //
 //  QuestionBankView.swift
-//  AWSExamPrep
+//  AWSExamGen
 //
 //  Copyright (c) 2026 Dan Newton
 //  Licensed under CC BY-NC 4.0

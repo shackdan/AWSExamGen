@@ -1,6 +1,6 @@
 //
 //  DashboardView.swift
-//  AWSExamPrep
+//  AWSExamGen
 //
 //  Copyright (c) 2026 Dan Newton
 //  Licensed under CC BY-NC 4.0
@@ -31,7 +31,7 @@ struct DashboardView: View {
                     VStack(spacing: 8) {
                         Text("☁️")
                             .font(.system(size: 56))
-                        Text("AWS Exam Prep")
+                        Text("AWS Exam Gen")
                             .font(.largeTitle.bold())
                         Text("Practice questions from your question bank")
                             .font(.subheadline)
