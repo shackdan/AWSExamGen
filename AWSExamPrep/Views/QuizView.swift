@@ -25,7 +25,9 @@ struct QuizView: View {
 
     var body: some View {
         NavigationStack {
-            if !quizStarted {
+            if bank.isLoading {
+                ProgressView("Loading question bank…")
+            } else if !quizStarted {
                 setupView
             } else if vm.isFinished {
                 resultsView
@@ -142,7 +144,7 @@ struct QuizView: View {
                         // Options
                         VStack(spacing: 12) {
                             ForEach(q.options, id: \.self) { option in
-                                let letter = String(option.prefix(1))
+                                let letter = Question.letter(fromOption: option)
                                 OptionButton(
                                     option: option,
                                     letter: letter,

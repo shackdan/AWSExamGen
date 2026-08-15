@@ -60,7 +60,7 @@ struct ReviewCard: View {
 
                     VStack(alignment: .leading, spacing: 6) {
                         ForEach(result.question.options, id: \.self) { opt in
-                            let letter = String(opt.prefix(1))
+                            let letter = Question.letter(fromOption: opt)
                             HStack(spacing: 8) {
                                 Circle()
                                     .fill(optionColor(letter).opacity(0.15))
@@ -70,7 +70,7 @@ struct ReviewCard: View {
                                             .font(.caption2.bold())
                                             .foregroundStyle(optionColor(letter))
                                     )
-                                Text(String(opt.dropFirst(3)))
+                                Text(Question.text(fromOption: opt))
                                     .font(.caption)
                                     .foregroundStyle(optionColor(letter))
                             }

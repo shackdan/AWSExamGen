@@ -33,13 +33,16 @@ struct QuestionBankView: View {
     var body: some View {
         NavigationStack {
             Group {
-                if allQuestions.isEmpty {
+                if QuestionBankService.shared.isLoading {
+                    ProgressView("Loading question bank…")
+                } else if allQuestions.isEmpty {
                     ContentUnavailableView(
                         "No Questions Yet",
                         systemImage: "archivebox",
                         description: Text("Add .json files to the question_bank folder in Xcode and rebuild.")
                     )
                 } else {
+                    let filtered = filtered
                     List {
                         // Filter chips
                         Section {
@@ -150,7 +153,7 @@ struct BankQuestionRow: View {
             if expanded {
                 VStack(alignment: .leading, spacing: 6) {
                     ForEach(question.options, id: \.self) { opt in
-                        let isCorrect = question.isCorrectOption(String(opt.prefix(1)))
+                        let isCorrect = question.isCorrectOption(Question.letter(fromOption: opt))
                         HStack(spacing: 8) {
                             Image(systemName: isCorrect
                                   ? "checkmark.circle.fill"

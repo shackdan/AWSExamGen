@@ -11,7 +11,7 @@
 //
 import Foundation
 
-enum MarkdownQuestionParser {
+nonisolated enum MarkdownQuestionParser {
 
     // MARK: - Public API
 
@@ -284,11 +284,7 @@ enum MarkdownQuestionParser {
     private static func deduplicate(_ questions: [Question]) -> [Question] {
         var seen = Set<String>()
         return questions.filter { q in
-            let key = String(q.questionText.lowercased().prefix(80))
-                .trimmingCharacters(in: .whitespaces)
-            guard !seen.contains(key) else { return false }
-            seen.insert(key)
-            return true
+            seen.insert(QuestionBankService.dedupeKey(certType: q.certType, questionText: q.questionText)).inserted
         }
     }
 }

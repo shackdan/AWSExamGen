@@ -12,7 +12,7 @@
 
 import Foundation
 
-struct Question: Identifiable {
+nonisolated struct Question: Identifiable, Sendable {
     let id: UUID
     let questionText: String
     let options: [String]
@@ -53,6 +53,27 @@ struct Question: Identifiable {
             .components(separatedBy: " and ")
             .map { $0.trimmingCharacters(in: .whitespaces) })
     }
+
+    // MARK: - Option parsing
+
+    // Options are formatted like "A) text" or "A. text". Extracts just the leading letter.
+    static func letter(fromOption option: String) -> String {
+        guard let first = option.first, first.isLetter else { return "" }
+        return String(first)
+    }
+
+    // Strips the leading "A) " / "A. " / "A: " marker (and any following whitespace) from an option.
+    static func text(fromOption option: String) -> String {
+        guard option.first?.isLetter == true else { return option }
+        var rest = option.dropFirst()
+        if let separator = rest.first, ").:-".contains(separator) {
+            rest = rest.dropFirst()
+        }
+        while rest.first == " " {
+            rest = rest.dropFirst()
+        }
+        return String(rest)
+    }
 }
 
 // MARK: - Supporting types
@@ -69,21 +90,3 @@ struct QuizResult {
         userAnswers.sorted().joined(separator: ", ")
     }
 }
-
-let certTypes = [
-    "SAA-C03", "DVA-C02", "SOA-C02",
-    "SAP-C02", "DOP-C02", "CLF-C02",
-    "ANS-C01", "MLS-C01", "MLA-C01",
-    "AIF-C01", "DEA-C01", "SCS-C02", "PAS-C01"
-]
-
-let topics = [
-    "General", "S3 and Storage", "EC2 and Compute",
-    "VPC and Networking", "IAM and Security",
-    "RDS and Databases", "Lambda and Serverless",
-    "CloudFront and CDN", "EKS / ECS and Containers",
-    "Route 53 and DNS", "CloudWatch and Monitoring",
-    "SNS / SQS / EventBridge", "DynamoDB",
-    "Elastic Load Balancing and Auto Scaling",
-    "Cost Optimization", "High Availability and Disaster Recovery"
-]

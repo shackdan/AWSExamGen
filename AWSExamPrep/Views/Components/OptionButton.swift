@@ -36,7 +36,7 @@ struct OptionButton: View {
                         .foregroundStyle(badgeForeground)
                 }
 
-                Text(String(option.dropFirst(3)))   // strip "A) "
+                Text(Question.text(fromOption: option))
                     .font(.subheadline)
                     .foregroundStyle(textColor)
                     .multilineTextAlignment(.leading)

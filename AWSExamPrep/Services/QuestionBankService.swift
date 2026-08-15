@@ -16,10 +16,17 @@ final class QuestionBankService {
 
     static let shared = QuestionBankService()
 
-    let allQuestions: [Question]
+    private(set) var allQuestions: [Question] = []
+    private(set) var isLoading = true
 
     private init() {
-        allQuestions = Self.loadFromBundle()
+        Task.detached(priority: .userInitiated) {
+            let loaded = Self.loadFromBundle()
+            await MainActor.run { [weak self] in
+                self?.allQuestions = loaded
+                self?.isLoading = false
+            }
+        }
     }
 
     // MARK: - Filtered access
@@ -41,7 +48,7 @@ final class QuestionBankService {
 
     // MARK: - Bundle loading
 
-    private static func loadFromBundle() -> [Question] {
+    nonisolated private static func loadFromBundle() -> [Question] {
         var urls: [URL] = []
         for ext in ["json", "md"] {
             urls += Bundle.main.urls(forResourcesWithExtension: ext, subdirectory: nil) ?? []
@@ -62,12 +69,19 @@ final class QuestionBankService {
             }
         }
 
-        // Deduplicate across files by question text prefix
+        // Deduplicate across files, scoped per cert so distinct certs never collide
         var seenTexts = Set<String>()
         let unique = all.filter { q in
-            seenTexts.insert(String(q.questionText.lowercased().prefix(80))).inserted
+            seenTexts.insert(Self.dedupeKey(certType: q.certType, questionText: q.questionText)).inserted
         }
         print("QuestionBankService: \(unique.count) unique questions loaded ✅")
         return unique
+    }
+
+    // Scoped by certType so two different certs never collapse into one
+    // just because their question text happens to start the same way.
+    nonisolated static func dedupeKey(certType: String, questionText: String) -> String {
+        let normalized = questionText.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        return "\(certType)|\(normalized)"
     }
 }
