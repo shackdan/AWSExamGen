@@ -23,7 +23,7 @@ A simple iOS/macOS SwiftUI app for studying AWS certification questions.
 
 **Settings**
 
-<img src="screenshots/settings.png" width="300" alt="Settings">
+<img src="screenshots/app-settings.png" width="300" alt="Settings">
 
 ## Getting started
 
