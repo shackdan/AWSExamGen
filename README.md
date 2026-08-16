@@ -7,6 +7,24 @@ A simple iOS/macOS SwiftUI app for studying AWS certification questions.
 - Browse and take quizzes generated from JSON question banks.
 - View progress and review answers.
 
+## Screenshots
+
+**Dashboard**
+
+<img src="screenshots/dashboard.jpeg" width="300" alt="Dashboard">
+
+**Quiz**
+
+<img src="screenshots/quiz.jpeg" width="300" alt="Quiz">
+
+**Quiz Settings**
+
+<img src="screenshots/quiz-settings.png" width="300" alt="Quiz Settings">
+
+**Settings**
+
+<img src="screenshots/settings.png" width="300" alt="Settings">
+
 ## Getting started
 
 ### Requirements
