@@ -84,7 +84,7 @@ final class QuestionBankService {
 
     // MARK: - Imported file storage
 
-    private static var importedDirectory: URL {
+    nonisolated private static var importedDirectory: URL {
         let dir = FileManager.default
             .urls(for: .documentDirectory, in: .userDomainMask)[0]
             .appendingPathComponent("ImportedQuestionBanks", isDirectory: true)
@@ -92,18 +92,18 @@ final class QuestionBankService {
         return dir
     }
 
-    private static func listImportedFilenames() -> [String] {
+    nonisolated private static func listImportedFilenames() -> [String] {
         (try? FileManager.default.contentsOfDirectory(atPath: importedDirectory.path))?.sorted() ?? []
     }
 
-    private static func loadFromImportedDirectory() -> [Question] {
+    nonisolated private static func loadFromImportedDirectory() -> [Question] {
         let urls = (try? FileManager.default.contentsOfDirectory(at: importedDirectory, includingPropertiesForKeys: nil)) ?? []
         return urls
             .filter { $0.pathExtension == "json" }
             .flatMap { MarkdownQuestionParser.parseJSON(fileURL: $0) }
     }
 
-    private static func deduplicate(_ questions: [Question]) -> [Question] {
+    nonisolated private static func deduplicate(_ questions: [Question]) -> [Question] {
         var seenTexts = Set<String>()
         return questions.filter { q in
             seenTexts.insert(Self.dedupeKey(certType: q.certType, questionText: q.questionText)).inserted
