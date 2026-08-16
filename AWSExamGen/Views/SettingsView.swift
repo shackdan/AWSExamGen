@@ -47,12 +47,16 @@ struct SettingsView: View {
                     }
                 } header: { Text("Question Bank") }
                   footer: {
-                    Text("Import .json question bank files, or add them to the question_bank folder in Xcode and rebuild.")
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Import .json question bank files, or add them to the question_bank folder in Xcode and rebuild.")
+                        Link("Generate additional questions with aws-exam-gen", destination: URL(string: "https://github.com/shackdan/aws-exam-gen")!)
+                    }
                 }
 
                 Section {
                     LabeledContent("Version", value: appVersion)
                     LabeledContent("Format", value: "JSON (.json)")
+                    Link("Made in the newtonlab", destination: URL(string: "https://blog.thenewtonlab.com")!)
                 } header: { Text("About") }
                   footer: {
                     Text("AWS Exam Gen · Practice questions loaded from bundled and imported JSON files.")
