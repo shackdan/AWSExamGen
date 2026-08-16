@@ -21,7 +21,7 @@ struct QuizView: View {
 
     private var bank: QuestionBankService { QuestionBankService.shared }
     var uniqueCerts:  [String] { bank.availableCerts }
-    var uniqueTopics: [String] { bank.availableTopics }
+    var uniqueTopics: [String] { bank.availableTopics(forCert: certFilter.isEmpty ? nil : certFilter) }
 
     var body: some View {
         NavigationStack {
@@ -45,7 +45,7 @@ struct QuizView: View {
                     Text("All").tag("")
                     ForEach(uniqueCerts, id: \.self) { Text($0).tag($0) }
                 }
-                Picker("Topic", selection: $topicFilter) {
+                Picker("Domain", selection: $topicFilter) {
                     Text("All").tag("")
                     ForEach(uniqueTopics, id: \.self) { Text($0).tag($0) }
                 }
@@ -86,6 +86,11 @@ struct QuizView: View {
             }
         }
         .navigationTitle("Quiz")
+        .onChange(of: certFilter) {
+            if !topicFilter.isEmpty, !uniqueTopics.contains(topicFilter) {
+                topicFilter = ""
+            }
+        }
     }
 
     // MARK: - Active Quiz

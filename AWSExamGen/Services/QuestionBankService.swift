@@ -120,6 +120,11 @@ final class QuestionBankService {
         Array(Set(allQuestions.map(\.topic))).sorted()
     }
 
+    func availableTopics(forCert certType: String?) -> [String] {
+        let source = certType.map { cert in allQuestions.filter { $0.certType == cert } } ?? allQuestions
+        return Array(Set(source.map(\.topic))).sorted()
+    }
+
     func questions(certType: String? = nil, topic: String? = nil) -> [Question] {
         allQuestions.filter { q in
             (certType == nil || q.certType == certType!) &&
