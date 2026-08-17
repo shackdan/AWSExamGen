@@ -39,13 +39,14 @@ nonisolated enum MarkdownQuestionParser {
                     .filter { ["A", "B", "C", "D"].contains($0) }
                     .joined(separator: " and ")
                 guard !r.question_text.isEmpty, r.options.count >= 2, !answer.isEmpty else { return nil }
+                let resolvedCertType = r.cert_code ?? certType
                 return Question(
                     questionText: r.question_text,
                     options: r.options,
                     correctAnswer: answer,
                     explanation: r.explanation,
-                    certType: r.cert_code ?? certType,
-                    topic: r.domain ?? "General",
+                    certType: resolvedCertType,
+                    topic: ExamDomainCatalog.canonicalDomain(r.domain ?? "General", certType: resolvedCertType),
                     referenceURL: r.source_url
                 )
             }
@@ -57,13 +58,14 @@ nonisolated enum MarkdownQuestionParser {
         let questions = rawQuestions.compactMap { r -> Question? in
             let answer = normalizeAnswer(r.correct_answer)
             guard !r.question.isEmpty, r.options.count >= 2, !answer.isEmpty else { return nil }
+            let resolvedCertType = r.cert_type ?? fileCertType
             return Question(
                 questionText: r.question,
                 options: r.options,
                 correctAnswer: answer,
                 explanation: r.explanation,
-                certType: r.cert_type ?? fileCertType,
-                topic: r.topic ?? "General",
+                certType: resolvedCertType,
+                topic: ExamDomainCatalog.canonicalDomain(r.topic ?? "General", certType: resolvedCertType),
                 referenceURL: r.reference_url
             )
         }
@@ -252,7 +254,7 @@ nonisolated enum MarkdownQuestionParser {
             correctAnswer: correctAnswer,
             explanation: explanationParts.joined(separator: " ").trimmingCharacters(in: .whitespaces),
             certType: certType,
-            topic: domain
+            topic: ExamDomainCatalog.canonicalDomain(domain, certType: certType)
         )
     }
 
