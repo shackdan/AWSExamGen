@@ -65,7 +65,7 @@
     {
       "question_id": "34d967c7-3051-446d-9a5a-6bca828dd64a",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "An AWS user is preparing a dataset for machine learning and needs to choose an appropriate Amazon EC2 instance type that supports large-scale image processing tasks with high network bandwidth. The user also wants the instance to be cost-effective while maintaining good performance. Which EC2 instance type should they select?",
       "options": [
@@ -198,7 +198,7 @@
     {
       "question_id": "0bc76597-5b81-423f-b4ec-7dc86c71698d",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "An ML engineer is preparing a large dataset for training and needs to ensure the data is stored efficiently. The dataset is around 5 TB in size, with frequent access patterns but also occasional periods of less activity. Which EBS volume type should be used to optimize cost while maintaining performance?",
       "options": [
@@ -251,7 +251,7 @@
     {
       "question_id": "3b4d4e33-16fa-4daf-9f2b-9a131cdf8b71",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "multiple",
       "question_text": "An organization is preparing data for a machine learning model and needs to balance cost, performance, and data access speed. They are considering using Amazon S3 for storing the dataset, AWS Glue for ETL jobs, and Amazon Redshift for analytics. Which two services should they select for optimal data preparation? (Select TWO)",
       "options": [
@@ -306,7 +306,7 @@
     {
       "question_id": "513fd416-6511-46cf-9288-31dbd298a094",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "Your company is preparing to load a large dataset into Amazon S3 for machine learning model training. The data includes both structured and unstructured files, with varying sizes ranging from small text files to large video clips. To ensure efficient data processing and cost-effectiveness, which S3 storage class should you choose?",
       "options": [
@@ -332,7 +332,7 @@
     {
       "question_id": "7bb0c147-cc38-401d-8bcb-1393985efe22",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "multiple",
       "question_text": "An organization needs to preprocess and clean a large dataset before feeding it into a machine learning model. The dataset is stored in an S3 bucket and the preprocessing involves complex data transformations, including filtering, aggregation, and feature engineering. Which two services should be used for efficient data preparation? (Select TWO)",
       "options": [
@@ -388,7 +388,7 @@
     {
       "question_id": "0dea94ca-b609-4591-82ed-fd55c1f3cd24",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "An ML engineer is preparing a dataset for training on an Amazon EC2 instance. The dataset is large and the process requires high network bandwidth to transfer data between instances. Which type of Amazon EBS volume should be used to maximize the performance during the data preparation phase?",
       "options": [
@@ -440,7 +440,7 @@
     {
       "question_id": "a18911db-9021-477b-8d53-faf5420a737a",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "multiple",
       "question_text": "You are preparing data for a machine learning model and need to balance cost with performance. You have chosen to use Amazon S3 for storing raw data, AWS Glue for ETL jobs, and Amazon EMR for processing large datasets. Which two services should you consider integrating to optimize your workflow while keeping costs in check? (Select TWO)",
       "options": [
@@ -454,7 +454,7 @@
         "B",
         "E"
       ],
-      "explanation": "A. AMAZON REDSHIFT - While Amazon Redshift is a powerful data warehouse service, it may not be the most cost-effective choice for raw data storage and ETL processing compared to S3 and Glue. It's more suitable for analytics and querying large datasets.\n\nB. AWS LAMBDA - Integrating AWS Lambda can help you automate parts of your ETL process without provisioning or managing servers, which can save costs while maintaining performance. However, it should be used judiciously as part of a larger workflow.\n\nC. AMAZON EC2 - Amazon EC2 is not the most cost-effective option for data preparation and ETL jobs compared to EMR and Glue. EMR provides optimized clusters for big data processing, while Glue offers fully managed ETL services.\n\nD. AMAZON SAGEMAKER - While Amazon SageMaker is excellent for building and deploying machine learning models, it's not directly related to optimizing the data preparation workflow. It focuses more on model training and deployment rather than data processing.\n\nE. AWS BUDGETS - AWS Budgets can help you monitor and control your costs by setting up alerts when spending exceeds a specified threshold. This is crucial for keeping costs in check while ensuring that your data preparation process remains efficient.",
+      "explanation": "A. Amazon Redshift - While Amazon Redshift is a powerful data warehouse service, it may not be the most cost-effective choice for raw data storage and ETL processing compared to S3 and Glue. It's more suitable for analytics and querying large datasets.\n\nB. AWS Lambda - Integrating AWS Lambda can help you automate parts of your ETL process without provisioning or managing servers, which can save costs while maintaining performance. However, it should be used judiciously as part of a larger workflow.\n\nC. Amazon EC2 - Amazon EC2 is not the most cost-effective option for data preparation and ETL jobs compared to EMR and Glue. EMR provides optimized clusters for big data processing, while Glue offers fully managed ETL services.\n\nD. Amazon SageMaker - While Amazon SageMaker is excellent for building and deploying machine learning models, it's not directly related to optimizing the data preparation workflow. It focuses more on model training and deployment rather than data processing.\n\nE. AWS budgets - AWS Budgets can help you monitor and control your costs by setting up alerts when spending exceeds a specified threshold. This is crucial for keeping costs in check while ensuring that your data preparation process remains efficient.",
       "source_context": "[Source 1: FAQ-EC2.html, p.1, URL: https://aws.amazon.com/ec2/faqs/]\nure 4th Gen AMD EPYC processors with 2x higher core density (up to 192 cores), 2.1x higher memory bandwidth throughput (768 GB of memory), and 3x higher network bandwidth compared to Hpc6a instances. These instances offer 300 Gbpsof\nnetwork bandwidth, powered by the\nAWS Nitro System\n, for fast and low latency internode communications.\nQ: Which pricing models do Hpc7a instances support?\nHpc7a instances are available for purchase",
       "source_url": "https://aws.amazon.com/ec2/faqs/",
       "difficulty": "Associate",
@@ -547,7 +547,7 @@
     {
       "question_id": "59e2a03c-100a-429f-94fd-a10208e33402",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "multiple",
       "question_text": "You are preparing a dataset for machine learning and need to balance storage costs with performance. You have decided to use Amazon EBS General Purpose SSD (gp2) volumes for their cost-effectiveness while ensuring sufficient IOPS for your workload. Which two of the following actions should you take to optimize the performance of gp2 volumes? (Select TWO)",
       "options": [
@@ -561,7 +561,7 @@
         "A",
         "D"
       ],
-      "explanation": "A. ENABLE EBS OPTIMIZATION ON AN EC2 INSTANCE TO MAXIMIZE THROUGHPUT - Correct. Enabling EBS optimization on an EC2 instance can significantly increase the network throughput between the instance and its attached gp2 volumes, which is beneficial for performance-critical workloads.\n\nB. USE AMAZON S3 FOR STORING LARGE DATASETS AND TRANSFER THEM TO GP2 VOLUMES AS NEEDED - Incorrect. While Amazon S3 is a cost-effective storage solution, it does not provide the same IOPS and throughput as gp2 volumes for on-demand access. It would be suboptimal to use S3 for storing large datasets that need frequent access.\n\nC. CONFIGURE GP2 VOLUMES WITH HIGH IOPS TO ENSURE SUFFICIENT PERFORMANCE - Incorrect. General Purpose SSD (gp2) volumes are designed to provide a balance of IOPS and throughput, but they do not support configuring high IOPS as you would with Provisioned IOPS SSD (io1). Using gp2 for its intended purpose is the correct approach.\n\nD. IMPLEMENT A CACHING LAYER USING AMAZON ELASTICACHE TO REDUCE READ REQUESTS TO THE GP2 VOLUME - Correct. Implementing a caching layer using Amazon ElastiCache can reduce read requests to the gp2 volume, thereby improving overall performance and reducing costs by offloading some of the workload from the EBS volumes.\n\nE. OPTIMIZE YOUR EBS VOLUME TYPES BY CHOOSING PROVISIONED IOPS SSD (IO1) FOR CRITICAL WORKLOADS - Incorrect. While Provisioned IOPS SSD (io1) is suitable for critical workloads requiring high and predictable IOPS, it would be overkill and more expensive than gp2 volumes for the general-purpose workload described here.",
+      "explanation": "A. Enable EBS optimization on an EC2 instance to maximize throughput - Correct. Enabling EBS optimization on an EC2 instance can significantly increase the network throughput between the instance and its attached gp2 volumes, which is beneficial for performance-critical workloads.\n\nB. Use Amazon S3 for storing large datasets and transfer them to gp2 volumes as needed - Incorrect. While Amazon S3 is a cost-effective storage solution, it does not provide the same IOPS and throughput as gp2 volumes for on-demand access. It would be suboptimal to use S3 for storing large datasets that need frequent access.\n\nC. Configure gp2 volumes with high IOPS to ensure sufficient performance - Incorrect. General Purpose SSD (gp2) volumes are designed to provide a balance of IOPS and throughput, but they do not support configuring high IOPS as you would with Provisioned IOPS SSD (io1). Using gp2 for its intended purpose is the correct approach.\n\nD. Implement a caching layer using Amazon ElastiCache to reduce read requests to the gp2 volume - Correct. Implementing a caching layer using Amazon ElastiCache can reduce read requests to the gp2 volume, thereby improving overall performance and reducing costs by offloading some of the workload from the EBS volumes.\n\nE. Optimize your EBS volume types by choosing provisioned IOPS ssd (io1) for critical workloads - Incorrect. While Provisioned IOPS SSD (io1) is suitable for critical workloads requiring high and predictable IOPS, it would be overkill and more expensive than gp2 volumes for the general-purpose workload described here.",
       "source_context": "[Source 1: FAQ-EC2.html, p.1, URL: https://aws.amazon.com/ec2/faqs/]\nure 4th Gen AMD EPYC processors with 2x higher core density (up to 192 cores), 2.1x higher memory bandwidth throughput (768 GB of memory), and 3x higher network bandwidth compared to Hpc6a instances. These instances offer 300 Gbpsof\nnetwork bandwidth, powered by the\nAWS Nitro System\n, for fast and low latency internode communications.\nQ: Which pricing models do Hpc7a instances support?\nHpc7a instances are available for purchase",
       "source_url": "https://aws.amazon.com/ec2/faqs/",
       "difficulty": "Associate",
@@ -630,7 +630,7 @@
     {
       "question_id": "a6676b29-bb87-4db6-8a4e-974c525465ae",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "An ML engineer is preparing to clean and preprocess a large dataset using Python on an Amazon EC2 instance. The data size is around 50GB, and the processing time should be as fast as possible while keeping costs low. Which type of Amazon EBS volume should they choose for their EC2 instance?",
       "options": [
@@ -714,7 +714,7 @@
     {
       "question_id": "0fa4aacf-f8f2-4817-b979-292b1aaea304",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "An organization is preparing to clean and transform a large dataset before training a machine learning model. The data includes structured, semi-structured, and unstructured formats. Which AWS service should be used for efficient and scalable data preparation?",
       "options": [
@@ -726,7 +726,7 @@
       "correct_answers": [
         "A"
       ],
-      "explanation": "Amazon S3 with AWS Glue ETL Jobs is the best choice for efficient and scalable data preparation as it can handle large datasets, support multiple data formats (structured, semi-structured, unstructured), and automate the transformation process using AWS Glue. AWS Glue supports a wide range of file types including JSON, CSV, XML, Avro, ORC, Parquet, and more. It also provides built-in connectors for popular databases and data stores, making it easier to integrate with existing infrastructure.\n\nAmazon EC2 Instances Running Spark (Option B) is a valid option but may not be as efficient or scalable without proper tuning and management of the instances. AWS Lambda Functions (Option C) are well-suited for serverless processing tasks, but they might not handle large datasets efficiently due to their limited execution time and memory constraints. Amazon Redshift Spectrum (Option D) is designed for querying data in S3, but it does not provide direct ETL capabilities for transforming the data.",
+      "explanation": "Amazon S3 with AWS Glue ETL Jobs is the best choice for efficient and scalable data preparation as it can handle large datasets, support multiple data formats (structured, semi-structured, unstructured), and automate the transformation process using AWS Glue. AWS Glue supports a wide range of file types including JSON, csv, XML, Avro, ORC, Parquet, and more. It also provides built-in connectors for popular databases and data stores, making it easier to integrate with existing infrastructure.\n\nAmazon EC2 Instances Running Spark (Option B) is a valid option but may not be as efficient or scalable without proper tuning and management of the instances. AWS Lambda Functions (Option C) are well-suited for serverless processing tasks, but they might not handle large datasets efficiently due to their limited execution time and memory constraints. Amazon Redshift Spectrum (Option D) is designed for querying data in S3, but it does not provide direct ETL capabilities for transforming the data.",
       "source_context": "[Source 1: FAQ-EC2.html, p.1, URL: https://aws.amazon.com/ec2/faqs/]\nure 4th Gen AMD EPYC processors with 2x higher core density (up to 192 cores), 2.1x higher memory bandwidth throughput (768 GB of memory), and 3x higher network bandwidth compared to Hpc6a instances. These instances offer 300 Gbpsof\nnetwork bandwidth, powered by the\nAWS Nitro System\n, for fast and low latency internode communications.\nQ: Which pricing models do Hpc7a instances support?\nHpc7a instances are available for purchase",
       "source_url": "https://aws.amazon.com/ec2/faqs/",
       "difficulty": "Associate",
@@ -969,7 +969,7 @@
         "A",
         "E"
       ],
-      "explanation": "A. AWS CLOUDWATCH WITH ALARMS FOR MODEL PERFORMANCE METRICS - Correct. CloudWatch can monitor and collect metrics from various AWS services, including custom metrics for ML model performance. Alarms can be set to notify when certain thresholds are breached, allowing proactive monitoring.\n\nB. AMAZON S3 FOR STORING RAW DATA - Incorrect. While S3 is a good choice for storing data, it does not provide the necessary monitoring or auto-scaling capabilities required in this scenario.\n\nC. AWS LAMBDA TO TRIGGER ML MODEL RETRAINING AT FIXED INTERVALS - Incorrect. Lambda can be used to trigger retraining but is not essential for continuous model performance monitoring and drift detection. This would add unnecessary complexity without addressing the primary requirements.\n\nD. AMAZON SAGEMAKER FOR HOSTING THE ML MODELS - Correct. SageMaker provides hosting capabilities for ML models, which is important for deploying and serving them. However, it does not directly address auto-scaling or performance monitoring.\n\nE. AMAZON EC2 AUTO SCALING GROUPS WITH HPC6A INSTANCES - Incorrect. While Auto Scaling can help with scaling based on demand, Hpc6a instances are optimized for memory-bound, data-intensive workloads and may not be the best choice for general ML model hosting and monitoring.",
+      "explanation": "A. AWS CloudWatch with alarms for model performance metrics - Correct. CloudWatch can monitor and collect metrics from various AWS services, including custom metrics for ML model performance. Alarms can be set to notify when certain thresholds are breached, allowing proactive monitoring.\n\nB. Amazon S3 for storing raw data - Incorrect. While S3 is a good choice for storing data, it does not provide the necessary monitoring or auto-scaling capabilities required in this scenario.\n\nC. AWS Lambda to trigger ML model retraining at fixed intervals - Incorrect. Lambda can be used to trigger retraining but is not essential for continuous model performance monitoring and drift detection. This would add unnecessary complexity without addressing the primary requirements.\n\nD. Amazon SageMaker for hosting the ML models - Correct. SageMaker provides hosting capabilities for ML models, which is important for deploying and serving them. However, it does not directly address auto-scaling or performance monitoring.\n\nE. Amazon EC2 Auto Scaling groups with hpc6a instances - Incorrect. While Auto Scaling can help with scaling based on demand, Hpc6a instances are optimized for memory-bound, data-intensive workloads and may not be the best choice for general ML model hosting and monitoring.",
       "source_context": "[Source 1: FAQ-EC2.html, p.1, URL: https://aws.amazon.com/ec2/faqs/]\nure 4th Gen AMD EPYC processors with 2x higher core density (up to 192 cores), 2.1x higher memory bandwidth throughput (768 GB of memory), and 3x higher network bandwidth compared to Hpc6a instances. These instances offer 300 Gbpsof\nnetwork bandwidth, powered by the\nAWS Nitro System\n, for fast and low latency internode communications.\nQ: Which pricing models do Hpc7a instances support?\nHpc7a instances are available for purchase",
       "source_url": "https://aws.amazon.com/ec2/faqs/",
       "difficulty": "Associate",
@@ -1079,7 +1079,7 @@
         "A",
         "B"
       ],
-      "explanation": "A. AMAZON CLOUDWATCH ALARMS - Correct. CloudWatch Alarms can monitor metrics and trigger actions when anomalies are detected, making it ideal for real-time monitoring of ML model predictions.\n\nB. AWS LAMBDA WITH SNS NOTIFICATIONS - Correct. You can use AWS Lambda to process the anomalies detected by CloudWatch Alarms and send notifications via SNS (Simple Notification Service) to alert relevant stakeholders in real time.\n\nC. AMAZON REDSHIFT FOR DATA STORAGE - Incorrect. Redshift is a data warehouse service designed for large-scale analytics, not suitable for monitoring ML model predictions in real-time.\n\nD. AMAZON AURORA FOR MODEL TRAINING - Incorrect. Aurora is a relational database service and is not relevant to the monitoring of ML models deployed on EC2 instances.\n\nE. AMAZON EC2 AUTO SCALING - Incorrect. Auto Scaling is used for dynamically adjusting the number of EC2 instances based on demand, which is not directly related to real-time anomaly detection in ML model predictions.",
+      "explanation": "A. Amazon CloudWatch alarms - Correct. CloudWatch Alarms can monitor metrics and trigger actions when anomalies are detected, making it ideal for real-time monitoring of ML model predictions.\n\nB. AWS Lambda with SNS notifications - Correct. You can use AWS Lambda to process the anomalies detected by CloudWatch Alarms and send notifications via SNS (Simple Notification Service) to alert relevant stakeholders in real time.\n\nC. Amazon Redshift for data storage - Incorrect. Redshift is a data warehouse service designed for large-scale analytics, not suitable for monitoring ML model predictions in real-time.\n\nD. Amazon Aurora for model training - Incorrect. Aurora is a relational database service and is not relevant to the monitoring of ML models deployed on EC2 instances.\n\nE. Amazon EC2 Auto Scaling - Incorrect. Auto Scaling is used for dynamically adjusting the number of EC2 instances based on demand, which is not directly related to real-time anomaly detection in ML model predictions.",
       "source_context": "[Source 1: FAQ-EC2.html, p.1, URL: https://aws.amazon.com/ec2/faqs/]\nure 4th Gen AMD EPYC processors with 2x higher core density (up to 192 cores), 2.1x higher memory bandwidth throughput (768 GB of memory), and 3x higher network bandwidth compared to Hpc6a instances. These instances offer 300 Gbpsof\nnetwork bandwidth, powered by the\nAWS Nitro System\n, for fast and low latency internode communications.\nQ: Which pricing models do Hpc7a instances support?\nHpc7a instances are available for purchase",
       "source_url": "https://aws.amazon.com/ec2/faqs/",
       "difficulty": "Associate",
@@ -1229,7 +1229,7 @@
     {
       "question_id": "a9bbac48-0240-4bc8-869b-ade0bc8ce7d5",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "An ML engineer is preparing a dataset by cleaning and transforming it before feeding it into a machine learning model. The dataset contains large, unstructured text files that need to be processed in parallel on multiple EC2 instances. Which instance type should the engineer choose for optimal performance and cost-effectiveness?",
       "options": [
@@ -1310,7 +1310,7 @@
     {
       "question_id": "84907f1b-2c04-4a6b-b3c8-9601d3e38fc5",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "An AWS customer is preparing a dataset for machine learning and wants to ensure the data is stored efficiently. The dataset consists of large, cold datasets that are infrequently accessed but require occasional high throughput when processing. Which EBS volume type should they choose to balance cost and performance?",
       "options": [
@@ -1322,7 +1322,7 @@
       "correct_answers": [
         "C"
       ],
-      "explanation": "The correct answer is C, SC1. SC1 volumes are ideal for large, cold datasets that require infrequent but high throughput access. They provide the lowest cost per GB and can burst up to 80 MB/s per TB with a baseline of 12 MB/s per TB, making them suitable for occasional processing needs. \n\nA (GP3) is not appropriate because it is designed for transactional workloads that require high IOPS, which this dataset does not need.\nB (ST1) provides burstable performance but at a higher cost compared to SC1 and is better suited for more frequent access patterns.\nD (IO2) is not suitable as it offers persistent throughput with no burst model, making it less cost-effective for infrequently accessed data.",
+      "explanation": "The correct answer is C, sc1. Sc1 volumes are ideal for large, cold datasets that require infrequent but high throughput access. They provide the lowest cost per GB and can burst up to 80 MB/s per TB with a baseline of 12 MB/s per TB, making them suitable for occasional processing needs. \n\nA (GP3) is not appropriate because it is designed for transactional workloads that require high IOPS, which this dataset does not need.\nB (ST1) provides burstable performance but at a higher cost compared to SC1 and is better suited for more frequent access patterns.\nD (IO2) is not suitable as it offers persistent throughput with no burst model, making it less cost-effective for infrequently accessed data.",
       "source_context": "[Source 1: FAQ-EC2.html, p.1, URL: https://aws.amazon.com/ec2/faqs/]\nure 4th Gen AMD EPYC processors with 2x higher core density (up to 192 cores), 2.1x higher memory bandwidth throughput (768 GB of memory), and 3x higher network bandwidth compared to Hpc6a instances. These instances offer 300 Gbpsof\nnetwork bandwidth, powered by the\nAWS Nitro System\n, for fast and low latency internode communications.\nQ: Which pricing models do Hpc7a instances support?\nHpc7a instances are available for purchase",
       "source_url": "https://aws.amazon.com/ec2/faqs/",
       "difficulty": "Associate",
@@ -1336,7 +1336,7 @@
     {
       "question_id": "6a03018c-483b-4c99-9bc6-1bc48b19de90",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "An organization is preparing data for a machine learning model and needs to handle large volumes of unstructured text data. They are considering using Amazon S3 for storage and want to ensure they can efficiently process this data in batches. Which EBS volume type should they choose to optimize their data processing workflow?",
       "options": [
@@ -1362,7 +1362,7 @@
     {
       "question_id": "252dc480-04c2-4fd0-97c0-b2498ab0c5d3",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "multiple",
       "question_text": "You are preparing a large dataset for machine learning and need to ensure that the data is efficiently processed while minimizing costs. Which two services should you consider implementing? (Select TWO)",
       "options": [
@@ -1472,7 +1472,7 @@
     {
       "question_id": "2e00b487-bbe2-403a-ae78-e0ea54166222",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "multiple",
       "question_text": "You are preparing data for a machine learning model that requires high IOPS and frequent read/write operations. You need to choose the most suitable EBS volume type and instance types to support this workload efficiently. (Select TWO)",
       "options": [
@@ -1486,7 +1486,7 @@
         "A",
         "D"
       ],
-      "explanation": "A. USE GP3 VOLUMES WITH M6G INSTANCES - CORRECT: GP3 VOLUMES ARE DESIGNED FOR HIGH THROUGHPUT AND DYNAMIC WORKLOADS, WHILE M6G INSTANCES OFFER IMPROVED PERFORMANCE AND COST-EFFICIENCY FOR GENERAL-PURPOSE WORKLOADS.\n\nB. USE ST1 VOLUMES WITH HPC7A INSTANCES - INCORRECT: ST1 VOLUMES ARE SUITABLE FOR THROUGHPUT-INTENSIVE WORKLOADS, BUT THEY DO NOT SUPPORT THE HIGH IOPS REQUIREMENTS OF THIS SCENARIO. HPC7A INSTANCES ARE OPTIMIZED FOR MEMORY-BOUND, DATA-INTENSIVE HPC WORKLOADS.\n\nC. USE SC1 VOLUMES WITH C5 INSTANCES - INCORRECT: SC1 VOLUMES ARE IDEAL FOR LESS FREQUENTLY ACCESSIBLE DATA AND PROVIDE BURST MODE THROUGHPUT. THEY DO NOT SUPPORT THE HIGH IOPS REQUIREMENTS OF THIS SCENARIO, AND C5 INSTANCES ARE NOT OPTIMIZED FOR HIGH IOPS.\n\nD. USE GP2 VOLUMES WITH R5D INSTANCES - CORRECT: GP2 VOLUMES ARE SUITABLE FOR TRANSACTIONAL WORKLOADS REQUIRING DYNAMIC IOPS, AND R5D INSTANCES PROVIDE SUFFICIENT IOPS AND MEMORY FOR THIS SCENARIO.\n\nE. USE PIOPS VOLUMES WITH I3EN INSTANCES - INCORRECT: PIOPS VOLUMES ARE DESIGNED FOR WORKLOADS REQUIRING HIGH STABLE IOPS, BUT THEY DO NOT SUPPORT THE BURST THROUGHPUT REQUIREMENTS OF THIS SCENARIO, AND I3EN INSTANCES ARE NOT OPTIMIZED FOR HIGH IOPS.",
+      "explanation": "A. Use gp3 volumes with m6g instances - correct: gp3 volumes are designed for high throughput and dynamic workloads, while m6g instances offer improved performance and cost-efficiency for general-purpose workloads.\n\nB. Use st1 volumes with hpc7a instances - incorrect: st1 volumes are suitable for throughput-intensive workloads, but they do not support the high IOPS requirements of this scenario. Hpc7a instances are optimized for memory-bound, data-intensive hpc workloads.\n\nC. Use sc1 volumes with c5 instances - incorrect: sc1 volumes are ideal for less frequently accessible data and provide burst mode throughput. They do not support the high IOPS requirements of this scenario, and c5 instances are not optimized for high IOPS.\n\nD. Use gp2 volumes with r5d instances - correct: gp2 volumes are suitable for transactional workloads requiring dynamic IOPS, and r5d instances provide sufficient IOPS and memory for this scenario.\n\nE. Use piops volumes with i3en instances - incorrect: piops volumes are designed for workloads requiring high stable IOPS, but they do not support the burst throughput requirements of this scenario, and i3en instances are not optimized for high IOPS.",
       "source_context": "[Source 1: FAQ-EC2.html, p.1, URL: https://aws.amazon.com/ec2/faqs/]\nure 4th Gen AMD EPYC processors with 2x higher core density (up to 192 cores), 2.1x higher memory bandwidth throughput (768 GB of memory), and 3x higher network bandwidth compared to Hpc6a instances. These instances offer 300 Gbpsof\nnetwork bandwidth, powered by the\nAWS Nitro System\n, for fast and low latency internode communications.\nQ: Which pricing models do Hpc7a instances support?\nHpc7a instances are available for purchase",
       "source_url": "https://aws.amazon.com/ec2/faqs/",
       "difficulty": "Associate",
@@ -1527,7 +1527,7 @@
     {
       "question_id": "5b229bb2-54c2-4409-9441-09233399bb3b",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "An ML engineer is preparing data for a machine learning model and needs to ensure the data is stored in a highly available, cost-effective manner. The dataset is large but infrequently accessed. Which EBS volume type should be used?",
       "options": [
@@ -1539,7 +1539,7 @@
       "correct_answers": [
         "D"
       ],
-      "explanation": "The correct answer is D (sc1). SC1 volumes are ideal for large, cold datasets due to their low cost and burstable I/O performance. They provide a baseline throughput of 12 MB/s per TB and can burst up to 80 MB/s per TB, making them suitable for infrequently accessed data. The engineer should avoid GP3 (A) as it is designed for transactional workloads with high IOPS requirements, which are not needed here. IO1 (B) is more expensive than SC1 and is better suited for workloads requiring consistent high IOPS. ST1 (C) is also HDD-backed and provides burstable performance but is generally less cost-effective than SC1 for infrequently accessed data.",
+      "explanation": "The correct answer is D (sc1). SC1 volumes are ideal for large, cold datasets due to their low cost and burstable I/O performance. They provide a baseline throughput of 12 MB/s per TB and can burst up to 80 MB/s per TB, making them suitable for infrequently accessed data. The engineer should avoid GP3 (A) as it is designed for transactional workloads with high IOPS requirements, which are not needed here. IO1 (B) is more expensive than SC1 and is better suited for workloads requiring consistent high IOPS. St1 (c) is also HDD-backed and provides burstable performance but is generally less cost-effective than SC1 for infrequently accessed data.",
       "source_context": "[Source 1: FAQ-EC2.html, p.1, URL: https://aws.amazon.com/ec2/faqs/]\nure 4th Gen AMD EPYC processors with 2x higher core density (up to 192 cores), 2.1x higher memory bandwidth throughput (768 GB of memory), and 3x higher network bandwidth compared to Hpc6a instances. These instances offer 300 Gbpsof\nnetwork bandwidth, powered by the\nAWS Nitro System\n, for fast and low latency internode communications.\nQ: Which pricing models do Hpc7a instances support?\nHpc7a instances are available for purchase",
       "source_url": "https://aws.amazon.com/ec2/faqs/",
       "difficulty": "Associate",
@@ -1634,7 +1634,7 @@
     {
       "question_id": "cb732c27-f19a-4d1f-b7f7-55bec20a8911",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "An organization is preparing a large dataset for machine learning and needs to ensure the data is clean, consistent, and ready for model training. Which AWS service should be used for efficient data transformation tasks such as filtering, aggregating, and joining datasets?",
       "options": [
@@ -1690,7 +1690,7 @@
     {
       "question_id": "56057c5e-f2a6-4a67-956b-91107f7301b9",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "Single answer: Your company is preparing to perform data preprocessing on a large dataset using Amazon S3 and AWS Glue. The dataset size exceeds the default storage capacity of AWS Glue's built-in connectors, necessitating an external storage solution. Which service should you use for efficient and scalable data processing while maintaining cost-effectiveness?",
       "options": [
@@ -1716,7 +1716,7 @@
     {
       "question_id": "296e62b0-4d5f-4d99-86cf-2936efdbc33f",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "An ML engineer is preparing a dataset for training a machine learning model. The data is in an S3 bucket and needs to be processed using AWS Glue ETL jobs before it can be used. Which of the following actions should the engineer take to ensure efficient data processing while minimizing costs?",
       "options": [
@@ -1849,7 +1849,7 @@
     {
       "question_id": "b3d17b3b-2c37-48ec-ad47-338e204ffdd1",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "An AWS customer is preparing a dataset for machine learning and needs to ensure the data is stored efficiently. The data volume is large, with infrequent access patterns but occasional full-volume scans required for analysis. Which EBS volume type should be used to optimize both cost and performance for this use case?",
       "options": [
@@ -1901,7 +1901,7 @@
     {
       "question_id": "e775f10c-8bfb-4147-ab33-c70a7a208aa4",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "multiple",
       "question_text": "You are preparing a dataset for machine learning and need to balance cost, performance, and data access speed. You have decided to use Amazon S3 for storage due to its scalability and durability but want to ensure efficient data processing using AWS services. Which three of the following options would best help you achieve your goals? (Select THREE)",
       "options": [
@@ -2039,7 +2039,7 @@
     {
       "question_id": "7cde736a-ecd1-43fc-83f6-de6ffcad6682",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "An organization needs to prepare large datasets for machine learning models. The data is stored in an S3 bucket and the team wants to use AWS services that can efficiently process this data with minimal manual intervention. Which service should they choose for automating the data preparation tasks, considering both cost and performance?",
       "options": [
@@ -2065,7 +2065,7 @@
     {
       "question_id": "02d8d04b-933b-4f70-a5e1-a6f1133d0a2e",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "An organization is preparing a large dataset for machine learning and wants to ensure the data is stored efficiently. The dataset consists of 5 TB of unstructured text files, which are infrequently accessed but need to be quickly scanned when required. Which Amazon EBS volume type should they choose?",
       "options": [
@@ -2308,7 +2308,7 @@
     {
       "question_id": "478f6276-318b-4906-8715-06ede88b6123",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "An engineer is preparing a large dataset for machine learning and needs to ensure the data can be processed efficiently. The dataset is over 2 TB in size and will be used for training models. Which Amazon EBS volume type should they choose to optimize both cost and performance?",
       "options": [
@@ -2363,7 +2363,7 @@
     {
       "question_id": "8c2fbce6-01ab-4e40-902a-ad137987014b",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "An organization is preparing to perform image recognition tasks on a large dataset that requires significant computational resources. The team has decided to use Amazon EC2 instances but is unsure about the best instance type for this workload, considering both cost and performance. Which of the following EC2 instance types would be most suitable for their needs?",
       "options": [
@@ -2469,7 +2469,7 @@
     {
       "question_id": "1f502177-539e-4e1d-b85f-207b3055485d",
       "cert_code": "MLA-C01",
-      "domain": "Data Preparation for Machine Learning",
+      "domain": "Data Preparation for Machine Learning (ML)",
       "question_type": "single",
       "question_text": "An organization is preparing a large dataset (5 TB) for machine learning and needs to ensure the data can be accessed quickly during the ETL process, with up to 20 concurrent processes. Which Amazon EC2 instance type would best support this requirement?",
       "options": [

@@ -71,7 +71,10 @@ struct SettingsView: View {
             }
             .fileImporter(
                 isPresented: $isImporterPresented,
-                allowedContentTypes: [.json],
+                // Files Safari downloads as JSON are often mistagged with a generic
+                // type instead of public.json, which would hide them under a strict
+                // .json-only filter. Actual content is still validated on import.
+                allowedContentTypes: [.json, .plainText, .data],
                 allowsMultipleSelection: true
             ) { result in
                 handleImport(result)

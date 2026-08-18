@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "cert_code": "SCS-C02",
+    "cert_code": "SCS-C03",
     "generated_at": "2026-08-14T16:27:58.692216+00:00",
     "total_questions": 88,
     "approved": 88,
@@ -9,7 +9,7 @@
   "questions": [
     {
       "question_id": "65a219f7-9061-4304-be19-58b3373c5a19",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "single",
       "question_text": "Your company is planning to migrate its on-premises infrastructure to AWS and wants to ensure that network traffic between different Availability Zones (AZs) within the same Region is inspected for security. Which of the following solutions would best meet this requirement while providing a robust defense in depth strategy?",
@@ -35,7 +35,7 @@
     },
     {
       "question_id": "ebc1f063-9324-4f74-9cb5-156c694e897b",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "single",
       "question_text": "Your company is planning to migrate its on-premises infrastructure to AWS. They want to ensure that their network traffic between different Availability Zones (AZs) within the same Region is inspected and protected against unauthorized access, while minimizing operational overhead. Which of the following approaches should they take to meet these requirements?",
@@ -61,8 +61,8 @@
     },
     {
       "question_id": "324e007e-b4b3-430c-8067-017b2d06ffa4",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "An organization wants to monitor network traffic for security incidents and ensure compliance with internal policies. They are evaluating tools that can provide detailed insights into network activity, including potential threats detected by AWS services. Which combination of services should they use to meet their requirements?",
       "options": [
@@ -88,15 +88,15 @@
     },
     {
       "question_id": "b5abf948-90e0-4b9b-a593-aa7544e9ae92",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Data Protection",
       "question_type": "single",
       "question_text": "An organization needs to protect sensitive customer data stored in Amazon S3, ensuring it is encrypted at rest and in transit. They also want to minimize the risk of unauthorized access by implementing logical separation and tokenization for certain fields like credit card numbers.",
       "options": [
-        "A. USE AWS KMS FOR ENCRYPTION AND AWS CLOUDHSM FOR KEY MANAGEMENT TO ENSURE STRONG PROTECTIONS, AND IMPLEMENT S3 BUCKET POLICIES TO CONTROL ACCESS.",
-        "B. ENABLE SERVER-SIDE ENCRYPTION WITH AES-256 AND USE IAM ROLES TO MANAGE ACCESS TO THE S3 BUCKET.",
-        "C. USE AWS KMS FOR ENCRYPTION AND TOKENIZATION FOR CREDIT CARD NUMBERS, BUT STORE KEYS IN A CUSTOMER-MANAGED S3 BUCKET POLICY.",
-        "D. IMPLEMENT ENCRYPTED VIRTUAL PRIVATE CLOUD (VPC) ENDPOINTS TO THE S3 BUCKET AND ENABLE SERVER-SIDE ENCRYPTION WITH AWS KMS."
+        "A. Use AWS KMS for encryption and AWS CloudHSM for key management to ensure strong protections, and implement S3 bucket policies to control access.",
+        "B. Enable server-side encryption with aes-256 and use IAM roles to manage access to the S3 bucket.",
+        "C. Use AWS KMS for encryption and tokenization for credit card numbers, but store keys in a customer-managed S3 bucket policy.",
+        "D. Implement encrypted virtual private cloud (VPC) endpoints to the S3 bucket and enable server-side encryption with AWS KMS."
       ],
       "correct_answers": [
         "A"
@@ -116,7 +116,7 @@
     },
     {
       "question_id": "da45b510-7f64-4dc8-b193-28a649f262d6",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Identity and Access Management",
       "question_type": "multiple",
       "question_text": "Your organization is undergoing a restructuring, and roles of employees are changing frequently. You need to ensure that access privileges are updated promptly without manual intervention. Which two services or configurations should you implement? (Select TWO)",
@@ -145,8 +145,8 @@
     },
     {
       "question_id": "4ea991f1-98cb-4223-ad71-a5eaf962a4f2",
-      "cert_code": "SCS-C02",
-      "domain": "Threat Detection and Incident Response",
+      "cert_code": "SCS-C03",
+      "domain": "Incident Response",
       "question_type": "single",
       "question_text": "Your company has recently experienced a significant increase in security alerts, but the response team is struggling to acknowledge these alerts quickly. To improve this situation, you are considering implementing additional detection mechanisms and metrics for success. Which of the following actions would most effectively reduce the mean time to acknowledge (MTTA) security incidents?",
       "options": [
@@ -172,8 +172,8 @@
     },
     {
       "question_id": "1404a064-87d4-4dfb-bc9d-af70b1e2b23d",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "multiple",
       "question_text": "An organization is designing a logging solution for its VPC to capture network traffic data for security monitoring. They want to ensure that they can effectively monitor and analyze the logs while minimizing costs and complexity. Which two services should they use? (Select TWO)",
       "options": [
@@ -201,7 +201,7 @@
     },
     {
       "question_id": "6a0c1dde-933c-4725-83f6-2656401e6b96",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "single",
       "question_text": "Your company is expanding its operations to Europe and requires data residency in a specific AWS Region. They want to ensure that their network traffic between different Availability Zones (AZs) within the same Region is inspected for compliance with local regulations before it reaches sensitive systems. Which of the following approaches should they implement to meet these requirements while providing the most robust security posture?",
@@ -227,7 +227,7 @@
     },
     {
       "question_id": "aa1bcb3a-50b9-4748-a26d-d2446396c919",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Data Protection",
       "question_type": "single",
       "question_text": "A financial services company is designing a new application that will store sensitive customer data, including credit card numbers and social security numbers. The application must ensure high availability while minimizing the risk of unauthorized access to this data. Which approach should the architect take to meet these requirements?",
@@ -254,8 +254,8 @@
     },
     {
       "question_id": "fa0924ba-749a-4536-9c83-f9032c5835ff",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "multiple",
       "question_text": "An organization is setting up a comprehensive logging and monitoring strategy for its AWS VPC. The security team wants to ensure that they can capture detailed network traffic information while also leveraging automated threat detection services. Which two of the following approaches would best meet their requirements? (Select TWO)",
       "options": [
@@ -269,7 +269,7 @@
         "A",
         "B"
       ],
-      "explanation": "A. ENABLE VPC FLOW LOGS TO CAPTURE IP TRAFFIC DATA AND PUBLISH IT TO CLOUDWATCH LOGS FOR ANALYSIS. This is correct as it allows capturing detailed network traffic information and publishing the data to CloudWatch Logs for further analysis.\n\nB. DEPLOY AMAZON GUARDDUTY TO ANALYZE VPC FLOW LOGS AND OTHER SECURITY-RELATED LOGS FOR THREAT DETECTION. This is also correct because GuardDuty can consume and analyze Flow Logs, providing automated threat detection capabilities.\n\nC. USE AWS CONFIG TO MONITOR CHANGES IN VPC SETTINGS BUT NOT FOR CAPTURING NETWORK TRAFFIC INFORMATION. This is incorrect as AWS Config is primarily for resource change tracking, not capturing network traffic data.\n\nD. SET UP AN S3 BUCKET TO STORE ALL VPC FLOW LOGS DATA INDEFINITELY WITHOUT ANY AUTOMATED ANALYSIS. While this approach allows long-term storage of logs, it does not provide automated analysis and threat detection, making it suboptimal for comprehensive logging and monitoring.\n\nE. IMPLEMENT A CUSTOM SCRIPT TO MANUALLY PARSE AND ANALYZE VPC FLOW LOGS DATA. This is incorrect as manual processes are error-prone and time-consuming, which goes against the best practices of automating log analysis.",
+      "explanation": "A. Enable VPC flow logs to capture IP traffic data and publish it to CloudWatch logs for analysis. This is correct as it allows capturing detailed network traffic information and publishing the data to CloudWatch Logs for further analysis.\n\nB. Deploy Amazon GuardDuty to analyze VPC flow logs and other security-related logs for threat detection. This is also correct because GuardDuty can consume and analyze Flow Logs, providing automated threat detection capabilities.\n\nC. Use AWS Config to monitor changes in VPC settings but not for capturing network traffic information. This is incorrect as AWS Config is primarily for resource change tracking, not capturing network traffic data.\n\nD. Set up an S3 bucket to store all VPC flow logs data indefinitely without any automated analysis. While this approach allows long-term storage of logs, it does not provide automated analysis and threat detection, making it suboptimal for comprehensive logging and monitoring.\n\nE. Implement a custom script to manually parse and analyze VPC flow logs data. This is incorrect as manual processes are error-prone and time-consuming, which goes against the best practices of automating log analysis.",
       "source_context": "[Source 1: AWS-Logical-Separation.pdf, p.12, URL: https://docs.aws.amazon.com/whitepapers/latest/logical-separation/logical-separation.pdf]\ncan capture information about the IP traffic going to and from\nnetwork interfaces in their VPC. Flow log data can be published as records to Amazon CloudWatch\nLogs and Amazon S3 for further analysis. A flow log can be created for an entire VPC, a subnet, or a\nsingle network interface. In addition to Flow Logs, VPC also allows full packet capture when useful\n",
       "source_url": "https://docs.aws.amazon.com/whitepapers/latest/logical-separation/logical-separation.pdf",
       "difficulty": "Specialty",
@@ -284,8 +284,8 @@
     },
     {
       "question_id": "0860bc53-8ef9-45a4-8525-6987322b26e1",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "An organization is implementing a logging strategy for its VPC to monitor network traffic and detect potential security threats. They want to use AWS services that can provide both routine monitoring and advanced analysis capabilities, while also ensuring compliance with internal audit requirements. Which combination of AWS services should they choose?",
       "options": [
@@ -312,7 +312,7 @@
     },
     {
       "question_id": "0b589fb6-bab5-4731-82f5-f64e07090b18",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Data Protection",
       "question_type": "single",
       "question_text": "An organization is developing a new application that will store sensitive customer data, including credit card numbers and personally identifiable information (PII). The team wants to ensure the data remains secure by implementing appropriate encryption and tokenization strategies. Which of the following approaches should they take to best align with AWS security best practices?",
@@ -340,7 +340,7 @@
     },
     {
       "question_id": "4220e52f-3f4f-449f-ab13-436db344b0ff",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "single",
       "question_text": "Your company is planning to migrate its on-premises infrastructure to AWS. They want to ensure that their network traffic between different Availability Zones (AZs) within a single Region is inspected for security purposes, without relying solely on traditional firewall rules based on ports and protocols.",
@@ -366,8 +366,8 @@
     },
     {
       "question_id": "e74f1502-b0b9-4735-bbae-6e1cf3067c8b",
-      "cert_code": "SCS-C02",
-      "domain": "Threat Detection and Incident Response",
+      "cert_code": "SCS-C03",
+      "domain": "Incident Response",
       "question_type": "single",
       "question_text": "Your company has recently experienced a significant increase in security alerts, but the team is struggling to process them efficiently. You need to implement a solution that can help reduce attacker dwell time by improving alert processing speed and accuracy. Which of the following approaches would be most effective for this scenario?",
       "options": [
@@ -393,22 +393,22 @@
     },
     {
       "question_id": "96898e72-e606-473b-8256-f45a4c24c793",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "multiple",
       "question_text": "You are designing a secure architecture for a multinational company that requires data residency in specific AWS Regions. The company also needs to ensure compliance with regional regulations and protect against potential security threats. Which TWO of the following strategies should you implement to meet these requirements? (Select TWO)",
       "options": [
-        "A. USE VPC ENDPOINT SERVICES TO ENSURE THAT ALL TRAFFIC BETWEEN VPCS IS ENCRYPTED.",
-        "B. IMPLEMENT AWS OUTPOSTS IN THE REQUIRED REGIONS TO MAINTAIN DATA RESIDENCY AND CONTROL OVER PHYSICAL LOCATIONS.",
-        "C. ENABLE CROSS-AZ PEERING TO ALLOW TRAFFIC FLOW BETWEEN AVAILABILITY ZONES WITHIN THE SAME REGION.",
-        "D. DEPLOY AWS NETWORK FIREWALL ACROSS MULTIPLE REGIONS TO INSPECT AND FILTER TRAFFIC BASED ON POLICY RULES.",
-        "E. USE AWS KMS FOR ENCRYPTING DATA AT REST AND IN TRANSIT TO COMPLY WITH REGULATORY REQUIREMENTS."
+        "A. Use VPC endpoint services to ensure that all traffic between VPCs is encrypted.",
+        "B. Implement AWS Outposts in the required regions to maintain data residency and control over physical locations.",
+        "C. Enable cross-AZ peering to allow traffic flow between availability zones within the same region.",
+        "D. Deploy AWS Network Firewall across multiple regions to inspect and filter traffic based on policy rules.",
+        "E. Use AWS KMS for encrypting data at rest and in transit to comply with regulatory requirements."
       ],
       "correct_answers": [
         "B",
         "D"
       ],
-      "explanation": "A: VPC ENDPOINT SERVICES ARE NOT SPECIFICALLY DESIGNED FOR MAINTAINING DATA RESIDENCY ACROSS REGIONS. THEY PROVIDE PRIVILEGED ACCESS TO AWS SERVICES FROM WITHIN A VIRTUAL PRIVATE CLOUD (VPC) BUT DO NOT ADDRESS THE REQUIREMENT OF PHYSICAL DATA RESIDENCY.\n\nB: IMPLEMENTING AWS OUTPOSTS IN THE REQUIRED REGIONS HELPS MAINTAIN DATA RESIDENCY AND CONTROL OVER PHYSICAL LOCATIONS, WHICH IS CRUCIAL FOR MEETING REGIONAL COMPLIANCE AND DATA RESIDENTY REQUIREMENTS. THIS STRATEGY DIRECTLY ADDRESSES THE COMPANY'S NEED.\n\nC: CROSS-AZ PEERING IS DESIGNED TO ALLOW TRAFFIC FLOW BETWEEN AVAILABILITY ZONES WITHIN THE SAME REGION, NOT ACROSS REGIONS. IT DOES NOT ADDRESS THE REQUIREMENT OF DATA RESIDENCY IN SPECIFIC REGIONS.\n\nD: DEPLOYING AWS NETWORK FIREWALL ACROSS MULTIPLE REGIONS CAN INSPECT AND FILTER TRAFFIC BASED ON POLICY RULES, PROVIDING AN ADDITIONAL LAYER OF SECURITY THAT IS CRUCIAL FOR DEFENSE IN DEPTH. IT HELPS MONITOR AND CONTROL TRAFFIC BETWEEN VARIOUS NETWORK LAYERS.\n\nE: AWS KMS IS USED FOR ENCRYPTING DATA AT REST AND IN TRANSIT TO COMPLY WITH REGULATORY REQUIREMENTS, BUT IT DOES NOT DIRECTLY ADDRESS THE NEED FOR PHYSICAL DATA RESIDENCY ACROSS SPECIFIC REGIONS.",
+      "explanation": "A: VPC endpoint services are not specifically designed for maintaining data residency across regions. They provide privileged access to AWS services from within a virtual private cloud (VPC) but do not address the requirement of physical data residency.\n\nB: implementing AWS Outposts in the required regions helps maintain data residency and control over physical locations, which is crucial for meeting regional compliance and data residenty requirements. This strategy directly addresses the company's need.\n\nC: cross-AZ peering is designed to allow traffic flow between availability zones within the same region, not across regions. It does not address the requirement of data residency in specific regions.\n\nD: deploying AWS Network Firewall across multiple regions can inspect and filter traffic based on policy rules, providing an additional layer of security that is crucial for defense in depth. It helps monitor and control traffic between various network layers.\n\nE: AWS KMS is used for encrypting data at rest and in transit to comply with regulatory requirements, but it does not directly address the need for physical data residency across specific regions.",
       "source_context": "[Source 1: Well-Architected-Security-Pillar.pdf, p.115, URL: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf]\nSecurity Pillar AWS Well-Architected Framework\nInfrastructure protection\nInfrastructure protection encompasses control methodologies, such as defense in depth, that\nare necessary to meet best practices and organizational or regulatory obligations. Use of these\nmethodologies is critical for successful, ongoing operations in the cloud.",
       "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf",
       "difficulty": "Specialty",
@@ -422,7 +422,7 @@
     },
     {
       "question_id": "1c45702f-fb20-4143-b9e3-d51ec2b495a6",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "single",
       "question_text": "Your company is expanding its operations to multiple AWS Regions and wants to ensure that network traffic between different Availability Zones (AZs) within a single Region is inspected for security compliance. Which of the following solutions should you implement to meet this requirement while providing the most comprehensive protection against unauthorized access and ensuring compliance with the latest threat intelligence?",
@@ -448,7 +448,7 @@
     },
     {
       "question_id": "d0a9a1c3-3b9a-42ce-ab2a-73b1cd2f54fd",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Identity and Access Management",
       "question_type": "single",
       "question_text": "Your organization has recently adopted IAM Identity Center to manage workforce user identities. An employee named John has changed roles from a developer to an operations engineer, requiring different access permissions. Which of the following approaches would best ensure that John's access is updated according to the principle of least privilege and automated identity lifecycle management?",
@@ -474,7 +474,7 @@
     },
     {
       "question_id": "fb9eff3a-4c77-4318-ae32-395d899ba0bd",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Identity and Access Management",
       "question_type": "single",
       "question_text": "Your organization has recently adopted AWS IAM Identity Center to manage workforce user identities. An employee's role changes, and you need to update their access privileges accordingly. Which of the following approaches ensures that the updated permissions are automatically propagated across all relevant applications without manual intervention?",
@@ -501,16 +501,16 @@
     },
     {
       "question_id": "f617ad2e-b82b-4677-8d8a-e8e9bfb9005b",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Identity and Access Management",
       "question_type": "multiple",
       "question_text": "Your organization has recently adopted IAM Identity Center to manage workforce user identities. You want to ensure that access privileges are updated automatically based on changes in roles, while also minimizing administrative overhead. Which three actions should you take? (Select THREE)",
       "options": [
-        "A. USE AWS SSO TO MANAGE USER ROLES AND PERMISSIONS ACROSS MULTIPLE AWS ACCOUNTS.",
-        "B. IMPLEMENT IAM IDENTITY CENTER'S PERMISSION SETS FOR EACH JOB ROLE AND ASSOCIATE THEM WITH POLICIES.",
-        "C. ENABLE AUTOMATED LIFECYCLE MANAGEMENT OF WORKFORCE USERS BY INTEGRATING HR SYSTEMS WITH IAM IDENTITY CENTER.",
-        "D. USE AWS CONFIG TO MONITOR CHANGES IN IAM USER ROLES AND TRIGGER NOTIFICATIONS FOR ADMINISTRATORS.",
-        "E. IMPLEMENT CUSTOM POLICIES IN IAM TO GRANT ACCESS BASED ON DYNAMIC CONDITIONS LIKE IP ADDRESS OR TIME OF DAY."
+        "A. Use AWS SSO to manage user roles and permissions across multiple AWS accounts.",
+        "B. Implement IAM identity center's permission sets for each job role and associate them with policies.",
+        "C. Enable automated lifecycle management of workforce users by integrating hr systems with IAM identity center.",
+        "D. Use AWS Config to monitor changes in IAM user roles and trigger notifications for administrators.",
+        "E. Implement custom policies in IAM to grant access based on dynamic conditions like IP address or time of day."
       ],
       "correct_answers": [
         "B",
@@ -531,8 +531,8 @@
     },
     {
       "question_id": "d9cabda8-bdec-413e-b81a-07c8aa16f211",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "A company is designing a VPC architecture to monitor network traffic for security purposes. They want to capture detailed information about IP traffic going to and from their network interfaces, and they are considering using AWS services that can provide this capability. Which of the following should they use for continuous monitoring of network activity without enabling full packet capture?",
       "options": [
@@ -544,7 +544,7 @@
       "correct_answers": [
         "B"
       ],
-      "explanation": "The correct answer is B. VPC Flow Logs, as they are designed to capture detailed information about IP traffic going to and from network interfaces in a VPC without requiring full packet capture. VPC Flow Logs can be created for an entire VPC, a subnet, or a single network interface, providing continuous monitoring of network activity. Amazon GuardDuty (A) is used for threat detection and continuous security monitoring but does not provide detailed IP traffic logs directly from the VPC. AWS WAF (C) is used for web application firewalls and does not monitor network traffic in a VPC. Amazon CloudWatch Alarms (D) are used to trigger responses to metrics collected by CloudWatch, which can be useful for alerting but do not capture detailed IP traffic logs.",
+      "explanation": "The correct answer is B. VPC Flow Logs, as they are designed to capture detailed information about IP traffic going to and from network interfaces in a VPC without requiring full packet capture. VPC Flow Logs can be created for an entire VPC, a subnet, or a single network interface, providing continuous monitoring of network activity. Amazon GuardDuty (A) is used for threat detection and continuous security monitoring but does not provide detailed IP traffic logs directly from the VPC. AWS WAF (c) is used for web application firewalls and does not monitor network traffic in a VPC. Amazon CloudWatch Alarms (D) are used to trigger responses to metrics collected by CloudWatch, which can be useful for alerting but do not capture detailed IP traffic logs.",
       "source_context": "[Source 1: AWS-Logical-Separation.pdf, p.12, URL: https://docs.aws.amazon.com/whitepapers/latest/logical-separation/logical-separation.pdf]\ncan capture information about the IP traffic going to and from\nnetwork interfaces in their VPC. Flow log data can be published as records to Amazon CloudWatch\nLogs and Amazon S3 for further analysis. A flow log can be created for an entire VPC, a subnet, or a\nsingle network interface. In addition to Flow Logs, VPC also allows full packet capture when useful\n",
       "source_url": "https://docs.aws.amazon.com/whitepapers/latest/logical-separation/logical-separation.pdf",
       "difficulty": "Specialty",
@@ -558,8 +558,8 @@
     },
     {
       "question_id": "b184aafc-26ed-4789-ad55-463112b026d4",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "An organization is implementing logging for its VPC to monitor network traffic. They want to ensure they can capture detailed logs of all network activity while also using a managed service for threat detection. Which combination best meets these requirements?",
       "options": [
@@ -571,7 +571,7 @@
       "correct_answers": [
         "A"
       ],
-      "explanation": "The correct answer is A because it leverages VPC Flow Logs to capture detailed network activity data, which can then be ingested by Amazon GuardDuty for managed threat detection. This combination ensures comprehensive logging and utilizes a well-integrated AWS service for security monitoring as per the AWS Well-Architected Framework's best practices (SEC04-BP01). B is incorrect because AWS Config Rules are not designed to monitor network traffic, and CloudWatch Alarms would only notify of anomalies without providing deeper analysis. C is impractical due to the complexity and cost of deploying a custom SIEM solution on EC2 instances within the VPC. D uses Traffic Mirroring for packet capture but does not mention integrating it with GuardDuty or another managed threat detection service, making it less comprehensive.",
+      "explanation": "The correct answer is A because it leverages VPC Flow Logs to capture detailed network activity data, which can then be ingested by Amazon GuardDuty for managed threat detection. This combination ensures comprehensive logging and utilizes a well-integrated AWS service for security monitoring as per the AWS Well-Architected Framework's best practices (sec04-bp01). B is incorrect because AWS Config Rules are not designed to monitor network traffic, and CloudWatch Alarms would only notify of anomalies without providing deeper analysis. C is impractical due to the complexity and cost of deploying a custom SIEM solution on EC2 instances within the VPC. D uses Traffic Mirroring for packet capture but does not mention integrating it with GuardDuty or another managed threat detection service, making it less comprehensive.",
       "source_context": "[Source 1: AWS-Logical-Separation.pdf, p.12, URL: https://docs.aws.amazon.com/whitepapers/latest/logical-separation/logical-separation.pdf]\ncan capture information about the IP traffic going to and from\nnetwork interfaces in their VPC. Flow log data can be published as records to Amazon CloudWatch\nLogs and Amazon S3 for further analysis. A flow log can be created for an entire VPC, a subnet, or a\nsingle network interface. In addition to Flow Logs, VPC also allows full packet capture when useful\n",
       "source_url": "https://docs.aws.amazon.com/whitepapers/latest/logical-separation/logical-separation.pdf",
       "difficulty": "Specialty",
@@ -585,7 +585,7 @@
     },
     {
       "question_id": "a775e748-152b-4f4c-a46e-db5af0fb2f75",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Data Protection",
       "question_type": "multiple",
       "question_text": "An organization is designing a data protection strategy for its AWS environment. They want to ensure that sensitive data is protected with appropriate controls and reduce the risk of unauthorized access. Which two actions should they take? (Select TWO)",
@@ -600,7 +600,7 @@
         "A",
         "C"
       ],
-      "explanation": "A. ENABLE AMAZON S3 SERVER-SIDE ENCRYPTION WITH CUSTOMER-PROVIDED KEYS USING AWS KMS: This is correct as per SEC07-BP02 Apply data protection controls based on data sensitivity, which states that appropriately encrypting data can make the data unreadable and provide adequate protection against exfiltration attempts. AWS provides services like AWS CloudHSM or AWS KMS for managing encryption keys.\n\nB. MIGRATE ALL ON-PREMISES DATA TO AMAZON S3 FOR EASIER MANAGEMENT AND PROTECTION: This is not necessarily correct as it involves a significant change in the organization's infrastructure and may not be the most cost-effective or practical solution, especially if only certain data needs protection.\n\nC. IMPLEMENT AWS CLOUDTRAIL TO MONITOR API CALLS RELATED TO SENSITIVE DATA ACCESS: This is correct as per SEC07-BP02 Apply data protection controls based on data sensitivity, which suggests using monitoring tools to detect and investigate security incidents.\n\nD. USE AMAZON EC2 INSTANCES IN A PRIVATE SUBNET TO HOST CRITICAL APPLICATIONS PROCESSING SENSITIVE DATA: While this can help reduce the risk of unauthorized access by limiting network exposure, it is not specifically addressing data protection as defined in the context provided.\n\nE. CREATE AN IAM POLICY THAT ALLOWS ALL USERS TO HAVE READ-ONLY ACCESS TO THE SENSITIVE DATA: This is incorrect because it does not align with the principle of 'Keep people away from data' which suggests reducing or eliminating direct access to sensitive data where possible.",
+      "explanation": "A. Enable Amazon S3 server-side encryption with customer-provided keys using AWS KMS: This is correct as per SEC07-BP02 Apply data protection controls based on data sensitivity, which states that appropriately encrypting data can make the data unreadable and provide adequate protection against exfiltration attempts. AWS provides services like AWS CloudHSM or AWS KMS for managing encryption keys.\n\nB. Migrate all on-premises data to Amazon S3 for easier management and protection: This is not necessarily correct as it involves a significant change in the organization's infrastructure and may not be the most cost-effective or practical solution, especially if only certain data needs protection.\n\nC. Implement AWS CloudTrail to monitor API calls related to sensitive data access: This is correct as per SEC07-BP02 Apply data protection controls based on data sensitivity, which suggests using monitoring tools to detect and investigate security incidents.\n\nD. Use Amazon EC2 instances in a private subnet to host critical applications processing sensitive data: While this can help reduce the risk of unauthorized access by limiting network exposure, it is not specifically addressing data protection as defined in the context provided.\n\nE. Create an IAM policy that allows all users to have read-only access to the sensitive data: This is incorrect because it does not align with the principle of 'Keep people away from data' which suggests reducing or eliminating direct access to sensitive data where possible.",
       "source_context": "[Source 1: Well-Architected-Security-Pillar.pdf, p.8, URL: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf]\nencryption, tokenization, and access control where appropriate.\n- Keep people away from data: Use mechanisms and tools to reduce or eliminate the need for\ndirect access or manual processing of data. This reduces the risk of mishandling or modification\nand human error when handling sensitive data.\n- Prepare for security events: Prepare ",
       "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf",
       "difficulty": "Specialty",
@@ -614,20 +614,20 @@
     },
     {
       "question_id": "4367662c-5e81-4566-a385-031bcb7daa0c",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "single",
       "question_text": "A company is designing a new application that will process sensitive customer data. The architecture must ensure that only authorized traffic can traverse between network layers, and it should leverage AWS services to implement inspection-based protection as part of its defense in depth strategy.",
       "options": [
-        "A. USE AWS NETWORK FIREWALL TO SET UP TRAFFIC INSPECTION POINTS BETWEEN PRIVATE AND PUBLIC SUBNETS AND ANALYZE METADATA AND PATTERNS.",
-        "B. IMPLEMENT VPC ENDPOINT SERVICES TO ALLOW TRUSTED SERVICES TO COMMUNICATE WITH THE APPLICATION WITHOUT EXPOSING IT TO THE INTERNET.",
-        "C. USE AWS WAF ON THE LOAD BALANCER TO FILTER HTTP REQUESTS BASED ON URI PATHS AND QUERY STRINGS.",
-        "D. ENABLE VIRTUAL PRIVATE CLOUD (VPC) FLOW LOGS TO RECORD TRAFFIC BETWEEN SUBNETS."
+        "A. Use AWS Network Firewall to set up traffic inspection points between private and public subnets and analyze metadata and patterns.",
+        "B. Implement VPC endpoint services to allow trusted services to communicate with the application without exposing it to the internet.",
+        "C. Use AWS WAF on the load balancer to filter HTTP requests based on uri paths and query strings.",
+        "D. Enable virtual private cloud (VPC) flow logs to record traffic between subnets."
       ],
       "correct_answers": [
         "A"
       ],
-      "explanation": "THE CORRECT ANSWER IS A. AWS NETWORK FIREWALL PROVIDES AN INSPECTION-BASED PROTECTION MECHANISM THAT ALLOWS AND DENIES DECISIONS BASED ON EXPLICIT RULES, THREAT INTELLIGENCE, AND DEVIATIONS FROM BASELINE BEHAVIORS. THIS BEST PRACTICE IS ESSENTIAL FOR IMPLEMENTING DEFENSE IN DEPTH AS IT ENHANCES THE SECURITY OF TRAFFIC BETWEEN NETWORK LAYERS BY ANALYZING METADATA AND PATTERNS.\n\nB IS INCORRECT BECAUSE VPC ENDPOINT SERVICES ARE USED TO SECURELY CONNECT TRUSTED SERVICES WITHIN A VPC, BUT THEY DO NOT PROVIDE TRAFFIC INSPECTION BETWEEN PRIVATE AND PUBLIC SUBNETS. C IS INCORRECT AS AWS WAF IS DESIGNED FOR WEB APPLICATION SECURITY BY FILTERING HTTP REQUESTS BASED ON URI PATHS AND QUERY STRINGS, WHICH IS NOT SUITABLE FOR DEEP TRAFFIC INSPECTION ACROSS VPC LAYERS. D IS INCORRECT BECAUSE VIRTUAL PRIVATE CLOUD FLOW LOGS RECORD TRAFFIC BETWEEN SUBNETS BUT DO NOT PROVIDE THE IN-DEPTH ANALYSIS AND AUTOMATION REQUIRED FOR EFFECTIVE TRAFFIC INSPECTION.",
+      "explanation": "The correct answer is a. AWS Network Firewall provides an inspection-based protection mechanism that allows and denies decisions based on explicit rules, threat intelligence, and deviations from baseline behaviors. This best practice is essential for implementing defense in depth as it enhances the security of traffic between network layers by analyzing metadata and patterns.\n\nB is incorrect because VPC endpoint services are used to securely Connect trusted services within a VPC, but they do not provide traffic inspection between private and public subnets. C is incorrect as AWS WAF is designed for web application security by filtering HTTP requests based on uri paths and query strings, which is not suitable for deep traffic inspection across VPC layers. D is incorrect because virtual private cloud flow logs record traffic between subnets but do not provide the in-depth analysis and automation required for effective traffic inspection.",
       "source_context": "[Source 1: Well-Architected-Security-Pillar.pdf, p.115, URL: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf]\nSecurity Pillar AWS Well-Architected Framework\nInfrastructure protection\nInfrastructure protection encompasses control methodologies, such as defense in depth, that\nare necessary to meet best practices and organizational or regulatory obligations. Use of these\nmethodologies is critical for successful, ongoing operations in the cloud.",
       "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf",
       "difficulty": "Specialty",
@@ -640,7 +640,7 @@
     },
     {
       "question_id": "f1326b91-9ea8-4ef7-bda4-83b0f7127a34",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "single",
       "question_text": "Your company is deploying a new application that requires high availability and strict network security measures. The application will be hosted in multiple AWS Regions to ensure data residency compliance with local laws. Which of the following configurations best aligns with the security pillar's recommendation for traffic inspection points while ensuring regional data sovereignty?",
@@ -666,7 +666,7 @@
     },
     {
       "question_id": "203c0df0-2796-4e7e-b668-468f35164e57",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Identity and Access Management",
       "question_type": "single",
       "question_text": "Your organization is undergoing a restructuring, and several employees are changing roles. You want to ensure that their access privileges are updated automatically based on changes in your authoritative identity source. Which AWS service should you use to manage this process efficiently?",
@@ -692,22 +692,22 @@
     },
     {
       "question_id": "012b3e05-b746-44ea-a363-082c4ec5b315",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Data Protection",
       "question_type": "multiple",
       "question_text": "A company is designing a new application that will process sensitive customer data, including credit card numbers and personal identification information. The application must ensure the data remains encrypted both at rest and in transit to prevent unauthorized access. Which two strategies should be implemented to achieve this goal while ensuring compliance with industry standards? (Select TWO)",
       "options": [
-        "A. USE AWS KMS TO MANAGE ENCRYPTION KEYS AND ENCRYPT DATA BOTH AT REST AND IN TRANSIT.",
-        "B. IMPLEMENT AN ON-PREMISES FIREWALL TO SECURE THE APPLICATION NETWORK.",
-        "C. ENABLE AWS CLOUDHSM FOR CUSTOMER-OWNED KEY MANAGEMENT AND DATA PROTECTION.",
-        "D. USE AWS IAM POLICIES TO LIMIT ACCESS TO THE DATA PROCESSING SYSTEM.",
-        "E. CONFIGURE S3 VERSION CONTROL ON ALL DATA STORES TO PREVENT ACCIDENTAL DELETION."
+        "A. Use AWS KMS to manage encryption keys and encrypt data both at rest and in transit.",
+        "B. Implement an on-premises firewall to secure the application network.",
+        "C. Enable AWS CloudHSM for customer-owned key management and data protection.",
+        "D. Use AWS IAM policies to limit access to the data processing system.",
+        "E. Configure S3 version control on all data stores to prevent accidental deletion."
       ],
       "correct_answers": [
         "A",
         "C"
       ],
-      "explanation": "A. USE AWS KMS TO MANAGE ENCRYPTION KEYS AND ENCRYPT DATA BOTH AT REST AND IN TRANSIT. - CORRECT. AWS KMS provides secure key management and can be used to encrypt data at rest and in transit, ensuring compliance with industry standards such as PCI DSS.\n\nB. IMPLEMENT AN ON-PREMISES FIREWALL TO SECURE THE APPLICATION NETWORK. - INCORRECT. While a firewall is important for network security, it does not address the encryption requirements of the application or ensure data protection at rest and in transit.\n\nC. ENABLE AWS CLOUDHSM FOR CUSTOMER-OWNED KEY MANAGEMENT AND DATA PROTECTION. - CORRECT. AWS CloudHSM allows customers to manage their own keys, providing an additional layer of security for sensitive data processing.\n\nD. USE AWS IAM POLICIES TO LIMIT ACCESS TO THE DATA PROCESSING SYSTEM. - INCORRECT. While IAM policies are crucial for access control, they do not address the encryption requirements of the application or ensure data protection at rest and in transit.\n\nE. CONFIGURE S3 VERSION CONTROL ON ALL DATA STORES TO PREVENT ACCIDENTAL DELETION. - INCORRECT. Version control is useful for preventing accidental deletion but does not provide encryption for sensitive data.",
+      "explanation": "A. Use AWS KMS to manage encryption keys and encrypt data both at rest and in transit. - Correct. AWS KMS provides secure key management and can be used to encrypt data at rest and in transit, ensuring compliance with industry standards such as PCI DSS.\n\nB. Implement an on-premises firewall to secure the application network. - Incorrect. While a firewall is important for network security, it does not address the encryption requirements of the application or ensure data protection at rest and in transit.\n\nC. Enable AWS CloudHSM for customer-owned key management and data protection. - Correct. AWS CloudHSM allows customers to manage their own keys, providing an additional layer of security for sensitive data processing.\n\nD. Use AWS IAM policies to limit access to the data processing system. - Incorrect. While IAM policies are crucial for access control, they do not address the encryption requirements of the application or ensure data protection at rest and in transit.\n\nE. Configure S3 version control on all data stores to prevent accidental deletion. - Incorrect. Version control is useful for preventing accidental deletion but does not provide encryption for sensitive data.",
       "source_context": "[Source 1: Well-Architected-Security-Pillar.pdf, p.8, URL: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf]\nencryption, tokenization, and access control where appropriate.\n- Keep people away from data: Use mechanisms and tools to reduce or eliminate the need for\ndirect access or manual processing of data. This reduces the risk of mishandling or modification\nand human error when handling sensitive data.\n- Prepare for security events: Prepare ",
       "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf",
       "difficulty": "Specialty",
@@ -721,8 +721,8 @@
     },
     {
       "question_id": "53f291e0-03f9-455a-b1e4-d639d61e59e4",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "An organization is implementing a logging strategy to monitor VPC traffic for security purposes. They want to ensure that all network activity can be recorded, analyzed, and used for threat detection without compromising the performance of their applications. Which combination of AWS services should they use to achieve this goal?",
       "options": [
@@ -748,8 +748,8 @@
     },
     {
       "question_id": "d32dd244-220b-4fac-9f81-2b81135444bc",
-      "cert_code": "SCS-C02",
-      "domain": "Threat Detection and Incident Response",
+      "cert_code": "SCS-C03",
+      "domain": "Incident Response",
       "question_type": "single",
       "question_text": "Your company is experiencing frequent security alerts from Amazon GuardDuty, but the mean time to acknowledge (MTTA) remains high. To improve your incident response process and reduce attacker dwell time, which of the following actions should you prioritize?",
       "options": [
@@ -776,7 +776,7 @@
     },
     {
       "question_id": "a82a1184-4cef-47c5-ac03-9b9bdc0fea00",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "single",
       "question_text": "Your company is expanding its operations into a new region and needs to ensure that the network traffic between two Availability Zones (AZs) within this region is inspected for compliance with security policies. Which AWS service should be used to implement inspection-based protection at the network layer, ensuring that only authorized traffic traverses between these AZs?",
@@ -789,7 +789,7 @@
       "correct_answers": [
         "C"
       ],
-      "explanation": "The correct answer is C. AWS Network Firewall should be used to implement inspection-based protection at the network layer, ensuring that only authorized traffic traverses between AZs. According to the AWS Well-Architected Security Pillar (Source 3), AWS Network Firewall allows for fine-grained control over both stateful and stateless network traffic using its policy language, which can be based on explicit rules, threat intelligence, and deviations from baseline behaviors as required by the scenario. This aligns with the desired outcome of inspecting traffic between network layers to ensure data in transit matches expected categories and patterns.\n\nOption A (AWS WAF) is primarily used for web application security at the edge of your network and does not provide deep packet inspection capabilities required for inter-AZ traffic control as described. Option B (Amazon GuardDuty) provides threat detection, but it focuses on monitoring and analyzing AWS CloudTrail logs and Amazon S3 bucket access logs to detect malicious activities, which is not the primary use case here. Option D (Amazon VPC Flow Logs) captures network flow information for all IP traffic that is associated with your subnets, but it does not provide the enforcement capabilities needed to authorize or deny traffic based on specific rules as required by the scenario.",
+      "explanation": "The correct answer is C. AWS Network Firewall should be used to implement inspection-based protection at the network layer, ensuring that only authorized traffic traverses between AZs. According to the AWS Well-Architected Security Pillar (Source 3), AWS Network Firewall allows for fine-grained control over both stateful and stateless network traffic using its policy language, which can be based on explicit rules, threat intelligence, and deviations from baseline behaviors as required by the scenario. This aligns with the desired outcome of inspecting traffic between network layers to ensure data in transit matches expected categories and patterns.\n\nOption a (AWS WAF) is primarily used for web application security at the edge of your network and does not provide deep packet inspection capabilities required for inter-AZ traffic control as described. Option B (Amazon GuardDuty) provides threat detection, but it focuses on monitoring and analyzing AWS CloudTrail logs and Amazon S3 bucket access logs to detect malicious activities, which is not the primary use case here. Option D (Amazon VPC Flow Logs) captures network flow information for all IP traffic that is associated with your subnets, but it does not provide the enforcement capabilities needed to authorize or deny traffic based on specific rules as required by the scenario.",
       "source_context": "[Source 1: Well-Architected-Security-Pillar.pdf, p.115, URL: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf]\nSecurity Pillar AWS Well-Architected Framework\nInfrastructure protection\nInfrastructure protection encompasses control methodologies, such as defense in depth, that\nare necessary to meet best practices and organizational or regulatory obligations. Use of these\nmethodologies is critical for successful, ongoing operations in the cloud.",
       "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf",
       "difficulty": "Specialty",
@@ -802,7 +802,7 @@
     },
     {
       "question_id": "b89f27e5-33af-4ec9-9cf2-7ae31ceba312",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Identity and Access Management",
       "question_type": "multiple",
       "question_text": "Your organization is currently managing identities across multiple applications, leading to a complex and error-prone process. You decide to transition to IAM Identity Center as the centralized identity provider to simplify user management and ensure that changes in workforce user roles are automatically reflected across all systems while maintaining the principle of least privilege. Which three actions should you take? (Select THREE)",
@@ -818,7 +818,7 @@
         "C",
         "E"
       ],
-      "explanation": "A. MIGRATE EXISTING USERS AND GROUPS TO IAM IDENTITY CENTER - Correct. This ensures a centralized identity management system, making it easier to manage and update workforce users' access.\n\nB. CONFIGURE AWS CLOUDTRAIL FOR AUDITING IAM POLICY CHANGES - Incorrect. While CloudTrail is useful for auditing changes, it does not directly address the need for a centralized identity provider or role-based access control.\n\nC. INTEGRATE YOUR HR SYSTEM WITH IAM IDENTITY CENTER USING SAML 2.0 FEDERATION - Correct. This allows for automatic updates to user identities and permissions when roles change, as per best practices described in SEC02-BP04.\n\nD. ENABLE MULTI-FACTOR AUTHENTICATION (MFA) FOR ALL IAM USERS - Incorrect. While MFA is a good security practice, it does not address the need for a centralized identity provider or role-based access control.\n\nE. CREATE AN IAM ROLE WITH LEAST PRIVILEGE ACCESS TO MANAGE USER IDENTITIES - Correct. This adheres to the principle of least privilege and minimizes risks associated with managing user identities.",
+      "explanation": "A. Migrate existing users and groups to IAM identity center - Correct. This ensures a centralized identity management system, making it easier to manage and update workforce users' access.\n\nB. Configure AWS CloudTrail for auditing IAM policy changes - Incorrect. While CloudTrail is useful for auditing changes, it does not directly address the need for a centralized identity provider or role-based access control.\n\nC. Integrate your hr system with IAM identity center using SAML 2.0 Federation - Correct. This allows for automatic updates to user identities and permissions when roles change, as per best practices described in SEC02-BP04.\n\nD. Enable multi-factor authentication (MFA) for all IAM users - Incorrect. While MFA is a good security practice, it does not address the need for a centralized identity provider or role-based access control.\n\nE. Create an IAM role with least privilege access to manage user identities - Correct. This adheres to the principle of least privilege and minimizes risks associated with managing user identities.",
       "source_context": "[Source 1: Well-Architected-Security-Pillar.pdf, p.87, URL: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf]\noked based on changes in your organization's authoritative\nidentity source.\nAs the roles and responsibilities of employees change within your organization, adjust their access\nprivileges accordingly. You can use IAM Identity Center's permission sets to define different job\nroles or responsibilities and associate them with the appropri",
       "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf",
       "difficulty": "Specialty",
@@ -833,7 +833,7 @@
     },
     {
       "question_id": "5d47ddd0-13da-4e08-9ed0-eb4a79551ec9",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Data Protection",
       "question_type": "single",
       "question_text": "An organization is developing a new financial application that will store sensitive customer data, including credit card numbers and social security numbers. The company wants to ensure the data is protected both at rest and in transit, while also minimizing the risk of human error or unauthorized access.",
@@ -861,7 +861,7 @@
     },
     {
       "question_id": "ca3976c1-02d9-4169-a9e6-cc510daeaea3",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Data Protection",
       "question_type": "multiple",
       "question_text": "An organization is designing a data protection strategy for its customer information, which includes sensitive financial and personal details. The goal is to minimize the risk of unauthorized access while ensuring compliance with industry regulations such as GDPR. Which two strategies should be prioritized in this scenario? (Select TWO)",
@@ -890,8 +890,8 @@
     },
     {
       "question_id": "6a9f563e-f686-40dc-a113-36d41a73b784",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "An organization is looking to implement a comprehensive logging solution for their AWS VPC network traffic. They want to capture detailed IP traffic information, store it securely, and have the ability to analyze this data using a managed service. Which combination of services would best meet these requirements?",
       "options": [
@@ -918,8 +918,8 @@
     },
     {
       "question_id": "159b8a6c-a0ae-4377-a16d-7ce03d6113bd",
-      "cert_code": "SCS-C02",
-      "domain": "Threat Detection and Incident Response",
+      "cert_code": "SCS-C03",
+      "domain": "Incident Response",
       "question_type": "single",
       "question_text": "Your company is experiencing frequent security alerts due to a high volume of baseline deviations detected by Amazon GuardDuty. You want to improve the efficiency of your incident response process by focusing on metrics that can help reduce attacker dwell time. Which metric should you prioritize for improvement according to AWS Security Incident Response Guide?",
       "options": [
@@ -944,7 +944,7 @@
     },
     {
       "question_id": "de1e17ba-6fe3-4d39-9683-9d8b96fd237c",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Data Protection",
       "question_type": "single",
       "question_text": "Your company is developing a new financial application that processes sensitive customer data. To ensure compliance with industry regulations, you need to implement robust data protection measures. Which of the following approaches best aligns with AWS best practices for data protection and minimizes the risk of unauthorized access and data breaches?",
@@ -970,8 +970,8 @@
     },
     {
       "question_id": "6ec8dbb5-8247-46eb-b828-625ac708006d",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "An organization is designing a security monitoring solution for their VPC to capture network traffic logs. They want to ensure these logs are centrally stored, analyzed using GuardDuty, and made available for forensic analysis in case of an incident. Which combination of services would best meet these requirements?",
       "options": [
@@ -999,7 +999,7 @@
     },
     {
       "question_id": "a3d972db-4ad0-4b57-b8fe-6555de7c3482",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Data Protection",
       "question_type": "multiple",
       "question_text": "A company is designing a data protection strategy for its financial records, which are highly sensitive and require strict access controls. The company wants to ensure that the data remains unreadable even if it is intercepted during transmission or at rest, while also minimizing the risk of human error in handling the data. (Select TWO)",
@@ -1028,7 +1028,7 @@
     },
     {
       "question_id": "e878cbdf-0b26-434b-8dcd-c74806a8d529",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "single",
       "question_text": "Your company is planning to migrate its on-premises infrastructure to AWS. They want to ensure that network traffic between their VPC and the internet is securely managed, with fine-grained control over both stateful and stateless traffic. Which of the following approaches should they implement to meet these requirements?",
@@ -1054,7 +1054,7 @@
     },
     {
       "question_id": "cc4513a0-9d6b-479e-b791-24963f033f24",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "single",
       "question_text": "Your company is deploying a new financial application in multiple AWS Regions to ensure data residency and disaster recovery. The application processes sensitive financial data, and the security team wants to implement comprehensive traffic inspection points between network layers to protect against unauthorized access and potential vulnerabilities. Which of the following best achieves this requirement while adhering to the principle of defense in depth?",
@@ -1067,7 +1067,7 @@
       "correct_answers": [
         "D"
       ],
-      "explanation": "The best answer is D because VPC Flow Logs and Security Groups, as described in SEC05-BP03 from the Well-Architected Security Pillar, provide comprehensive visibility into network traffic patterns and allow for fine-grained control over inbound and outbound traffic. This setup aligns with the principle of defense in depth by providing multiple layers of security to protect sensitive financial data. AWS Firewall Manager (A) is designed for managing firewall rules across services like Network Firewalls, but it does not directly provide stateful or stateless traffic inspection capabilities within VPCs. Amazon CloudFront (B) and AWS WAF (C) are more suited for edge-level protection rather than comprehensive network-layer traffic inspection.",
+      "explanation": "The best answer is D because VPC Flow Logs and Security Groups, as described in SEC05-BP03 from the Well-Architected Security Pillar, provide comprehensive visibility into network traffic patterns and allow for fine-grained control over inbound and outbound traffic. This setup aligns with the principle of defense in depth by providing multiple layers of security to protect sensitive financial data. AWS Firewall Manager (A) is designed for managing firewall rules across services like Network Firewalls, but it does not directly provide stateful or stateless traffic inspection capabilities within VPCs. Amazon CloudFront (B) and AWS WAF (c) are more suited for edge-level protection rather than comprehensive network-layer traffic inspection.",
       "source_context": "[Source 1: Well-Architected-Security-Pillar.pdf, p.115, URL: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf]\nSecurity Pillar AWS Well-Architected Framework\nInfrastructure protection\nInfrastructure protection encompasses control methodologies, such as defense in depth, that\nare necessary to meet best practices and organizational or regulatory obligations. Use of these\nmethodologies is critical for successful, ongoing operations in the cloud.",
       "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf",
       "difficulty": "Specialty",
@@ -1082,8 +1082,8 @@
     },
     {
       "question_id": "6be0df00-90f6-446f-a079-1dce70fad3ce",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "An organization is designing a logging solution for its VPC to capture network traffic data. They want to use AWS services that can provide detailed insights into network activity, including the ability to perform advanced queries on the logs. Which combination of services should they choose to meet these requirements?",
       "options": [
@@ -1110,22 +1110,22 @@
     },
     {
       "question_id": "ed6d4293-297c-4386-8365-540a971eb9bb",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Identity and Access Management",
       "question_type": "multiple",
       "question_text": "Your organization has recently undergone a restructuring, leading to changes in employee roles. To ensure that these changes are reflected promptly in their AWS access, you need to implement an efficient identity management solution. Which two options should you consider for managing workforce user identities and ensuring least privilege access? (Select TWO)",
       "options": [
-        "A. IAM USER POOLS - TO MANAGE USER IDENTITIES FOR MOBILE AND WEB APPLICATIONS",
-        "B. AWS IAM IDENTITY CENTER - TO MANAGE WORKFORCE USER IDENTITIES AND PERMISSION SETS",
-        "C. AWS CLOUDHSM - TO STORE AND PROTECT ENCRYPTED KEYS USED BY IAM USERS",
-        "D. AWS SSO - TO PROVIDE SINGLE SIGN-ON ACROSS MULTIPLE AWS ACCOUNTS",
-        "E. AWS IAM ROLES FOR SERVICES - TO GRANT TEMPORARY ACCESS TO EC2 INSTANCES"
+        "A. IAM user pools - to manage user identities for mobile and web applications",
+        "B. AWS IAM identity center - to manage workforce user identities and permission sets",
+        "C. AWS CloudHSM - to store and protect encrypted keys used by IAM users",
+        "D. AWS SSO - to provide single sign-on across multiple AWS accounts",
+        "E. AWS IAM roles for services - to grant temporary access to EC2 instances"
       ],
       "correct_answers": [
         "B",
         "E"
       ],
-      "explanation": "A IS INCORRECT: IAM USER POOLS are primarily used for managing user identities for mobile and web applications, not for workforce users. It does not integrate with HR systems or manage permission sets.\n\nB IS CORRECT: AWS IAM IDENTITY CENTER is the best choice for managing workforce user identities and permission sets. It allows you to define different job roles or responsibilities through permission sets that can be updated when an employee's role changes, ensuring least privilege access.\n\nC IS INCORRECT: AWS CLOUDHSM is used for storing and protecting encrypted keys, not for managing workforce user identities. It does not address the need for least privilege access management.\n\nD IS INCORRECT: AWS SSO provides single sign-on across multiple AWS accounts but does not manage identity or permissions directly within IAM. While useful for SSO, it is not a direct solution for managing workforce user identities and least privilege access.\n\nE IS CORRECT: AWS IAM ROLES FOR SERVICES can be used to grant temporary access to EC2 instances based on the principle of least privilege. However, in this scenario, we are focusing on managing workforce users' identities and their corresponding permissions, making B the more relevant choice for this specific requirement.",
+      "explanation": "A is incorrect: IAM user pools are primarily used for managing user identities for mobile and web applications, not for workforce users. It does not integrate with HR systems or manage permission sets.\n\nB is correct: AWS IAM identity center is the best choice for managing workforce user identities and permission sets. It allows you to define different job roles or responsibilities through permission sets that can be updated when an employee's role changes, ensuring least privilege access.\n\nC is incorrect: AWS CloudHSM is used for storing and protecting encrypted keys, not for managing workforce user identities. It does not address the need for least privilege access management.\n\nD is incorrect: AWS SSO provides single sign-on across multiple AWS accounts but does not manage identity or permissions directly within IAM. While useful for SSO, it is not a direct solution for managing workforce user identities and least privilege access.\n\nE is correct: AWS IAM roles for services can be used to grant temporary access to EC2 instances based on the principle of least privilege. However, in this scenario, we are focusing on managing workforce users' identities and their corresponding permissions, making B the more relevant choice for this specific requirement.",
       "source_context": "[Source 1: Well-Architected-Security-Pillar.pdf, p.87, URL: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf]\noked based on changes in your organization's authoritative\nidentity source.\nAs the roles and responsibilities of employees change within your organization, adjust their access\nprivileges accordingly. You can use IAM Identity Center's permission sets to define different job\nroles or responsibilities and associate them with the appropri",
       "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf",
       "difficulty": "Specialty",
@@ -1139,7 +1139,7 @@
     },
     {
       "question_id": "e3a03a80-772b-43c3-9dd1-943241421e95",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Data Protection",
       "question_type": "single",
       "question_text": "A financial services firm is developing a new application that will process sensitive customer data, including credit card numbers and social security numbers. The company wants to ensure the data is protected both at rest and in transit while minimizing the risk of human error during processing.",
@@ -1167,8 +1167,8 @@
     },
     {
       "question_id": "8b5d9a23-7e16-43a8-bc4c-c5ab7c2bd1f1",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "An organization is setting up logging for its VPC to monitor network traffic. They want to ensure they can capture detailed information about all IP traffic, including both inbound and outbound flows, for compliance purposes. Which combination of AWS services should the organization use to achieve this goal while maintaining a balance between cost and performance?",
       "options": [
@@ -1194,23 +1194,23 @@
     },
     {
       "question_id": "76ac2005-954a-4dcd-be57-e578c60549e3",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "multiple",
       "question_text": "Your company is planning to migrate its on-premises infrastructure to the AWS cloud. They want to ensure that their network traffic is protected and comply with regional data residency requirements. Which three strategies should they implement? (Select THREE)",
       "options": [
-        "A. USE VPC ENDPOINT TO PROTECT TRAFFIC BETWEEN PRIVATE SUBNETS AND THE INTERNET",
-        "B. IMPLEMENT AWS OUTPOSTS FOR DATA RESIDENCY REQUIREMENTS IN A SPECIFIED REGION",
-        "C. ENABLE AWS SHIELD TO AUTOMATICALLY DETECT AND BLOCK DDoS ATTACKS",
-        "D. USE AWS NETWORK FIREWALL TO INSPECT TRAFFIC BETWEEN DIFFERENT NETWORK LAYERS",
-        "E. CONFIGURE S3 ENCRYPTION FOR ALL OBJECTS STORED IN THE CLOUD"
+        "A. Use VPC endpoint to protect traffic between private subnets and the internet",
+        "B. Implement AWS Outposts for data residency requirements in a specified region",
+        "C. Enable AWS Shield to automatically detect and block DDoS ATTACKS",
+        "D. Use AWS Network Firewall to inspect traffic between different network layers",
+        "E. Configure S3 encryption for all objects stored in the cloud"
       ],
       "correct_answers": [
         "B",
         "D",
         "E"
       ],
-      "explanation": "A. USE VPC ENDPOINT TO PROTECT TRAFFIC BETWEEN PRIVATE SUBNETS AND THE INTERNET - Incorrect. While this is a good practice for protecting traffic, it does not address data residency requirements or network inspection.\n\nB. IMPLEMENT AWS OUTPOSTS FOR DATA RESIDENCY REQUIREMENTS IN A SPECIFIED REGION - Correct. AWS Outposts allow you to deploy cloud services in your on-premises data center and meet regional compliance and data residency requirements.\n\nC. ENABLE AWS SHIELD TO AUTOMATICALLY DETECT AND BLOCK DDoS ATTACKS - Incorrect. While AWS Shield is useful for protecting against DDoS attacks, it does not address network inspection or data residency needs.\n\nD. USE AWS NETWORK FIREWALL TO INSPECT TRAFFIC BETWEEN DIFFERENT NETWORK LAYERS - Correct. AWS Network Firewall can inspect traffic between different network layers and enforce security policies based on explicit rules and threat intelligence.\n\nE. CONFIGURE S3 ENCRYPTION FOR ALL OBJECTS STORED IN THE CLOUD - Correct. Encrypting data at rest with Amazon S3 is a best practice for protecting sensitive information, but it does not address network inspection or regional compliance.",
+      "explanation": "A. Use VPC endpoint to protect traffic between private subnets and the internet - Incorrect. While this is a good practice for protecting traffic, it does not address data residency requirements or network inspection.\n\nB. Implement AWS Outposts for data residency requirements in a specified region - Correct. AWS Outposts allow you to deploy cloud services in your on-premises data center and meet regional compliance and data residency requirements.\n\nC. Enable AWS Shield to automatically detect and block DDoS ATTACKS - Incorrect. While AWS Shield is useful for protecting against DDoS attacks, it does not address network inspection or data residency needs.\n\nD. Use AWS Network Firewall to inspect traffic between different network layers - Correct. AWS Network Firewall can inspect traffic between different network layers and enforce security policies based on explicit rules and threat intelligence.\n\nE. Configure S3 encryption for all objects stored in the cloud - Correct. Encrypting data at rest with Amazon S3 is a best practice for protecting sensitive information, but it does not address network inspection or regional compliance.",
       "source_context": "[Source 1: Well-Architected-Security-Pillar.pdf, p.115, URL: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf]\nSecurity Pillar AWS Well-Architected Framework\nInfrastructure protection\nInfrastructure protection encompasses control methodologies, such as defense in depth, that\nare necessary to meet best practices and organizational or regulatory obligations. Use of these\nmethodologies is critical for successful, ongoing operations in the cloud.",
       "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf",
       "difficulty": "Specialty",
@@ -1225,7 +1225,7 @@
     },
     {
       "question_id": "2acf2b3d-f1f4-444e-b388-827e6ee5bd02",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Identity and Access Management",
       "question_type": "single",
       "question_text": "Your organization has recently adopted AWS IAM Identity Center to manage workforce user identities. John Doe, a developer, has been promoted to senior developer with additional responsibilities. As an AWS Solutions Architect, you are tasked with ensuring that John's access privileges are updated according to the principle of least privilege and centralized identity management best practices. Which of the following actions should you take?",
@@ -1251,15 +1251,15 @@
     },
     {
       "question_id": "d9a1c611-8b37-453f-a1b3-ffb338efd332",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "A company is setting up a VPC for its new application, which requires detailed network traffic analysis. The security team wants to ensure that all relevant logs are captured for both routine monitoring and potential forensic investigations. Which combination of AWS services should the team use to meet these requirements?",
       "options": [
         "A. Use VPC Flow Logs and Amazon GuardDuty to capture and analyze network traffic.",
         "B. Enable detailed CloudWatch Logs for the application and set up a custom SIEM tool for analysis.",
         "C. Configure Traffic Mirroring for all network interfaces and use AWS Config for compliance monitoring.",
-        "D. Deploy an on-premises IDS/IPS solution and integrate it with VPC Flow Logs."
+        "D. Deploy an on-premises IDS/IPs solution and integrate it with VPC Flow Logs."
       ],
       "correct_answers": [
         "A"
@@ -1278,8 +1278,8 @@
     },
     {
       "question_id": "d23f91af-f226-4b21-923c-35e2b8269f94",
-      "cert_code": "SCS-C02",
-      "domain": "Threat Detection and Incident Response",
+      "cert_code": "SCS-C03",
+      "domain": "Incident Response",
       "question_type": "single",
       "question_text": "Your company is experiencing frequent false positives in their security alerts, which are generated by multiple AWS services including Amazon GuardDuty and AWS Security Hub. You want to improve the accuracy of these alerts while minimizing the mean time to acknowledge (MTTA) for potential incidents. Which approach should you take to achieve this goal?",
       "options": [
@@ -1305,16 +1305,16 @@
     },
     {
       "question_id": "93436b35-be62-40dc-8cd9-3ea5f6a636fc",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Data Protection",
       "question_type": "multiple",
       "question_text": "An organization is implementing data protection measures for its financial records stored in Amazon S3. The goal is to ensure that sensitive data remains protected while minimizing the risk of human error and unauthorized access. (Select THREE)",
       "options": [
-        "A. ENABLE S3 VERSIONING TO PREVENT DATA LOSS DUE TO ACCIDENTAL DELETION",
-        "B. USE AWS KMS FOR ENCRYPTION OF DATA AT REST AND IN TRANSIT",
-        "C. IMPLEMENT CLOUDTRAIL FOR AUDITING ACCESS TO THE BUCKET CONTAINING FINANCIAL RECORDS",
-        "D. ENABLE S3 BLOCK PUBLIC ACCESS TO PREVENT UNAUTHORIZED ACCESS VIA PUBLIC URLS",
-        "E. USE AWS IAM POLICIES TO GRANT READ-ONLY ACCESS TO ALL STAFF MEMBERS"
+        "A. Enable S3 versioning to prevent data loss due to accidental deletion",
+        "B. Use AWS KMS for encryption of data at rest and in transit",
+        "C. Implement CloudTrail for auditing access to the bucket containing financial records",
+        "D. Enable S3 block public access to prevent unauthorized access via public URLs",
+        "E. Use AWS IAM policies to grant read-only access to all staff members"
       ],
       "correct_answers": [
         "B",
@@ -1336,8 +1336,8 @@
     },
     {
       "question_id": "34657005-955f-4b3a-bb56-984bc9eb9bab",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "An organization needs to monitor network traffic for potential security breaches in their VPC. They have enabled VPC Flow Logs to capture this data, but are concerned about the volume of logs generated and want a solution that can help with threat detection without manually querying each log file. Which AWS service should they use?",
       "options": [
@@ -1363,20 +1363,20 @@
     },
     {
       "question_id": "e8110fd0-f251-4def-bbd5-738a5d01a6ce",
-      "cert_code": "SCS-C02",
-      "domain": "Threat Detection and Incident Response",
+      "cert_code": "SCS-C03",
+      "domain": "Incident Response",
       "question_type": "single",
       "question_text": "Your company is experiencing frequent security incidents, and you need to improve your incident response process. You want to focus on reducing the attacker dwell time by improving alert accuracy and response times. Which of the following metrics would best help you achieve this goal?",
       "options": [
-        "A. MEAN TIME TO ACKNOWLEDGE (MTTA) - This metric tracks how quickly alerts are identified and prioritized for processing.",
-        "B. ATTACKER DWELL TIME - This measures the time attackers spend within your environment before being detected, which is crucial for minimizing incident impact.",
-        "C. AWS CLOUDWATCH METRICS - These provide real-time monitoring of system health but do not directly measure response efficiency or attacker dwell time.",
-        "D. AWS SECURITY HUB FINDINGS - While useful for identifying security issues, these findings are more about post-incident analysis rather than immediate response times."
+        "A. Mean time to acknowledge (mtta) - This metric tracks how quickly alerts are identified and prioritized for processing.",
+        "B. Attacker dwell time - This measures the time attackers spend within your environment before being detected, which is crucial for minimizing incident impact.",
+        "C. AWS CloudWatch metrics - These provide real-time monitoring of system health but do not directly measure response efficiency or attacker dwell time.",
+        "D. AWS Security Hub findings - While useful for identifying security issues, these findings are more about post-incident analysis rather than immediate response times."
       ],
       "correct_answers": [
         "B"
       ],
-      "explanation": "ATTACKER DWELL TIME (B) is the most relevant metric as it directly measures how long attackers can operate within your environment before being detected. Lower attacker dwell time indicates a faster incident response, which aligns with reducing the impact of security incidents. MTTA (A) helps in identifying delays in alert processing but does not address the core issue of attacker detection and removal. AWS CLOUDWATCH METRICS (C) focus on system health monitoring rather than incident response times or attacker dwell time. AWS SECURITY HUB FINDINGS (D), although valuable for post-incident analysis, do not provide real-time data needed to improve immediate response efficiency.",
+      "explanation": "Attacker dwell time (b) is the most relevant metric as it directly measures how long attackers can operate within your environment before being detected. Lower attacker dwell time indicates a faster incident response, which aligns with reducing the impact of security incidents. MTTA (A) helps in identifying delays in alert processing but does not address the core issue of attacker detection and removal. AWS CloudWatch metrics (c) focus on system health monitoring rather than incident response times or attacker dwell time. AWS Security Hub findings (d), although valuable for post-incident analysis, do not provide real-time data needed to improve immediate response efficiency.",
       "source_context": "[Source 1: AWS-Security-Incident-Response-Guide.pdf, p.62, URL: https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/aws-security-incident-response-guide.pdf]\ngreater the need to identify which parts of the incident\nresponse process need improvement to ensure your teams\u2019 abilities to minimize the impact and\nscope of threats or attacks in your environments. The lower the attacker dwell time, the better\nyour teams are at minimizing the time and opportunity that a thr",
       "source_url": "https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/aws-security-incident-response-guide.pdf",
       "difficulty": "Specialty",
@@ -1389,22 +1389,22 @@
     },
     {
       "question_id": "ae423f22-89b6-42f4-b401-16d7c39a2f43",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "multiple",
       "question_text": "You are designing a secure infrastructure for an e-commerce application that requires high availability and compliance with regional data residency laws. Your architecture spans multiple AWS Regions, each containing several Availability Zones (AZs). Which two measures should you implement to ensure both security and regulatory requirements are met? (Select TWO)",
       "options": [
-        "A. USE VPC ENDPOINT SERVICES TO SECURE DATA TRANSFER BETWEEN AZS AND S3 BUCKET",
-        "B. IMPLEMENT AWS WAF ON THE APPLICATION LOAD BALANCER TO FILTER HTTP REQUESTS",
-        "C. CONFIGURE CROSS-REGION REPLICATION FOR DATABASES TO MAINTAIN DATA AVAILABILITY ACROSS REGIONS",
-        "D. USE AWS KMS TO ENCRYPT ALL SENSITIVE DATA STORED IN EBS VOLUMES AND RDS INSTANCES",
-        "E. DEPLOY VPC FLOW LOGS TO INSPECT TRAFFIC BETWEEN AZS"
+        "A. Use VPC endpoint services to secure data transfer between AZs and S3 bucket",
+        "B. Implement AWS WAF on the application load balancer to filter HTTP requests",
+        "C. Configure cross-region replication for databases to maintain data availability across regions",
+        "D. Use AWS KMS to encrypt all sensitive data stored in EBS volumes and RDS instances",
+        "E. Deploy VPC flow logs to inspect traffic between AZs"
       ],
       "correct_answers": [
         "D",
         "E"
       ],
-      "explanation": "A. USE VPC ENDPOINT SERVICES TO SECURE DATA TRANSFER BETWEEN AZS AND S3 BUCKET - While this enhances security by securing data transfer, it does not address regional data residency or compliance requirements.\n\nB. IMPLEMENT AWS WAF ON THE APPLICATION LOAD BALANCER TO FILTER HTTP REQUESTS - This is a good practice for filtering requests but does not directly support regional data residency laws.\n\nC. CONFIGURE CROSS-REGION REPLICATION FOR DATABASES TO MAINTAIN DATA AVAILABILITY ACROSS REGIONS - This ensures high availability across regions, but it does not address the specific requirement of regional data residency.\n\nD. USE AWS KMS TO ENCRYPT ALL SENSITIVE DATA STORED IN EBS VOLUMES AND RDS INSTANCES - Encrypting sensitive data stored in EBS volumes and RDS instances ensures that even if data is physically located in a different region, it remains protected, aligning with regional compliance requirements.\n\nE. DEPLOY VPC FLOW LOGS TO INSPECT TRAFFIC BETWEEN AZS - VPC Flow Logs are an AWS-native solution for inspecting traffic between Availability Zones and can help meet regulatory requirements by providing detailed network flow information.",
+      "explanation": "A. Use VPC endpoint services to secure data transfer between AZs and S3 bucket - While this enhances security by securing data transfer, it does not address regional data residency or compliance requirements.\n\nB. Implement AWS WAF on the application load balancer to filter HTTP requests - This is a good practice for filtering requests but does not directly support regional data residency laws.\n\nC. Configure cross-region replication for databases to maintain data availability across regions - This ensures high availability across regions, but it does not address the specific requirement of regional data residency.\n\nD. Use AWS KMS to encrypt all sensitive data stored in EBS volumes and RDS instances - Encrypting sensitive data stored in EBS volumes and RDS instances ensures that even if data is physically located in a different region, it remains protected, aligning with regional compliance requirements.\n\nE. Deploy VPC flow logs to inspect traffic between AZs - VPC Flow Logs are an AWS-native solution for inspecting traffic between Availability Zones and can help meet regulatory requirements by providing detailed network flow information.",
       "source_context": "[Source 1: Well-Architected-Security-Pillar.pdf, p.115, URL: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf]\nSecurity Pillar AWS Well-Architected Framework\nInfrastructure protection\nInfrastructure protection encompasses control methodologies, such as defense in depth, that\nare necessary to meet best practices and organizational or regulatory obligations. Use of these\nmethodologies is critical for successful, ongoing operations in the cloud.",
       "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf",
       "difficulty": "Specialty",
@@ -1418,7 +1418,7 @@
     },
     {
       "question_id": "0e8353c6-b33d-4e2c-8ec0-489ad3025e0b",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "single",
       "question_text": "Your company is deploying a new web application that will handle sensitive financial data. The architecture spans multiple AWS Regions to meet compliance requirements and ensure high availability. You need to implement traffic inspection points between network layers to protect the data in transit, as per the Security Pillar of the Well-Architected Framework.",
@@ -1444,7 +1444,7 @@
     },
     {
       "question_id": "aa7e306b-2858-4b23-93c3-8e66f441aa0f",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Data Protection",
       "question_type": "single",
       "question_text": "A financial services firm is developing a new application that will store and process sensitive customer data, including credit card numbers. The company wants to ensure the highest level of security while minimizing the risk of human error in handling this data. Which approach should they take according to AWS best practices?",
@@ -1457,7 +1457,7 @@
       "correct_answers": [
         "D"
       ],
-      "explanation": "The best answer is D because AWS CloudHSM provides hardware security modules (HSMs) that enable FIPS 140-2 level 3 validated cryptographic key generation and management. This ensures strong protection of encryption keys, which is critical for securing sensitive data. Additionally, using KMS to manage these keys allows fine-grained access control policies and audit trails, aligning with the principle of least privilege. \n\nA (AWS Secrets Manager) is more suited for managing secrets like database passwords rather than generating and managing encryption keys.\nB (Amazon S3 SSE-C) is a good practice but does not address key generation or management, which are crucial for protecting sensitive data at rest in this scenario.\nC (on-premises appliance) introduces complexity and potential security risks by involving physical hardware outside of AWS's secure environment.",
+      "explanation": "The best answer is D because AWS CloudHSM provides hardware security modules (HSMs) that enable FIPS 140-2 level 3 validated cryptographic key generation and management. This ensures strong protection of encryption keys, which is critical for securing sensitive data. Additionally, using KMS to manage these keys allows fine-grained access control policies and audit trails, aligning with the principle of least privilege. \n\nA (AWS Secrets Manager) is more suited for managing secrets like database passwords rather than generating and managing encryption keys.\nB (Amazon S3 SSE-c) is a good practice but does not address key generation or management, which are crucial for protecting sensitive data at rest in this scenario.\nC (on-premises appliance) introduces complexity and potential security risks by involving physical hardware outside of AWS's secure environment.",
       "source_context": "[Source 1: Well-Architected-Security-Pillar.pdf, p.8, URL: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf]\nencryption, tokenization, and access control where appropriate.\n- Keep people away from data: Use mechanisms and tools to reduce or eliminate the need for\ndirect access or manual processing of data. This reduces the risk of mishandling or modification\nand human error when handling sensitive data.\n- Prepare for security events: Prepare ",
       "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf",
       "difficulty": "Specialty",
@@ -1471,8 +1471,8 @@
     },
     {
       "question_id": "8d1888b5-29be-4223-844e-7b7af971e020",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "multiple",
       "question_text": "An organization wants to implement a robust security logging and monitoring solution for their VPC. They need to capture network traffic, analyze logs, and ensure compliance with GRC standards. Which three of the following actions should they take? (Select THREE)",
       "options": [
@@ -1487,7 +1487,7 @@
         "B",
         "E"
       ],
-      "explanation": "A. ENABLE VPC FLOW LOGS TO CAPTURE IP TRAFFIC DATA: According to the AWS Well-Architected Framework (SEC04-BP01), capturing security event logs is a fundamental requirement for audit, investigations, and operational use cases. VPC Flow Logs can be created for an entire VPC, subnet, or network interface as needed.\n\nB. SET UP AMAZON GUARDDUTY TO INGEST AND ANALYZE VPC FLOW LOGS FOR THREAT DETECTION: AWS GuardDuty is a managed threat detection service that can consume and analyze various log sources, including VPC Flow Logs, to provide continuous network security monitoring.\n\nC. CONFIGURE AWS CONFIG TO MONITOR RESOURCE CHANGES BUT NOT ENABLE DETAILED DELIVERY OF CONFIGURATION ITEMS: While AWS Config is useful for compliance and governance, enabling detailed delivery of configuration items ensures that all changes are captured and can be used in log analysis. Not enabling this feature would make it harder to trace back incidents.\n\nD. USE AMAZON CLOUDWATCH ALARMS TO SET UP ALERTS BASED ON NON-EXISTENT METRICS: This is a suboptimal approach as creating CloudWatch Alarms based on non-existent metrics will not provide any useful alerts and could lead to wasted resources.\n\nE. ENABLE TRAFFIC MIRRORING FOR ALL NETWORK INTERFACES, EVEN WHEN NO PACKET CAPTURE IS NEEDED: Traffic Mirroring should be used only when necessary for packet capture analysis. Enabling it unnecessarily can increase costs without providing value.",
+      "explanation": "A. Enable VPC flow logs to capture IP traffic data: According to the AWS Well-Architected Framework (SEC04-BP01), capturing security event logs is a fundamental requirement for audit, investigations, and operational use cases. VPC Flow Logs can be created for an entire VPC, subnet, or network interface as needed.\n\nB. Set up Amazon GuardDuty to ingest and analyze VPC flow logs for threat detection: AWS GuardDuty is a managed threat detection service that can consume and analyze various log sources, including VPC Flow Logs, to provide continuous network security monitoring.\n\nC. Configure AWS Config to monitor resource changes but not enable detailed delivery of configuration items: While AWS Config is useful for compliance and governance, enabling detailed delivery of configuration items ensures that all changes are captured and can be used in log analysis. Not enabling this feature would make it harder to trace back incidents.\n\nD. Use Amazon CloudWatch alarms to set up alerts based on non-existent metrics: This is a suboptimal approach as creating CloudWatch Alarms based on non-existent metrics will not provide any useful alerts and could lead to wasted resources.\n\nE. Enable traffic mirroring for all network interfaces, even when no packet capture is needed: Traffic Mirroring should be used only when necessary for packet capture analysis. Enabling it unnecessarily can increase costs without providing value.",
       "source_context": "[Source 1: AWS-Logical-Separation.pdf, p.12, URL: https://docs.aws.amazon.com/whitepapers/latest/logical-separation/logical-separation.pdf]\ncan capture information about the IP traffic going to and from\nnetwork interfaces in their VPC. Flow log data can be published as records to Amazon CloudWatch\nLogs and Amazon S3 for further analysis. A flow log can be created for an entire VPC, a subnet, or a\nsingle network interface. In addition to Flow Logs, VPC also allows full packet capture when useful\n",
       "source_url": "https://docs.aws.amazon.com/whitepapers/latest/logical-separation/logical-separation.pdf",
       "difficulty": "Specialty",
@@ -1502,7 +1502,7 @@
     },
     {
       "question_id": "3d644c61-88de-4599-9149-7de7f6318b5c",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "single",
       "question_text": "Your company is planning to migrate its on-premises application to AWS. The application requires high availability and must be protected against DDoS attacks. Which of the following configurations should you implement to meet these requirements while ensuring security best practices are followed?",
@@ -1515,7 +1515,7 @@
       "correct_answers": [
         "B"
       ],
-      "explanation": "The correct answer is B. AWS WAF (Web Application Firewall) combined with an Application Load Balancer across multiple Availability Zones provides robust protection against DDoS attacks and other web exploits, aligning with the defense in depth principle discussed in the Well-Architected Security Pillar. This setup ensures high availability and security by distributing traffic across multiple AZs, which is critical for meeting the customer's requirements.\n\nA is incorrect because deploying the application in a single Availability Zone does not provide sufficient protection against DDoS attacks or ensure high availability. Network ACLs alone are insufficient for comprehensive security.\n\nC is plausible but less effective as VPC Flow Logs and CloudWatch alarms are primarily used for monitoring network traffic patterns, which can help detect anomalies post-attack rather than preventing them. They do not provide real-time protection against DDoS attacks or ensure high availability by themselves.\n\nD is incorrect because a bastion host in the public subnet introduces an additional attack surface and does not directly address DDoS protection or high availability. It is more about managing SSH access, which is important but not sufficient for the given requirements.",
+      "explanation": "The correct answer is b. AWS WAF (Web Application Firewall) combined with an Application Load Balancer across multiple Availability Zones provides robust protection against DDoS attacks and other web exploits, aligning with the defense in depth principle discussed in the Well-Architected Security Pillar. This setup ensures high availability and security by distributing traffic across multiple AZs, which is critical for meeting the customer's requirements.\n\nA is incorrect because deploying the application in a single Availability Zone does not provide sufficient protection against DDoS attacks or ensure high availability. Network ACLs alone are insufficient for comprehensive security.\n\nC is plausible but less effective as VPC Flow Logs and CloudWatch alarms are primarily used for monitoring network traffic patterns, which can help detect anomalies post-attack rather than preventing them. They do not provide real-time protection against DDoS attacks or ensure high availability by themselves.\n\nD is incorrect because a bastion host in the public subnet introduces an additional attack surface and does not directly address DDoS protection or high availability. It is more about managing SSH access, which is important but not sufficient for the given requirements.",
       "source_context": "[Source 1: Well-Architected-Security-Pillar.pdf, p.115, URL: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf]\nSecurity Pillar AWS Well-Architected Framework\nInfrastructure protection\nInfrastructure protection encompasses control methodologies, such as defense in depth, that\nare necessary to meet best practices and organizational or regulatory obligations. Use of these\nmethodologies is critical for successful, ongoing operations in the cloud.",
       "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf",
       "difficulty": "Specialty",
@@ -1529,8 +1529,8 @@
     },
     {
       "question_id": "5d7c1d61-a23e-40f4-bf13-c8ed13200aac",
-      "cert_code": "SCS-C02",
-      "domain": "Threat Detection and Incident Response",
+      "cert_code": "SCS-C03",
+      "domain": "Incident Response",
       "question_type": "single",
       "question_text": "Your company has recently experienced a significant increase in security incidents, prompting you to enhance your threat detection capabilities. You are considering various AWS services to improve the mean time to acknowledge (MTTA) of alerts generated by potential threats. Which of the following would be the most effective approach to reduce MTTA according to best practices outlined in the AWS Security Incident Response Guide?",
       "options": [
@@ -1556,8 +1556,8 @@
     },
     {
       "question_id": "1a0e0556-3e18-469d-b677-5a386e2a5e19",
-      "cert_code": "SCS-C02",
-      "domain": "Threat Detection and Incident Response",
+      "cert_code": "SCS-C03",
+      "domain": "Incident Response",
       "question_type": "single",
       "question_text": "Your company is experiencing frequent security alerts that require immediate attention. To improve the efficiency of your incident response process, you decide to implement a metric for 'mean time to acknowledge' (MTTA) security alerts. Which AWS service or configuration would best help in tracking MTTA and ensuring timely responses?",
       "options": [
@@ -1582,7 +1582,7 @@
     },
     {
       "question_id": "50662a41-dd17-40da-b453-bba5c96197e6",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Identity and Access Management",
       "question_type": "single",
       "question_text": "Your company has recently adopted AWS IAM Identity Center for managing workforce user identities. An employee, John Doe, is transitioning from a developer role to an operations role within the same organization. As part of this transition, you need to ensure that his access privileges are updated accordingly without disrupting his work. Which action should you take to manage John's access based on his new job responsibilities?",
@@ -1608,8 +1608,8 @@
     },
     {
       "question_id": "ca7e6c04-b4ef-4f51-93c1-209bb56f375b",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "multiple",
       "question_text": "An organization is designing a security logging and monitoring solution for their AWS VPC. They want to ensure they can capture network traffic data, analyze it using Amazon GuardDuty, and have the ability to perform detailed packet analysis when needed. Which two services should they use together to achieve these goals? (Select TWO)",
       "options": [
@@ -1623,7 +1623,7 @@
         "B",
         "C"
       ],
-      "explanation": "A. AWS CLOUDTRAIL - Incorrect. CloudTrail is used for logging API calls and managing changes to your AWS resources, not for capturing network traffic data.\n\nB. VPC FLOW LOGS - Correct. VPC Flow Logs can capture information about the IP traffic going to and from network interfaces in their VPC. This will provide the necessary network traffic data that needs to be analyzed by GuardDuty.\n\nC. AMAZON GUARDDUTY - Correct. Amazon GuardDuty is a managed threat detection service that provides continuous security monitoring of your AWS resources, including analyzing VPC Flow Logs for potential threats and vulnerabilities.\n\nD. AWS CONFIG - Incorrect. AWS Config helps you to understand the current state of your AWS resources and track changes made to them over time, not for capturing network traffic data or performing real-time threat detection.\n\nE. TRAFFIC MIRRORING - Incorrect. While Traffic Mirroring can capture detailed packet information when needed, it is a more advanced feature that complements VPC Flow Logs rather than being used in conjunction with GuardDuty for the primary logging and monitoring needs.",
+      "explanation": "A. AWS CloudTrail - Incorrect. CloudTrail is used for logging API calls and managing changes to your AWS resources, not for capturing network traffic data.\n\nB. VPC flow logs - Correct. VPC Flow Logs can capture information about the IP traffic going to and from network interfaces in their VPC. This will provide the necessary network traffic data that needs to be analyzed by GuardDuty.\n\nC. Amazon GuardDuty - Correct. Amazon GuardDuty is a managed threat detection service that provides continuous security monitoring of your AWS resources, including analyzing VPC Flow Logs for potential threats and vulnerabilities.\n\nD. AWS Config - Incorrect. AWS Config helps you to understand the current state of your AWS resources and track changes made to them over time, not for capturing network traffic data or performing real-time threat detection.\n\nE. TRAFFIC MIRRORING - Incorrect. While Traffic Mirroring can capture detailed packet information when needed, it is a more advanced feature that complements VPC Flow Logs rather than being used in conjunction with GuardDuty for the primary logging and monitoring needs.",
       "source_context": "[Source 1: AWS-Logical-Separation.pdf, p.12, URL: https://docs.aws.amazon.com/whitepapers/latest/logical-separation/logical-separation.pdf]\ncan capture information about the IP traffic going to and from\nnetwork interfaces in their VPC. Flow log data can be published as records to Amazon CloudWatch\nLogs and Amazon S3 for further analysis. A flow log can be created for an entire VPC, a subnet, or a\nsingle network interface. In addition to Flow Logs, VPC also allows full packet capture when useful\n",
       "source_url": "https://docs.aws.amazon.com/whitepapers/latest/logical-separation/logical-separation.pdf",
       "difficulty": "Specialty",
@@ -1637,8 +1637,8 @@
     },
     {
       "question_id": "cc131648-7fb1-4b82-8e61-64bb3702d163",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "An organization wants to monitor network traffic for potential security threats in their VPC. They are considering using AWS services that can provide continuous monitoring of network activity, including flow logs and packet capture. Which combination of AWS services would best meet the organization's needs while adhering to the principle of least privilege?",
       "options": [
@@ -1664,8 +1664,8 @@
     },
     {
       "question_id": "907d3f15-c932-41c1-a0a1-6cabc702324b",
-      "cert_code": "SCS-C02",
-      "domain": "Threat Detection and Incident Response",
+      "cert_code": "SCS-C03",
+      "domain": "Incident Response",
       "question_type": "single",
       "question_text": "Your company has recently experienced a data breach, and you are tasked with improving the incident response process. You want to ensure that your team can quickly acknowledge security alerts and prioritize them effectively. Which of the following metrics would best help you track this improvement?",
       "options": [
@@ -1691,8 +1691,8 @@
     },
     {
       "question_id": "1ffaf454-c6ef-430a-996e-f5342d83ac79",
-      "cert_code": "SCS-C02",
-      "domain": "Threat Detection and Incident Response",
+      "cert_code": "SCS-C03",
+      "domain": "Incident Response",
       "question_type": "single",
       "question_text": "Your company has recently experienced a significant number of false alerts from Amazon GuardDuty, which is impacting the efficiency of your incident response team. You need to improve the accuracy of your alerting system without compromising on the speed of detection. Which approach would be most effective in reducing false positives while maintaining timely incident responses?",
       "options": [
@@ -1719,7 +1719,7 @@
     },
     {
       "question_id": "2ae2aae7-195f-473d-bdd9-5fbae3f91839",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Data Protection",
       "question_type": "multiple",
       "question_text": "An organization is designing a data protection strategy for its AWS environment, focusing on reducing the risk of unauthorized access and ensuring compliance with industry regulations. Which three measures should the architect prioritize to achieve these goals? (Select THREE)",
@@ -1750,7 +1750,7 @@
     },
     {
       "question_id": "86b7d1b3-e93a-4962-a464-94dfb673612b",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Data Protection",
       "question_type": "single",
       "question_text": "An organization wants to protect sensitive customer data while ensuring compliance with industry regulations. They have identified that credit card numbers and social security numbers are the most sensitive pieces of information within their AWS environment.",
@@ -1777,7 +1777,7 @@
     },
     {
       "question_id": "9a4f7c3a-07e4-48a2-a864-82c285edbb68",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "single",
       "question_text": "Your company is expanding its operations to multiple AWS Regions and wants to ensure that network traffic between these regions is inspected for compliance with regulatory requirements. Which of the following approaches would best meet this requirement while providing a robust defense in depth strategy?",
@@ -1790,7 +1790,7 @@
       "correct_answers": [
         "C"
       ],
-      "explanation": "THE CORRECT ANSWER IS C: DEPLOY NETWORK FIREWALL WITH CUSTOM RULESETS TO MONITOR TRAFFIC BETWEEN REGIONS.\n\nNETWORK FIREWALL (ANSWER C) IS DESIGNED FOR INSPECTING AND MANAGING TRAFFIC AT THE STATEFUL LEVEL, MAKING IT SUITABLE FOR DETECTING AND RESPONDING TO SECURITY THREATS ACROSS REGIONS. IT ALLOWS YOU TO DEFINE COMPLEX RULESETS BASED ON AWS BEST PRACTICES AND LATEST THREAT INTELLIGENCE, WHICH IS CRUCIAL FOR MEETING REGULATORY REQUIREMENTS.\n\nA (VPC FLOW LOGS) IS USED FOR MONITORING TRAFFIC WITHIN A SINGLE VIRTUAL PRIVATE CLOUD AND DOES NOT PROVIDE CROSS-REGION INSPECTION CAPABILITIES NECESSARY FOR THE SCENARIO.\nB (AWS WAF) IS DESIGNED FOR WEB APPLICATION FIREWALLS AND IS NOT SUITABLE FOR INSPECTING TRAFFIC BETWEEN REGIONS.\nD (SECURITY GROUPS) ARE USED TO MANAGE NETWORK ACCESS AT THE INSTANCE LEVEL WITHIN A SINGLE VPC, MAKING THEM INADEQUATE FOR CROSS-REGION TRAFFIC INSPECTION.",
+      "explanation": "The correct answer is c: deploy Network Firewall with custom rulesets to monitor traffic between regions.\n\nNetwork Firewall (answer c) is designed for inspecting and managing traffic at the stateful level, making it suitable for detecting and responding to security threats across regions. It allows you to define complex rulesets based on AWS best practices and latest threat intelligence, which is crucial for meeting regulatory requirements.\n\nA (VPC flow logs) is used for monitoring traffic within a single virtual private cloud and does not provide cross-region inspection capabilities necessary for the scenario.\nB (AWS WAF) is designed for web application firewalls and is not suitable for inspecting traffic between regions.\nD (security groups) are used to manage network access at the instance level within a single VPC, making them inadequate for cross-region traffic inspection.",
       "source_context": "[Source 1: Well-Architected-Security-Pillar.pdf, p.115, URL: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf]\nSecurity Pillar AWS Well-Architected Framework\nInfrastructure protection\nInfrastructure protection encompasses control methodologies, such as defense in depth, that\nare necessary to meet best practices and organizational or regulatory obligations. Use of these\nmethodologies is critical for successful, ongoing operations in the cloud.",
       "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf",
       "difficulty": "Specialty",
@@ -1803,8 +1803,8 @@
     },
     {
       "question_id": "02107b70-a11c-47f5-8916-c9af790d9532",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "An organization is designing a security monitoring solution for its VPC. They want to capture network traffic data for analysis, but are concerned about the storage costs of detailed packet captures. Which combination of AWS services should they use to meet their logging needs while keeping costs under control?",
       "options": [
@@ -1830,7 +1830,7 @@
     },
     {
       "question_id": "67f48f65-ac64-41b9-adcd-2754607a47e4",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "single",
       "question_text": "An organization is designing a new AWS infrastructure for handling sensitive financial transactions. The security team wants to ensure that traffic between different network layers, including internal and external subnets, is inspected and authorized based on explicit rules and threat intelligence. Which of the following approaches should they implement to meet their requirements while providing the most comprehensive protection against unauthorized access and potential threats?",
@@ -1856,8 +1856,8 @@
     },
     {
       "question_id": "005e41a2-07a1-4173-b6b4-e9c64fc23a85",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "multiple",
       "question_text": "An organization wants to implement a robust security logging and monitoring solution for its AWS VPCs. They need to capture network traffic data, ensure compliance with GRC standards, and use automated tools for threat detection. (Select TWO)",
       "options": [
@@ -1886,7 +1886,7 @@
     },
     {
       "question_id": "de43ef90-eff0-4553-a5f1-1b994cdf1852",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Data Protection",
       "question_type": "single",
       "question_text": "An organization is designing a data protection strategy for its customer account information, which includes sensitive financial and personal details. They want to ensure that the data remains secure while minimizing the risk of human error in handling this sensitive information.",
@@ -1913,8 +1913,8 @@
     },
     {
       "question_id": "6920ae58-16a2-49b8-87cd-f28952a47d18",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "An organization is designing a security architecture that requires capturing detailed network traffic for forensic analysis while ensuring compliance with regulatory requirements. The team has decided to use VPC Flow Logs for routine monitoring but needs a more granular solution for specific incidents. Which combination of services should they implement to meet these needs effectively?",
       "options": [
@@ -1940,7 +1940,7 @@
     },
     {
       "question_id": "a09ec29b-6b19-480e-9884-14944e397ee7",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Identity and Access Management",
       "question_type": "single",
       "question_text": "Your company is undergoing a reorganization, and you need to ensure that employees' access privileges are updated accordingly. You have decided to use IAM Identity Center for this purpose but are considering different approaches. Which of the following methods should you implement to adhere to AWS best practices for managing workforce users based on lifecycle changes?",
@@ -1967,8 +1967,8 @@
     },
     {
       "question_id": "1f5a27a0-178c-4aad-bcba-ec4f285739fe",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "multiple",
       "question_text": "An organization is setting up security logging for its VPC to monitor network traffic and detect potential threats. The team wants a robust solution that can handle large volumes of data while ensuring compliance with internal policies. Which two services should they use together to achieve this goal? (Select TWO)",
       "options": [
@@ -1996,8 +1996,8 @@
     },
     {
       "question_id": "e1e54422-790f-4821-8755-aa3f22cee655",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "An organization wants to monitor network traffic for potential security threats in their VPC. They are considering using AWS services that can capture detailed network flow data, but also want the ability to perform deep packet inspection when needed. Which combination of services should they choose?",
       "options": [
@@ -2023,7 +2023,7 @@
     },
     {
       "question_id": "cd01390e-145b-4fe0-bed0-8bf4a5a31e61",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "single",
       "question_text": "Your company is planning to deploy a multi-tier application across multiple AWS Regions and Availability Zones (AZs) for high availability. They want to ensure that network traffic between tiers is inspected and authorized based on the latest threat intelligence, while minimizing operational overhead. Which approach should they take?",
@@ -2049,8 +2049,8 @@
     },
     {
       "question_id": "33b5117a-177d-497c-90cd-dcd152381b00",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "A company is designing a VPC for its new application that requires detailed network traffic analysis. They want to enable logging for security purposes, but are concerned about the volume of data generated by VPC Flow Logs. Which combination of services should they use to effectively manage and analyze this data while minimizing costs?",
       "options": [
@@ -2077,22 +2077,22 @@
     },
     {
       "question_id": "68d0b53b-7afa-4b3f-9a09-95489ce2f503",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "multiple",
       "question_text": "A company is designing a multi-region architecture to ensure high availability and compliance with regional data residency laws. Which two strategies should the architect implement to meet these requirements while also protecting against unauthorized access? (Select TWO)",
       "options": [
-        "A. USE AWS OUTPOSTS IN THE DESIRED REGIONS TO STORE DATA LOCALLY AND MEET RESIDENCY REQUIREMENTS.",
-        "B. IMPLEMENT VPC ENDPOINT SERVICES TO SECURELY CONNECT PRIVATE SUBNETS WITH AWS SERVICES WITHOUT EXPOSING THEM TO THE INTERNET.",
-        "C. CONFIGURE CROSS-REGION REPLICATION FOR DATABASES ACROSS REGIONS TO MAINTAIN DATA AVAILABILITY.",
-        "D. DEPLOY AWS NETWORK FIREWALL IN EACH REGION TO INSPECT TRAFFIC BETWEEN VIRTUAL LANS AND APPLY SECURITY POLICIES BASED ON THE MOST RECENT THREAT INTELLIGENCE.",
-        "E. USE AWS KMS FOR ENCRYPTING DATA AT REST AND IN TRANSIT TO PROVIDE AN ADDITIONAL LAYER OF PROTECTION."
+        "A. Use AWS Outposts in the desired regions to store data locally and meet residency requirements.",
+        "B. Implement VPC endpoint services to securely Connect private subnets with AWS services without exposing them to the internet.",
+        "C. Configure cross-region replication for databases across regions to maintain data availability.",
+        "D. Deploy AWS Network Firewall in each region to inspect traffic between virtual lans and apply security policies based on the most recent threat intelligence.",
+        "E. Use AWS KMS for encrypting data at rest and in transit to provide an additional layer of protection."
       ],
       "correct_answers": [
         "A",
         "D"
       ],
-      "explanation": "A. USE AWS OUTPOSTS IN THE DESIRED REGIONS TO STORE DATA LOCALLY AND MEET RESIDENCY REQUIREMENTS. - Correct: AWS Outposts allow data to be physically located in the region where it is needed, which can help meet regional compliance and data residency requirements as per [Source 1].\n\nB. IMPLEMENT VPC ENDPOINT SERVICES TO SECURELY CONNECT PRIVATE SUBNETS WITH AWS SERVICES WITHOUT EXPOSING THEM TO THE INTERNET. - Incorrect: While this enhances security by limiting access to private subnets, it does not directly address regional data residency or high availability requirements.\n\nC. CONFIGURE CROSS-REGION REPLICATION FOR DATABASES ACROSS REGIONS TO MAINTAIN DATA AVAILABILITY. - Incorrect: Cross-region replication is useful for maintaining data availability but does not address the requirement of storing data in a specific region to meet compliance and data residency laws.\n\nD. DEPLOY AWS NETWORK FIREWALL IN EACH REGION TO INSPECT TRAFFIC BETWEEN VIRTUAL LANS AND APPLY SECURITY POLICIES BASED ON THE MOST RECENT THREAT INTELLIGENCE. - Correct: AWS Network Firewall can be deployed in each region to inspect traffic and apply security policies based on the latest threat intelligence, which aligns with [Source 3] for implementing inspection-based protection.\n\nE. USE AWS KMS FOR ENCRYPTING DATA AT REST AND IN TRANSIT TO PROVIDE AN ADDITIONAL LAYER OF PROTECTION. - Incorrect: While encryption is important for data protection, it does not directly address the regional data residency or high availability requirements.",
+      "explanation": "A. Use AWS Outposts in the desired regions to store data locally and meet residency requirements. - Correct: AWS Outposts allow data to be physically located in the region where it is needed, which can help meet regional compliance and data residency requirements as per [Source 1].\n\nB. Implement VPC endpoint services to securely Connect private subnets with AWS services without exposing them to the internet. - Incorrect: While this enhances security by limiting access to private subnets, it does not directly address regional data residency or high availability requirements.\n\nC. Configure cross-region replication for databases across regions to maintain data availability. - Incorrect: Cross-region replication is useful for maintaining data availability but does not address the requirement of storing data in a specific region to meet compliance and data residency laws.\n\nD. Deploy AWS Network Firewall in each region to inspect traffic between virtual lans and apply security policies based on the most recent threat intelligence. - Correct: AWS Network Firewall can be deployed in each region to inspect traffic and apply security policies based on the latest threat intelligence, which aligns with [Source 3] for implementing inspection-based protection.\n\nE. Use AWS KMS for encrypting data at rest and in transit to provide an additional layer of protection. - Incorrect: While encryption is important for data protection, it does not directly address the regional data residency or high availability requirements.",
       "source_context": "[Source 1: Well-Architected-Security-Pillar.pdf, p.115, URL: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf]\nSecurity Pillar AWS Well-Architected Framework\nInfrastructure protection\nInfrastructure protection encompasses control methodologies, such as defense in depth, that\nare necessary to meet best practices and organizational or regulatory obligations. Use of these\nmethodologies is critical for successful, ongoing operations in the cloud.",
       "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf",
       "difficulty": "Specialty",
@@ -2106,7 +2106,7 @@
     },
     {
       "question_id": "fe93ed29-1ec4-4af6-918d-e215c3b61426",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "single",
       "question_text": "Your company is migrating its on-premises infrastructure to AWS and wants to ensure that network traffic between different Availability Zones (AZs) within the same Region is inspected for security. Which of the following approaches should be used to implement this inspection-based protection as per the AWS Well-Architected Framework?",
@@ -2132,7 +2132,7 @@
     },
     {
       "question_id": "69335c54-74c5-4b32-b4e4-bd7bfcb24b33",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Identity and Access Management",
       "question_type": "single",
       "question_text": "Your organization is undergoing a restructuring, and you need to ensure that employees' access privileges are updated automatically based on changes in their roles. You want to minimize manual processes and reduce the risk of human error. Which AWS service should you implement to achieve this goal?",
@@ -2159,8 +2159,8 @@
     },
     {
       "question_id": "0160ceae-28c5-4a9d-8ead-1a46ab22a732",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "multiple",
       "question_text": "An organization wants to implement a robust logging strategy for its VPCs, ensuring compliance with security policies while minimizing costs. Which two services should be selected? (Select TWO)",
       "options": [
@@ -2188,8 +2188,8 @@
     },
     {
       "question_id": "42651373-8946-4880-b350-c11ad6923d01",
-      "cert_code": "SCS-C02",
-      "domain": "Threat Detection and Incident Response",
+      "cert_code": "SCS-C03",
+      "domain": "Incident Response",
       "question_type": "single",
       "question_text": "Your company is experiencing frequent security alerts from Amazon GuardDuty, but the mean time to acknowledge (MTTA) of these alerts is high. To improve your incident response process and reduce attacker dwell time, which AWS service or feature should you focus on implementing?",
       "options": [
@@ -2215,7 +2215,7 @@
     },
     {
       "question_id": "b2f97e9f-38ec-4f13-b024-db9248804b7b",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Infrastructure Security",
       "question_type": "single",
       "question_text": "Your company operates a global e-commerce platform using AWS. You need to ensure that network traffic is inspected and authorized based on explicit rules, threat intelligence, and deviations from baseline behaviors to protect sensitive data. Which of the following approaches best meets this requirement?",
@@ -2223,7 +2223,7 @@
         "A. Implement Network Firewall with stateful inspection policies to monitor and control traffic between your VPCs and subnets.",
         "B. Use AWS WAF on your web application gateway to filter HTTP requests based on predefined rulesets.",
         "C. Enable VPC Flow Logs for all subnets to capture network activity, but do not configure any automated response or analysis.",
-        "D. Deploy a third-party IPS solution from the AWS Marketplace and manually create custom rules based on threat intelligence feeds."
+        "D. Deploy a third-party IPs solution from the AWS Marketplace and manually create custom rules based on threat intelligence feeds."
       ],
       "correct_answers": [
         "A"
@@ -2241,7 +2241,7 @@
     },
     {
       "question_id": "3b85effd-d124-403b-8354-5d15028b3578",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Data Protection",
       "question_type": "single",
       "question_text": "A financial services company is designing a new application that will store and process sensitive customer data, including credit card numbers. The company wants to ensure that the data remains unreadable by unauthorized users both at rest and in transit. Which of the following approaches should be implemented to meet this requirement?",
@@ -2268,8 +2268,8 @@
     },
     {
       "question_id": "6ff3d354-ac85-49c4-abe5-0d4bb1b244e3",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "multiple",
       "question_text": "An organization wants to implement a robust security logging and monitoring strategy for their AWS VPC. They are considering using VPC Flow Logs, Traffic Mirroring, Amazon GuardDuty, and Amazon CloudWatch Logs for this purpose. Which THREE of these should they select? (Select THREE)",
       "options": [
@@ -2300,7 +2300,7 @@
     },
     {
       "question_id": "7d820483-3c57-4b4f-a3ff-ddbb9f396d79",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Identity and Access Management",
       "question_type": "single",
       "question_text": "Your organization is undergoing a restructure, and several employees are changing roles. You want to ensure that their access privileges in AWS are updated automatically based on changes in your HR system. Which of the following approaches would best achieve this goal while adhering to the principle of least privilege?",
@@ -2326,8 +2326,8 @@
     },
     {
       "question_id": "f7a144b8-149d-4484-b84c-2a92a91b9451",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "A company is designing a secure VPC architecture that includes capturing network traffic for monitoring and analysis. They want to use AWS services to capture, store, and analyze flow logs, but are unsure about the best approach. Which of the following would be the most appropriate solution?",
       "options": [
@@ -2353,8 +2353,8 @@
     },
     {
       "question_id": "4c2c303c-f147-42a9-91a2-478a5828a942",
-      "cert_code": "SCS-C02",
-      "domain": "Security Logging and Monitoring",
+      "cert_code": "SCS-C03",
+      "domain": "Detection",
       "question_type": "single",
       "question_text": "A company is designing a VPC for its new application that requires detailed network monitoring. The security team wants to ensure they can capture and analyze both routine traffic patterns and specific incidents in real-time. Which combination of services should the architect recommend to meet these requirements?",
       "options": [
@@ -2380,22 +2380,22 @@
     },
     {
       "question_id": "80d50536-556a-4de7-a1a0-82ac2bfd3543",
-      "cert_code": "SCS-C02",
+      "cert_code": "SCS-C03",
       "domain": "Data Protection",
       "question_type": "multiple",
       "question_text": "A company is designing a new application that will process sensitive customer data, including names and credit card numbers. The team wants to ensure the data is protected both at rest and in transit while considering ease of implementation and cost. (Select TWO)",
       "options": [
-        "A. ENABLE AWS KMS FOR ENCRYPTION AT REST AND AWS CMQ FOR MESSAGE QUEUES IN TRANSIT",
-        "B. USE AWS S3 FOR STORING THE DATA WITH SERVER-SIDE ENCRYPTION AND AWS SNS FOR NOTIFICATIONS",
-        "C. IMPLEMENT CUSTOMER MANAGED KEYS (CMK) FOR KMS TO MAINTAIN CONTROL OVER ENCRYPTION KEYS",
-        "D. DEPLOY VPC ENDPOINT SERVICES TO LIMIT ACCESS TO DATA STORES",
-        "E. USE AWS CLOUDHSM FOR ENCRYPTION AND TOKENIZATION OF CREDIT CARD NUMBERS"
+        "A. Enable AWS KMS for encryption at rest and AWS cmq for message queues in transit",
+        "B. Use AWS S3 for storing the data with server-side encryption and AWS SNS for notifications",
+        "C. Implement customer managed keys (CMK) for KMS to maintain control over encryption keys",
+        "D. Deploy VPC endpoint services to limit access to data stores",
+        "E. Use AWS CloudHSM for encryption and tokenization of credit card numbers"
       ],
       "correct_answers": [
         "A",
         "C"
       ],
-      "explanation": "A. ENABLE AWS KMS FOR ENCRYPTION AT REST AND AWS CMQ FOR MESSAGE QUEUES IN TRANSIT - Correct. This option provides strong encryption for data at rest and in transit, aligning with the best practices of using AWS managed services like AWS KMS and AWS MQ (now known as Amazon MQ) which are easy to implement and cost-effective.\n\nB. USE AWS S3 FOR STORING THE DATA WITH SERVER-SIDE ENCRYPTION AND AWS SNS FOR NOTIFICATIONS - Incorrect. While this option provides server-side encryption at rest, it does not address in-transit data protection or tokenization of sensitive fields like credit card numbers.\n\nC. IMPLEMENT CUSTOMER MANAGED KEYS (CMK) FOR KMS TO MAINTAIN CONTROL OVER ENCRYPTION KEYS - Correct. This ensures that the company maintains control over its encryption keys while still leveraging AWS managed services for strong encryption, aligning with best practices as outlined in the AWS Well-Architected Security Pillar.\n\nD. DEPLOY VPC ENDPOINT SERVICES TO LIMIT ACCESS TO DATA STORES - Incorrect. While this is a good practice for network security and limiting access to resources, it does not directly address data protection at rest or in transit.\n\nE. USE AWS CLOUDHSM FOR ENCRYPTION AND TOKENIZATION OF CREDIT CARD NUMBERS - Incorrect. AWS CloudHSM is used for high-security scenarios where the customer wants full control over their encryption keys, but tokenization of credit card numbers can be achieved using services like AWS Secrets Manager or custom solutions with AWS KMS.",
+      "explanation": "A. Enable AWS KMS for encryption at rest and AWS cmq for message queues in transit - Correct. This option provides strong encryption for data at rest and in transit, aligning with the best practices of using AWS managed services like AWS KMS and AWS MQ (now known as Amazon MQ) which are easy to implement and cost-effective.\n\nB. Use AWS S3 for storing the data with server-side encryption and AWS SNS for notifications - Incorrect. While this option provides server-side encryption at rest, it does not address in-transit data protection or tokenization of sensitive fields like credit card numbers.\n\nC. Implement customer managed keys (CMK) for KMS to maintain control over encryption keys - Correct. This ensures that the company maintains control over its encryption keys while still leveraging AWS managed services for strong encryption, aligning with best practices as outlined in the AWS Well-Architected Security Pillar.\n\nD. Deploy VPC endpoint services to limit access to data stores - Incorrect. While this is a good practice for network security and limiting access to resources, it does not directly address data protection at rest or in transit.\n\nE. Use AWS CloudHSM for encryption and tokenization of credit card numbers - Incorrect. AWS CloudHSM is used for high-security scenarios where the customer wants full control over their encryption keys, but tokenization of credit card numbers can be achieved using services like AWS Secrets Manager or custom solutions with AWS KMS.",
       "source_context": "[Source 1: Well-Architected-Security-Pillar.pdf, p.8, URL: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf]\nencryption, tokenization, and access control where appropriate.\n- Keep people away from data: Use mechanisms and tools to reduce or eliminate the need for\ndirect access or manual processing of data. This reduces the risk of mishandling or modification\nand human error when handling sensitive data.\n- Prepare for security events: Prepare ",
       "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf",
       "difficulty": "Specialty",
@@ -2412,8 +2412,8 @@
     },
     {
       "question_id": "bf9fd758-8b5f-4cb6-a464-06e712b8e792",
-      "cert_code": "SCS-C02",
-      "domain": "Threat Detection and Incident Response",
+      "cert_code": "SCS-C03",
+      "domain": "Incident Response",
       "question_type": "single",
       "question_text": "Your company is experiencing frequent security alerts from Amazon GuardDuty, but the mean time to acknowledge (MTTA) for these alerts is high. To improve your incident response capabilities, you need to reduce the attacker dwell time. Which of the following actions would best help in achieving this goal?",
       "options": [
