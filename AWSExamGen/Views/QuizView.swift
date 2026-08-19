@@ -112,110 +112,117 @@ struct QuizView: View {
             .background(.bar)
 
             if let q = vm.current {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 20) {
-                        // Cert / topic badges
-                        HStack {
-                            Text(q.certType)
-                                .font(.caption.bold())
-                                .padding(.horizontal, 8).padding(.vertical, 4)
-                                .background(.blue.opacity(0.12))
-                                .foregroundStyle(.blue)
-                                .clipShape(Capsule())
-                            Text(q.topic)
-                                .font(.caption.bold())
-                                .padding(.horizontal, 8).padding(.vertical, 4)
-                                .background(.purple.opacity(0.12))
-                                .foregroundStyle(.purple)
-                                .clipShape(Capsule())
-                        }
+                ScrollViewReader { proxy in
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 20) {
+                            Color.clear.frame(height: 0).id("questionTop")
 
-                        // Question text
-                        Text(q.questionText)
-                            .font(.title3.weight(.semibold))
-                            .fixedSize(horizontal: false, vertical: true)
+                            // Cert / topic badges
+                            HStack {
+                                Text(q.certType)
+                                    .font(.caption.bold())
+                                    .padding(.horizontal, 8).padding(.vertical, 4)
+                                    .background(.blue.opacity(0.12))
+                                    .foregroundStyle(.blue)
+                                    .clipShape(Capsule())
+                                Text(q.topic)
+                                    .font(.caption.bold())
+                                    .padding(.horizontal, 8).padding(.vertical, 4)
+                                    .background(.purple.opacity(0.12))
+                                    .foregroundStyle(.purple)
+                                    .clipShape(Capsule())
+                            }
 
-                        // Question type hint
-                        if q.isMultiSelect {
-                            Label("Select all that apply, then tap Submit", systemImage: "checkmark.square")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        } else {
-                            Label("Choose one answer, then tap Submit", systemImage: "circle")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
+                            // Question text
+                            Text(q.questionText)
+                                .font(.title3.weight(.semibold))
+                                .fixedSize(horizontal: false, vertical: true)
 
-                        // Options
-                        VStack(spacing: 12) {
-                            ForEach(q.options, id: \.self) { option in
-                                let letter = Question.letter(fromOption: option)
-                                OptionButton(
-                                    option: option,
-                                    letter: letter,
-                                    state: optionState(letter: letter, question: q),
-                                    isMultiSelect: q.isMultiSelect,
-                                    disabled: vm.hasAnswered
-                                ) {
-                                    if q.isMultiSelect {
-                                        vm.toggleOption(letter)
-                                    } else {
-                                        vm.selectOption(letter)
+                            // Question type hint
+                            if q.isMultiSelect {
+                                Label("Select all that apply, then tap Submit", systemImage: "checkmark.square")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            } else {
+                                Label("Choose one answer, then tap Submit", systemImage: "circle")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+
+                            // Options
+                            VStack(spacing: 12) {
+                                ForEach(q.options, id: \.self) { option in
+                                    let letter = Question.letter(fromOption: option)
+                                    OptionButton(
+                                        option: option,
+                                        letter: letter,
+                                        state: optionState(letter: letter, question: q),
+                                        isMultiSelect: q.isMultiSelect,
+                                        disabled: vm.hasAnswered
+                                    ) {
+                                        if q.isMultiSelect {
+                                            vm.toggleOption(letter)
+                                        } else {
+                                            vm.selectOption(letter)
+                                        }
                                     }
                                 }
                             }
-                        }
 
-                        // Submit button (all question types, before answering)
-                        if !vm.hasAnswered {
-                            Button {
-                                withAnimation { vm.submitAnswer() }
-                            } label: {
-                                HStack {
-                                    Spacer()
-                                    Text("Submit Answer").bold()
-                                    Spacer()
+                            // Submit button (all question types, before answering)
+                            if !vm.hasAnswered {
+                                Button {
+                                    withAnimation { vm.submitAnswer() }
+                                } label: {
+                                    HStack {
+                                        Spacer()
+                                        Text("Submit Answer").bold()
+                                        Spacer()
+                                    }
+                                    .padding()
+                                    .background(vm.selectedAnswers.isEmpty ? Color(.systemGray4) : Color.orange)
+                                    .foregroundStyle(.white)
+                                    .clipShape(RoundedRectangle(cornerRadius: 14))
                                 }
-                                .padding()
-                                .background(vm.selectedAnswers.isEmpty ? Color(.systemGray4) : Color.orange)
-                                .foregroundStyle(.white)
-                                .clipShape(RoundedRectangle(cornerRadius: 14))
+                                .disabled(vm.selectedAnswers.isEmpty)
                             }
-                            .disabled(vm.selectedAnswers.isEmpty)
-                        }
 
-                        // Feedback + Next
-                        if vm.hasAnswered {
-                            FeedbackCard(
-                                isCorrect: vm.results.last?.isCorrect ?? false,
-                                correctAnswer: q.correctAnswer,
-                                explanation: q.explanation,
-                                referenceURL: q.referenceURL
-                            )
-                            .transition(.move(edge: .bottom).combined(with: .opacity))
-                            Button {
-                                withAnimation { vm.next() }
-                            } label: {
-                                HStack {
-                                    Spacer()
-                                    Text(vm.currentIndex + 1 >= vm.questions.count
-                                         ? "See Results"
-                                         : "Next Question")
-                                        .bold()
-                                    Image(systemName: vm.currentIndex + 1 >= vm.questions.count
-                                          ? "flag.checkered"
-                                          : "arrow.right")
-                                    Spacer()
+                            // Feedback + Next
+                            if vm.hasAnswered {
+                                FeedbackCard(
+                                    isCorrect: vm.results.last?.isCorrect ?? false,
+                                    correctAnswer: q.correctAnswer,
+                                    explanation: q.explanation,
+                                    referenceURL: q.referenceURL
+                                )
+                                .transition(.move(edge: .bottom).combined(with: .opacity))
+                                Button {
+                                    withAnimation { vm.next() }
+                                } label: {
+                                    HStack {
+                                        Spacer()
+                                        Text(vm.currentIndex + 1 >= vm.questions.count
+                                             ? "See Results"
+                                             : "Next Question")
+                                            .bold()
+                                        Image(systemName: vm.currentIndex + 1 >= vm.questions.count
+                                              ? "flag.checkered"
+                                              : "arrow.right")
+                                        Spacer()
+                                    }
+                                    .padding()
+                                    .background(Color.orange)
+                                    .foregroundStyle(.white)
+                                    .clipShape(RoundedRectangle(cornerRadius: 14))
                                 }
-                                .padding()
-                                .background(Color.orange)
-                                .foregroundStyle(.white)
-                                .clipShape(RoundedRectangle(cornerRadius: 14))
                             }
                         }
+                        .padding()
+                        .animation(.easeInOut(duration: 0.3), value: vm.hasAnswered)
                     }
-                    .padding()
-                    .animation(.easeInOut(duration: 0.3), value: vm.hasAnswered)
+                    .onChange(of: vm.currentIndex) {
+                        proxy.scrollTo("questionTop", anchor: .top)
+                    }
                 }
             }
         }
